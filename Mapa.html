@@ -5,7 +5,9 @@
 
 		<title>SINRAW</title>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
 		<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
     <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
@@ -39,31 +41,7 @@
 #menu{position: fixed; top: 0%; right:2%; width: 100%;  z-index: 3;}
 
 #map { position: fixed; top: 6.5%; bottom: 0%; height:93.5%; left:0%; width: 100%;  z-index: 1;}
-#lista{position: fixed; top: 15%; width: 95%;  z-index: 2;}
-#textArea{ position: fixed; left:37%;  width: 60%; height: 27%; border: white;}
 
-#imagemNavegacao{
-  position:fixed;
-  top:8%;
-  width:60%;
-  left:0%;
-  height:10%;
-}
-.footer {
-   position:fixed;
-   bottom:2px;
-   width:100%;
-   line-height: 80%;
-   right:2%;
-}
-#conteudo { position: absolute;
-   top: 8%;
-   bottom: 0;
-   left: 3%;
-   width: 94%;
-
-    z-index: 1;
-  }
 #instructions {
   position: relative;
   width: 0%;
@@ -221,40 +199,10 @@
 }
 
 .collapsible {
-  display: none;
   background-color:rgba(0,0,0,0) !important;
   text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
 }
 
-.collapsed {
-  display: none;
-}
-.form label,
-.form select,
-.form button{
-  position:relative;
-  width: 95%;
-}
-.form range {
-  width: 45%;
-   right:5%;
-}
-.form textarea,
-.form input{
-  position:relative;
-  width: 92%;
-
-}
-.label-range {
-  display: flex;
-  align-items: center;
-  width:95%;
-  right:5%;
-}
-
-.label-range span {
-  margin-right: 10px;
-}
 </style>
 
 <div id = 'menu'>
@@ -266,7 +214,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<div class="nav-collapse show">
+				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li><a href="./index.html">Início</a></li>
 						<li><a href="./Mapa.html">SINRAW - Mapa</a></li>
