@@ -48,7 +48,7 @@
   </div>
   <body>
     <div id = 'conteudo'>
-      <h4 align="center"><br />Formulário de Avaliação do SINRAW</h4>
+      <h4 align="center">Formulário de Avaliação do SINRAW</h4>
       <br />
 
       <form
@@ -59,138 +59,165 @@
            <div class="Formulario">
               <div class="email">
                   <label for="email">E-mail</label>
-                  <input type="email" name="email" id="email" required />
-              </div>
-              <div class="MomentoUso"><br />
-                  <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você poderia utilizá-lo?</label>
-                  <input type="text" name="MomentoUso" id="MomentoUsoMapaPapel" required />
+                  <input type="email" name="email" id="email"  />
               </div><br />
               <div>
-              <label for="layout"> Preferência por layout de apresentação do sistema:</label>
+                <label for="funcionalidades">Conseguiu utilizar todas as funcionalidades do sistema? </label>
+                   <select type="value" name="Conseguiu utilizar com todas as funcionalidades do sistema?" id="funcionalidades">
+                     <option value=" ">  </option>
+                      <option value="Sim"> Sim</option>
+                      <option value="Não"> Não</option>
+                   </select>
+              </div>
+
+              <div>
+              <label for="layout"> Preferência por layout de apresentação do <strong>sistema</strong>:</label>
                   <select type="value" name="Preferência por layout de apresentação do sistema:" id="layout">
                       <option value=" ">  </option>
                       <option value="Apenas Realidade Aumentada"> Apenas Realidade Aumentada</option>
                       <option value="Apenas Mapa"> Apenas Mapa</option>
                       <option value="Realidade Aumentada + Mapa"> Realidade Aumentada + Mapa</option>
                  </select>
-              </div><br />
+              </div>
               <div>
-              <label for="layout1"> Preferência por layout de apresentação do mapa:</label>
+              <label for="layout1"> Preferência por layout de apresentação do<strong> mapa</strong>:</label>
                   <select type="value" name="Preferência por layout de apresentação do mapa:" id="layout1">
                       <option value=" ">  </option>
-                      <option value="Mapa 2D"> Mapa 2D</option>
-                      <option value="Mapa 3D"> Mapa 3D</option>
+                      <option value="Mapa 2D"> Mapa 2D - Vista Superior</option>
+                      <option value="Mapa 3Dcentral"> Mapa 3D - Vista Central</option>
+                      <option value="Mapa 3Dterrestre"> Mapa 3D - Vista terrestre</option>
                  </select>
-              </div><br />
-              <div>
-                <label for="MapasPapel">Conseguiu utilizar com todas as funcionalidades do sistema? </label>
-                   <select type="value" name="Conseguiu utilizar com todas as funcionalidades do sistema?" id="MapasPapel">
-                     <option value=" ">  </option>
-                      <option value="Sim"> Sim</option>
-                      <option value="Não"> Não</option>
-                   </select>
-              </div><br />
-
-              <div class="Dificuldades">
-                  <label for="Dificuldades">Dificuldades encontradas:</label>
-                  <input type="text" name="Dificuldades" id="Dificuldades" />
               </div>
-              <br />
+
                <div> <br />
-                   <label for="nota"> De forma geral, que nota você atribui aos <strong>projetos gráficos</strong> dos símbolos cartográficos utilizados no SINRAW?</label>
-                <label for="satisfeito"></label>
+               <label for="nota"> De forma geral, que nota você atribui aos <strong>projetos gráficos</strong> dos símbolos cartográficos utilizados no SINRAW?</label>
                 <div class="label-range">
                   <label for="rangeInput15">No mapa: <span id="rangeValue15">5</span></label>
-                  <input type="range" id="rangeInput15" name="No mapa: que nota você atribui aos projetos gráficos" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput15" name="No mapa: que nota você atribui aos projetos gráficos" min="0" max="10" step="0.5">
                 </div>
                 <div class="label-range">
                   <label for="rangeInput16">Na RA: <span id="rangeValue16">5</span></label>
-                  <input type="range" id="rangeInput16" name="Na RA: que nota você atribui aos projetos gráficos" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput16" name="Na RA: que nota você atribui aos projetos gráficos" min="0" max="10" step="0.5">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput27">Na RA + mapa: <span id="rangeValue27">5</span></label>
+                  <input type="range" id="rangeInput27" name="Na RA + mapa: que nota você atribui aos projetos gráficos" min="0" max="10" step="0.5">
                 </div>
               </div>
-              <br /> <br />
+              <br />
 
             <div>
               <label for="exigente">A tarefa de entender os símbolos foi pouco ou muito <strong>exigente</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput1">No mapa: <span id="rangeValue1">5</span></label>
-                  <input type="range" id="rangeInput1" name="A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput1" name="No mapa: A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="0.5">
                 </div>
             </div>
             <div class="label-range">
               <label for="rangeInput2">Na RA: <span id="rangeValue2">5</span></label>
-              <input type="range" id="rangeInput2" name="A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="1">
+              <input type="range" id="rangeInput2" name="Na RA: A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="0.5">
             </div>
-          <br />
+            <div class="label-range">
+              <label for="rangeInput28">Na RA + mapa: <span id="rangeValue28">5</span></label>
+              <input type="range" id="rangeInput28" name="Na mapa + RA: A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="0.5">
+            </div>
+
+
               <div>
                 <label for="cansativa">A tarefa de caminhar e observar a rota foi pouco ou muito <strong>cansativa</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput3">No mapa: <span id="rangeValue3">5</span></label>
-                  <input type="range" id="rangeInput3" name="A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput3" name="No mapa: A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?" min="0" max="10" step="0.5">
                 </div>
                 <div class="label-range">
                   <label for="rangeInput4">Na RA: <span id="rangeValue4">5</span></label>
-                  <input type="range" id="rangeInput4" name="A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput4" name="Na RA: A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?" min="0" max="10" step="0.5">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput29">Na RA + mapa: <span id="rangeValue29">5</span></label>
+                  <input type="range" id="rangeInput29" name="Na mapa + RA: A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?" min="0" max="10" step="0.5">
                 </div>
               </div>
-              <br />
+
+
               <div>
                 <label for="tempo">A tarefa de observar as rotas te exigiu pouco ou muito <strong>tempo</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput5">No mapa: <span id="rangeValue5">5</span></label>
-                  <input type="range" id="rangeInput5" name="A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput5" name="No mapa: A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="0.5">
                 </div>
                 <div class="label-range">
                   <label for="rangeInput6">Na RA: <span id="rangeValue6">5</span></label>
-                  <input type="range" id="rangeInput6" name="A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput6" name="Na RA: A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="0.5">
                 </div>
-              </div><br />
+                <div class="label-range">
+                  <label for="rangeInput30">Na RA + mapa: <span id="rangeValue30">5</span></label>
+                  <input type="range" id="rangeInput30" name="Na mapa + RA: A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="0.5">
+                </div>
+              </div>
+
               <div>
                 <label for="distrativa">A tarefa de observar as rotas foi pouco ou muito <strong>distrativa</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput7">No mapa: <span id="rangeValue7">5</span></label>
-                  <input type="range" id="rangeInput7" name="A tarefa de observar as rotas foi pouco ou muito distrativa?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput7" name="No mapa: A tarefa de observar as rotas foi pouco ou muito distrativa?" min="0" max="10" step="0.5">
                 </div>
                 <div class="label-range">
                   <label for="rangeInput8">Na RA: <span id="rangeValue8">5</span></label>
-                  <input type="range" id="rangeInput8" name="A tarefa de observar as rotas foi pouco ou muito distrativa?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput8" name="Na RA:A tarefa de observar as rotas foi pouco ou muito distrativa?" min="0" max="10" step="0.5">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput31">Na RA + mapa: <span id="rangeValue31">5</span></label>
+                  <input type="range" id="rangeInput31" name="Na mapa + RA: A tarefa de observar as rotas foi pouco ou muito distrativa?" min="0" max="10" step="0.5">
                 </div>
               </div>
-              <br />
+
               <div>
                 <label for="concentracao">A tarefa de caminhar e observar a rota te exigiu pouca ou muita <strong>concentração</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput9">No mapa: <span id="rangeValue9">5</span></label>
-                  <input type="range" id="rangeInput9" name="A tarefa de caminhar e observar a rota te exigiu pouca ou muita concentração?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput9" name="No mapa: A tarefa de caminhar e observar a rota te exigiu pouca ou muita concentração?" min="0" max="10" step="0.5">
                 </div>
                 <div class="label-range">
                   <label for="rangeInput10">Na RA: <span id="rangeValue10">5</span></label>
-                  <input type="range" id="rangeInput10" name="A tarefa de caminhar e observar a rota te exigiu pouca ou muita concentração?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput10" name="Na RA: A tarefa de caminhar e observar a rota te exigiu pouca ou muita concentração?" min="0" max="10" step="0.5">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput32">Na RA + mapa: <span id="rangeValue32">5</span></label>
+                  <input type="range" id="rangeInput32" name="Na mapa + RA: A tarefa de caminhar e observar a rota te exigiu pouca ou muita concentração?" min="0" max="10" step="0.5">
                 </div>
               </div>
-              <br />
+
               <div>
                 <label for="estresse">Para completar a tarefa, você se sentiu pouco ou muito <strong>estressado</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput11">No mapa: <span id="rangeValue11">5</span></label>
-                  <input type="range" id="rangeInput11" name="No mapa você se sentiu pouco ou muito estressado?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput11" name="No mapa: você se sentiu pouco ou muito estressado?" min="0" max="10" step="0.5">
                 </div>
                 <div class="label-range">
                   <label for="rangeInput12">Na RA: <span id="rangeValue12">5</span></label>
-                  <input type="range" id="rangeInput12" name="Na RA: você se sentiu pouco ou muito estressado?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput12" name="Na RA: você se sentiu pouco ou muito estressado?" min="0" max="10" step="0.5">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput33">Na RA + mapa: <span id="rangeValue33">5</span></label>
+                  <input type="range" id="rangeInput33" name=" Na mapa + RA: você se sentiu pouco ou muito estressado?" min="0" max="10" step="0.5">
                 </div>
               </div>
-              <br /><br />
+              <br />
 
               <div>
                 <label for="satisfeito">Ao finalizar a tarefa, você ficou pouco ou muito <strong>satisfeito com o seu desempenho</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput13">No mapa: <span id="rangeValue13">5</span></label>
-                  <input type="range" id="rangeInput13" name="No mapa:você ficou pouco ou muito satisfeito?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput13" name="No mapa:você ficou pouco ou muito satisfeito?" min="0" max="10" step="0.5">
                 </div>
                 <div class="label-range">
                   <label for="rangeInput14">Na RA: <span id="rangeValue14">5</span></label>
-                  <input type="range" id="rangeInput14" name="Na RA: você ficou pouco ou muito satisfeito?" min="0" max="10" step="1">
+                  <input type="range" id="rangeInput14" name="Na RA: você ficou pouco ou muito satisfeito?" min="0" max="10" step="0.5">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput34">Na RA + mapa: <span id="rangeValue34">5</span></label>
+                  <input type="range" id="rangeInput34" name="Na mapa + RA: No mapa:você ficou pouco ou muito satisfeito?" min="0" max="10" step="0.5">
                 </div>
               </div>
               <br /> <br />
@@ -199,71 +226,91 @@
                 <label for="nota">Considere aspectos como cores, formas e proporções para avaliar os símbolos cartográficos utilizados no SINRAW. </label><br />
                 <label for="Legibilidade"><strong>Legibilidade:</strong> são facilmente legíveis e compreensíveis?</label>
                 <div class="label-range">
-                  <label for="rangeInput17">No mapa: <span id="rangeValue17">5</span></label>
-                  <input type="range" id="rangeInput17" name="No mapa: que nota você atribui aos projetos gráficos" min="0" max="10" step="1">
+                  <label for="rangeInput17">No mapa: <span id="rangeValue17">10</span></label>
+                  <input type="range" id="rangeInput17" name="No mapa: são facilmente legíveis e compreensíveis?" min="0" max="10" step="0.5" value="10">
                 </div>
                 <div class="label-range">
-                  <label for="rangeInput18">Na RA: <span id="rangeValue18">5</span></label>
-                  <input type="range" id="rangeInput18" name="Na RA: que nota você atribui aos projetos gráficos" min="0" max="10" step="1">
+                  <label for="rangeInput18">Na RA: <span id="rangeValue18">10</span></label>
+                  <input type="range" id="rangeInput18" name="Na RA: são facilmente legíveis e compreensíveis?" min="0" max="10" step="0.5" value="10">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput35">Na RA + mapa: <span id="rangeValue35">10</span></label>
+                  <input type="range" id="rangeInput35" name="Na mapa + RA: são facilmente legíveis e compreensíveis?" min="0" max="10" step="0.5" value="10">
                 </div>
               </div>
               <br />
               <div>
                 <label for="Agradabilidade"><strong>Agradabilidade:</strong> são visualmente agradáveis?</label>
                 <div class="label-range">
-                  <label for="rangeInput19">No mapa: <span id="rangeValue19">5</span></label>
-                  <input type="range" id="rangeInput19" name="No mapa: são visualmente agradáveis?" min="0" max="10" step="1">
+                  <label for="rangeInput19">No mapa: <span id="rangeValue19">10</span></label>
+                  <input type="range" id="rangeInput19" name="No mapa: são visualmente agradáveis?" min="0" max="10" step="0.5" value="10">
                 </div>
                 <div class="label-range">
-                  <label for="rangeInput20">Na RA: <span id="rangeValue20">5</span></label>
-                  <input type="range" id="rangeInput20" name="Na RA: são visualmente agradáveis?" min="0" max="10" step="1">
+                  <label for="rangeInput20">Na RA: <span id="rangeValue20">10</span></label>
+                  <input type="range" id="rangeInput20" name="Na RA: são visualmente agradáveis?" min="0" max="10" step="0.5" value="10">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput36">Na RA + mapa: <span id="rangeValue36">10</span></label>
+                  <input type="range" id="rangeInput36" name="Na mapa + RA: A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="0.5" value="10">
                 </div>
               </div>
               <br />
               <div>
                 <label for="Coerencia"><strong>Coerência visual:</strong> seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.</label>
                 <div class="label-range">
-                  <label for="rangeInput21">No mapa: <span id="rangeValue21">5</span></label>
-                  <input type="range" id="rangeInput21" name="No mapa:seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.?" min="0" max="10" step="1">
+                  <label for="rangeInput21">No mapa: <span id="rangeValue21">10</span></label>
+                  <input type="range" id="rangeInput21" name="No mapa:seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.?" min="0" max="10" step="0.5" value="10">
                 </div>
                 <div class="label-range">
-                  <label for="rangeInput22">Na RA: <span id="rangeValue22">5</span></label>
-                  <input type="range" id="rangeInput22" name="Na RA: seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.?" min="0" max="10" step="1">
+                  <label for="rangeInput22">Na RA: <span id="rangeValue22">10</span></label>
+                  <input type="range" id="rangeInput22" name="Na RA: seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.?" min="0" max="10" step="0.5" value="10">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput37">Na RA + mapa: <span id="rangeValue37">10</span></label>
+                  <input type="range" id="rangeInput37" name="Na mapa + RA: eguem uma linguagem visual coerente e consistente em todo o sistema de navegação" min="0" max="10" step="0.5" value="10">
                 </div>
               </div>
               <br />
               <div>
                 <label for="Integracao"><strong>Integração com o ambiente real:</strong>  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.</label>
                 <div class="label-range">
-                  <label for="rangeInput23">No mapa: <span id="rangeValue23">5</span></label>
-                  <input type="range" id="rangeInput23" name="No mapa: se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.?" min="0" max="10" step="1">
+                  <label for="rangeInput23">No mapa: <span id="rangeValue23">10</span></label>
+                  <input type="range" id="rangeInput23" name="No mapa: se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.?" min="0" max="10" step="0.5" value="10">
                 </div>
                 <div class="label-range">
-                  <label for="rangeInput24">Na RA: <span id="rangeValue24">5</span></label>
-                  <input type="range" id="rangeInput24" name="Na RA:  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista?" min="0" max="10" step="1">
+                  <label for="rangeInput24">Na RA: <span id="rangeValue24">10</span></label>
+                  <input type="range" id="rangeInput24" name="Na RA:  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista?" min="0" max="10" step="0.5" value="10">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput38">Na RA + mapa: <span id="rangeValue38">10</span></label>
+                  <input type="range" id="rangeInput38" name="Na mapa + RA:A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="0.5" value="10">
                 </div>
               </div>
               <br />
               <div>
                 <label for="Integracao"><strong>Compatibilidade com a interface:</strong>  são adequados para a interface do sistema de navegação, considerando fatores como tamanho, posição e interação com outros elementos da interface?</label>
                 <div class="label-range">
-                  <label for="rangeInput25">No mapa: <span id="rangeValue25">5</span></label>
-                  <input type="range" id="rangeInput25" name="No mapa: se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.?" min="0" max="10" step="1">
+                  <label for="rangeInput25">No mapa: <span id="rangeValue25">10</span></label>
+                  <input type="range" id="rangeInput25" name="No mapa: se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.?" min="0" max="10" step="0.5" value="10">
                 </div>
                 <div class="label-range">
-                  <label for="rangeInput26">Na RA: <span id="rangeValue26">5</span></label>
-                  <input type="range" id="rangeInput26" name="Na RA:  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista?" min="0" max="10" step="1">
+                  <label for="rangeInput26">Na RA: <span id="rangeValue26">10</span></label>
+                  <input type="range" id="rangeInput26" name="Na RA:  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista?" min="0" max="10" step="0.5" value="10">
+                </div>
+                <div class="label-range">
+                  <label for="rangeInput39">Na RA + mapa: <span id="rangeValue39">10</span></label>
+                  <input type="range" id="rangeInput39" name="Na mapa + RA:  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista?" min="0" max="10" step="0.5" value="10">
                 </div>
               </div>
               <br />
 
               <div class="ConsideraçoesSINRAW">
                   <label for="message">Considerações finais sobre o SINRAW</label>
-                  <textarea name="Considerações finais sobre o SINRAW" id="message" required></textarea>
+                  <textarea name="Considerações finais sobre o SINRAW" id="message" ></textarea>
               </div><br />
               <div class="ConsideraçoesTeste">
                   <label for="message">Considerações finais sobre o teste</label>
-                  <textarea name="Considerações finais sobre o teste" id="message" required></textarea>
+                  <textarea name="Considerações finais sobre o teste" id="message"></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button>
         <br /><br />

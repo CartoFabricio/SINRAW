@@ -49,8 +49,8 @@
   </div>
   <body>
     <div id = 'conteudo'>
-      <h4 align="center"><br />Formulário de Avaliação do SINRAW</h4>
-      <br />
+      <h4 align="center">Formulário de Caracterização do Participante <br /> </h4>
+
 
       <form
         action="https://formsubmit.co/fabricioamorimeac@hotmail.com"
@@ -133,31 +133,20 @@
               </div>
 
               <div class="MomentoUsoMapaPapel">
-                  <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+                  <label for="MomentoUsoMapaPapel"> Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
                   <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
               </div>
 
               <br /><br />
 
-              <div>
-                <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
-                   <select type="value" name="MapasDigitais" id="MapasDigitais">
-                     <option value=" ">  </option>
-                      <option value="Sim"> Sim</option>
-                      <option value="Não"> Não</option>
-                   </select>
-              </div>
 
               <div>
-              <label for="ExpMapasDigitais">Nível de experiência com mapas digitais para navegação</label>
-                   <select type="value" name="ExpMapasDigitais" id="ExpMapasDigitais">
-                     <option value=" ">  </option>
-                      <option value="Nenhum"> Nenhum</option>
-                      <option value="Baixo"> Baixo</option>
-                      <option value="Médio"> Médio</option>
-                      <option value="Alto"> Alto</option>
-                   </select>
-               </div>
+              <label for="ExpMapasDigitais"> Nível de experiência com mapas digitais para navegação (ex.: Waze, Google Maps)? <span id="rangeValue41">5</span></label>
+              <div class="label-range">
+                  <input type="range" id="rangeInput41" name="Nível de experiência com mapas digitais para navegação" min="0" max="10" step="0.5" >
+              </div>
+            </div>
+
 
                <div class="MomentoUsoMapasDigitais">
                   <label for="MomentoUsoMapasDigitais">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
@@ -166,24 +155,12 @@
 
                <br /><br />
 
-               <div>
-               <label for="RA">Você já usou aplicações com Realidade Aumentada? (ex.: Pokémon Go)</label>
-                   <select type="value" name="RA" id="RA">
-                     <option value=" ">  </option>
-                      <option value="Sim"> Sim</option>
-                      <option value="Não"> Não</option>
-                  </select>
-               </div>
 
-               <div>
-               <label for="ExpRA">Nível de experiência com Realidade Aumentada</label>
-                   <select type="value" name="ExpRA" id="ExpRA">
-                     <option value=" ">  </option>
-                      <option value="Nenhum"> Nenhum</option>
-                      <option value="Baixo"> Baixo</option>
-                      <option value="Médio"> Médio</option>
-                      <option value="Alto"> Alto</option>
-                  </select>
+              <div>
+               <label for="ExpRA">Nível de experiência com Realidade Aumentada (ex.: Pokémon Go; Filtros de Instagran): <span id="rangeValue41">5</span> </label>
+                 <div class="label-range">
+                    <input type="range" id="rangeInput41" name="No mapa: que nota você atribui aos projetos gráficos" min="0" max="10" step="0.5">
+                 </div>
                </div>
 
                <div class="MomentoUsoRA">
@@ -191,10 +168,7 @@
                   <input type="text" name="MomentoUsoRA" id="MomentoUsoRA" required />
               </div>
 
-              <br /><br />
-
-
-              <br />
+              <br />  <br />
           </div>
          <input type="hidden" name="_captcha" value="false" />
         <input
@@ -203,7 +177,7 @@
           value="https://cartofabricio.github.io/SINRAW_Teste/"
         />
 
-      <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button><br /><br />
 
     </form>
   </div>
