@@ -238,58 +238,7 @@
 		<div id="direction" class="direction">  </div>
 
     <div id="AR">
-      <a-scene embedded arjs="trackingMethod: best;">
-        <a-assets>
-          <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
-        <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
-        <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
-        <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
-        <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
-        <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
-        <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
-      </a-assets>
-
-      <a-entity id="modelContainer"></a-entity>
-      <a-entity id="modelContainer1"></a-entity>
-      <a-entity id="modelContainer2"></a-entity>
-
-
-      <a-entity camera></a-entity>
-    </a-scene>
-
-  <div id="collapsibleControls" class="collapsible collapsed" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-    <div id="controls">
-      <button id="collapseButton" type="button" data-toggle="collapse" style="font-size: 20px" data-target="#collapsibleContent">
-        <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
-      </button>
-      <div id="collapsibleContent" class="collapse">
-        <p>PIN:
-          <select id="pinSelector" onchange="loadModel('pin')">
-            <option value="pin1">Pin 1 - azul</option>
-            <option value="pin2">Pin 2 - roxo</option>
-            <option value="pin3">Pin 3 - vermelho</option>
-          </select>
-        </p>
-        <p>SETAS:
-          <select id="setaSelector" onchange="loadModel('seta')">
-            <option value="seta1">Seta 1 - azul</option>
-            <option value="seta2">Seta 2 - azul</option>
-            <option value="seta3">Seta 3 - azul</option>
-            <option value="seta4">Seta 4 - azul</option>
-          </select>
-        </p>
-        <p>LINHAS:
-          <select id="linhaSelector" onchange="loadModel('linha')">
-            <option value="linha1">Linha 1 - azul</option>
-            <option value="linha2">Linha 2 - azul</option>
-            <option value="linha3">Linha 3 - azul</option>
-            <option value="linha4">Linha 4 - azul</option>
-          </select>
-        </p>
-      </div>
-  </div>
- </div>
-
+			<div src="ARJS.html"> </div>
     </div>
 
 		<div id="map" class="mapboxgl-map">
