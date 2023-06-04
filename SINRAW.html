@@ -81,7 +81,7 @@
 
   #collapse {
     padding-right: 5%;
-		 background-color: rgba(0, 0, 0, 100) !important;
+		 background-color: rgba(0, 0, 0, 0) !important;
   }
 
   .map-overlay {
@@ -194,6 +194,7 @@
     left: 2%;
     width: 36px;
     height: 30px;
+		 z-index:2;
   }
 
   .collapsible {
@@ -207,7 +208,9 @@
 	.container, .panel-group, .panel{
     background-color:rgba(0,0,0,0) !important;
   }
-
+	.collapsible.collapsed {
+   display: none;
+ }
 </style>
 </head>
 <div id = 'menu'>
