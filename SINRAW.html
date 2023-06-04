@@ -57,25 +57,6 @@
     z-index: 1;
   }
 
-  #instructions {
-    position: relative;
-    width: 0%;
-    height: 0%;
-    background-color: #fff;
-    font-family: sans-serif;
-    z-index: 1;
-  }
-
-  .informacoes {
-    position: fixed;
-    width: 20%;
-    height: 20%;
-    top: 30%;
-    background-color: #fff;
-    font-family: sans-serif;
-    z-index: 2;
-  }
-
   .direction {
     position: absolute;
     z-index: 2;
@@ -93,23 +74,6 @@
     display: inline;
   }
 
-  .swatch {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    cursor: pointer;
-  }
-
-  .toggle-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .height-range {
-    margin-top: 10px;
-    left: 2%;
-  }
 
   .nav {
     padding-left: 5%;
@@ -117,6 +81,7 @@
 
   #collapse {
     padding-right: 5%;
+		 background-color: rgba(0, 0, 0, 100) !important;
   }
 
   .map-overlay {
@@ -140,9 +105,8 @@
 		background-color: rgba(0, 0, 0, 0) !important;
 		text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
     z-index: 1;
-
   }
-.u{opacity: 0.5;}
+
   .map-overlay-inner fieldset {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     border: none;
@@ -172,6 +136,7 @@
     height: 20px;
     border: 1px;
     cursor: pointer;
+		border: 1px solid #000000;
   }
 
   .map-overlay-inner button:focus {
