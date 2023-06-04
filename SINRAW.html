@@ -103,7 +103,6 @@
     padding-top: 1px;
     padding-bottom: 1px;
 		background-color: rgba(0, 0, 0, 0) !important;
-		text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
     z-index: 1;
   }
 
@@ -182,8 +181,6 @@
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: bold;
     z-index: 2;
-		background-color: rgba(0, 0, 0, 0) !important;
-		text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
   }
 
   #collapseButton {
@@ -208,7 +205,14 @@
   }
 	.container, .panel-group, .panel{
     background-color:rgba(0,0,0,0) !important;
-		border:0px;
+    border:0px;
+    color: 1px #000;
+    left:2%;
+          text-shadow:
+               -1px -1px 0px #FFF,
+               -1px 1px 0px #FFF,
+                1px -1px 0px #FFF,
+                1px 0px 0px #FFF;
   }
 	.collapsible.collapsed {
    display: none;
@@ -282,9 +286,9 @@
 											</select></label>
 									</fieldset>
 									<fieldset>
-											<label>&ensp; Ângulo de Elevação:<span id="pitch-slider-value">0</span></label>
+											<label>&ensp; Ângulo de Elevação: &ensp;<span id="pitch-slider-value">0</span></label>
 											<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'>
-											<label>&ensp; Rotação: <span id="slider-value1">0</span></label>
+											<label>&ensp; Rotação: &ensp;<span id="slider-value1">0</span></label>
 											<input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
 									</fieldset>
 									<fieldset>
@@ -302,7 +306,7 @@
 												<div id='swatches1'></div>
 									</fieldset>
 								<fieldset>
-										<label for='icon-size'>&ensp; Tamanho do ícone:<span id='icon-size-label'> 15 px</span></label>
+										<label for='icon-size'>&ensp; Tamanho do ícone: &ensp;<span id='icon-size-label'> 15 px</span></label>
 										<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
 								</fieldset>
 								<fieldset>
@@ -619,7 +623,7 @@
 	          });
 	      var iconSizeInput = document.getElementById('icon-size');
 	      iconSizeInput.addEventListener('input', () => {
-	        rangeLabel.textContent = iconSizeInput.value + ' px';
+	        rangeLabel.textContent = '&ensp;' + iconSizeInput.value + ' px';
 	      });
 
 	      var nav = new mapboxgl.NavigationControl();
