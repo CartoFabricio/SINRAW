@@ -88,8 +88,8 @@
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
     background-color: rgba(0, 0, 0, 0) !important;
-    top: 70%;
-    left: 2%;
+    top: 71%;
+    left: 5%;
     z-index: 2;
     width: 30px;
     height: 25px;
@@ -112,6 +112,7 @@
     border: none;
     padding: 0;
     margin: 0 0 10px;
+		left:1%;
   }
 
   .map-overlay-inner fieldset:last-child {
@@ -120,7 +121,7 @@
 
   .map-overlay-inner select {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    width: 96%;
+    width: 60%;
   }
 
   .map-overlay-inner label {
@@ -207,6 +208,7 @@
   }
 	.container, .panel-group, .panel{
     background-color:rgba(0,0,0,0) !important;
+		border:0px;
   }
 	.collapsible.collapsed {
    display: none;
@@ -268,6 +270,7 @@
 							</div>
 							<div id="collapse" class="panel-collapse collapse">
 								<fieldset>
+									<label>&ensp; Mapa Base &ensp;
 										<select id='basemap-selector' name='basemap-selector'>
 													<option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
 													<option value='mapbox://styles/mapbox/light-v10'>Light</option>
@@ -276,7 +279,7 @@
 													<option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
 													<option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
 													<option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
-											</select>
+											</select></label>
 									</fieldset>
 									<fieldset>
 											<label>&ensp; Ângulo de Elevação:<span id="pitch-slider-value">0</span></label>
@@ -285,14 +288,14 @@
 											<input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
 									</fieldset>
 									<fieldset>
-											<label>&ensp; Editar camada</label>
+											<label>&ensp; Símbolo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											<select id='layer-select'>
 												<option value='layer1'>Ponto de Ônibus</option>
 												<option value='layer2'>Entrada / Saída</option>
 												<option value='layer3'>Restaurante</option>
 												<option value='layer4'>Correios</option>
 												<option value='layer5'>Estacionamento</option>
-											</select>
+											</select></label>
 									</fieldset>
 									<fieldset>
 											<label>&ensp; Cor de preenchimento</label>
