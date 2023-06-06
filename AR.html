@@ -33,30 +33,19 @@
 <style  type="text/css">
 #menu{position: fixed; top: 0%; right:2%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 7%; height:93%;bottom: 0%; left:0%; width: 100%; z-index: 1;}
-#Buttons{ position: fixed; left:2%; height: 27.5%; width: 35%; max-width:35% !important;display:inline-grid;}
+#Buttons{ position: fixed; left:1%; height: 27.5%; width: 35%; max-width:35% !important;display:inline-grid;}
 #aframe{ position: fixed; top: 45%; bottom: 2%; left:2%; width: 96%; height: 55%; z-index: 1;}
 #imagemNavegacao{
   position:fixed;
-  top:8%;
-  width:60%;
+  top:7.5%;
+  width:65%;
   left:0%;
   height:10%;
 }
 
-.nav{padding-left: 5%}
 #collapse1{
   padding-right: 15%;
 }
-
-  #controls {
-    position: absolute;
-    top: 62% ;
-    left: 42% ;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    width: 360px;
-  height: 300px;
-  }
 
 #collapseButton {
   position: fixed;
@@ -71,15 +60,27 @@
 }
 
   #collapsibleControls{
-    margin-top: 25%; left: 1%; padding: 30px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
+    margin-top: 28.5%;
+		left: 0%;
+		padding: 30px;
+
+		position: fixed;
+		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		z-index:2;
   }
-.collapsible.collapsed {
-  display: none;
-}
+
 .collapsible {
 		background-color:rgba(0,0,0,0) !important;
 		text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
+		left:1%;
+		position:fixed;
+
 	}
+
+.collapsible.collapsed {
+  display: none;
+}
 </style>
 </head>
 <div id="menu">
@@ -121,14 +122,14 @@
     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
   </button>
           <div id="collapsibleContent" class=" collapsible collapsed">
-            <p>PIN                   :
+            <p>PIN: &ensp; &ensp; &ensp;
               <select id="pinSelector" onchange="loadModel('pin')">
                 <option value="pin1">Pin 1 - azul</option>
                 <option value="pin2">Pin 2 - roxo</option>
                 <option value="pin3">Pin 3 - vermelho</option>
               </select>
             </p>
-            <p>SETAS     :
+            <p>SETAS: &ensp;
               <select id="setaSelector" onchange="loadModel('seta')">
                 <option value="seta1">Seta 1 - azul</option>
                 <option value="seta2">Seta 2 - azul</option>
@@ -136,7 +137,7 @@
                 <option value="seta4">Seta 4 - azul</option>
               </select>
             </p>
-            <p>LINHAS:
+            <p>LINHAS:&ensp;
               <select id="linhaSelector" onchange="loadModel('linha')">
                 <option value="linha1">Linha 1 - azul</option>
                 <option value="linha2">Linha 2 - azul</option>
@@ -188,7 +189,9 @@
               loadLinhaModel();
             }
           }
-          //meio fundo '5 -10 -40', fundo direito '15 -10 -40',
+//  Negative X axis extends left. Positive X Axis extends right.	0;
+//  Negative Y axis extends down. Positive Y Axis extends up.	0;
+//	Negative Z axis extends in.   Positive Z Axis extends out.	0
            // Load the Pin model
             function loadPinModel() {
               var modelContainer = document.getElementById('modelContainer');
@@ -199,9 +202,9 @@
                 // Set scale and rotation based on the selected seta
                 switch (selectedPin) {
                   case 'pin1':
-                    pin.setAttribute('position', '0 0 -10');
-                    pin.setAttribute('scale', '1 1 1');
-                    pin.setAttribute('rotation', '0 0 90');
+									pin.setAttribute('position', '0.18 0 -1');
+									pin.setAttribute('scale', '0.08 0.08 0.08');
+									pin.setAttribute('rotation', '0 0 90');
                     break;
                   case 'pin2':
                     pin.setAttribute('position', '0 0 -1');
