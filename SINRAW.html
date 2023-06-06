@@ -295,9 +295,9 @@
 	                </label>
 
 										<fieldset>
-												<label>&ensp; Elevação:&ensp;<span id="pitch-slider-value">0</span> º &ensp;  &ensp;<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'> </label>
+												<label>&ensp; Elevação:&ensp;<span id="pitch-slider-value">0</span> º &ensp; <input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'> </label>
 
-											<label>&ensp; Rotação: &ensp;<span id="slider-value1">0</span> º &ensp;  &ensp; &ensp; <input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'></label>
+											<label>&ensp; Rotação: &ensp;<span id="slider-value1">0</span> º &ensp;  &ensp; <input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'></label>
 
 
 										</fieldset>
@@ -322,7 +322,7 @@
 									<fieldset>
 
 											<label for='toggle'>
-												<input type='checkbox' id='toggle' checked > Construções 3D </label>
+												<input type='checkbox' id='toggle2' checked > Construções 3D </label>
 
 									</fieldset>
 								</div>
@@ -671,7 +671,7 @@
 	        });
 
 	        // Toggle 3D Buildings
-	        var toggle = document.getElementById('toggle');
+	        var toggle = document.getElementById('toggle2');
 	        toggle.addEventListener('change', function () {
 	          if (toggle.checked) {
 	            map.setLayoutProperty('3d-buildings', 'visibility', 'visible');
