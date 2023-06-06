@@ -49,8 +49,9 @@
   height:10%;
 }
 
-#collapse1{
-  padding-right: 15%;
+#collapse{
+  padding-right: 5%;
+	right:5%;
 }
 
 #collapseButton {
@@ -79,29 +80,47 @@
 .collapsible {
 		background-color:rgba(0,0,0,0) !important;
 		text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
-		left:1%;
+
 	}
 
 .collapsible.collapsed {
   display: none;
 }
-#collapse {
-	padding-right: 5%;
-	 background-color: rgba(0, 0, 0, 0) !important;
+
+.navbar-form label {
+	right: 5%;
+	align-items: left;
+	padding-top: 0.7%;
+	display: inline;
 }
+
+
+.nav {
+	padding-right: 5%;
+}
+
+.toggle-container {
+	display: flex;
+	align-items: center;
+}
+
+.panel-panel-default {
+	position: flex;
+}
+
 </style>
 </head>
-<div id="menu">
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  collapsed>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="nav-collapse collapsed">
-          <ul class="nav">
+<div id = 'menu'>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" onclick="toggleCollapse1()">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="nav-collapse show">
+					<ul class="nav">
 						<li><a href="./index.html">Início</a></li>
 						<li><a href="./Avaliacao.html">Questionário de Caracterização</a></li>
 						<li><a href="./Mapa.html">SINRAW - Mapa</a></li>
@@ -109,11 +128,11 @@
 						<li><a href="./SINRAW.html">SINRAW - Mapa + AR </a></li>
 						<li><a href="./AvaliacaoFinal.html">Questionário Final</a></li>
 						<li><a href="./Contato.html">Contato</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
   <body style="margin: 0; overflow: hidden;">
@@ -278,6 +297,8 @@
             var collapsibleControls = document.getElementById('collapsibleContent');
             collapsibleControls.classList.toggle('collapsed');
           }
+
+
         </script>
       </body>
 </html>

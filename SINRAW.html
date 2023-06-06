@@ -118,9 +118,15 @@
     margin: 0;
   }
 
-  .map-overlay-inner select {
+	.map-overlay-inner select {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    width: 65%;
+    right: 6%;
+     width: 60%;
+  }
+
+.map-overlay-inner input {
+    width: 60%;
+  left: 2%;
   }
 
   .map-overlay-inner label {
@@ -246,116 +252,122 @@
 
   <body>
 		<div id="direction" class="direction">  </div>
+		<div id="AR">
+				<iframe src="ARJS.html" height="98%" width= "100%" ></iframe>
+		 	</div>
 
-    <div id="AR">
-			<iframe src="ARJS.html" height="98%" width= "100%" ></iframe>
-	 	</div>
-
-		<div id="map" class="mapboxgl-map">
-			<div class="mapboxgl-canary" style="visibility: hidden;"></div>
-		<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
-				<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" ></canvas>
-			</div>
-		</div>
-
-	<div id="map-overlay" class="map-overlay">
-		<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#collapsibleControls">
-			<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
-		</button>
-		<div id="collapsibleControls" class="collapse">
-			<div class="map-overlay-inner">
-				<div class="container">
-					<div class="panel-group">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#collapse" style="text-align:center"><b>&ensp; &ensp;Mapa base</b></a>
-								</h4>
-							</div>
-							<div id="collapse" class="panel-collapse collapse">
-								<fieldset>
-									<label>&ensp; Mapa Base &ensp;
-										<select id='basemap-selector' name='basemap-selector'>
-													<option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
-													<option value='mapbox://styles/mapbox/light-v10'>Light</option>
-													<option value='mapbox://styles/mapbox/satellite-v9'>Satellite</option>
-													<option value='mapbox://styles/mapbox/dark-v10'>Dark</option>
-													<option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
-													<option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
-													<option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
-											</select></label>
-									</fieldset>
-									<fieldset>
-											<label>&ensp; Ângulo de Elevação: &ensp;<span id="pitch-slider-value">0</span></label>
-											<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'>
-											<label>&ensp; Rotação: &ensp;<span id="slider-value1">0</span></label>
-											<input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
-									</fieldset>
-									<fieldset>
-											<label>&ensp; Símbolo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<select id='layer-select'>
-												<option value='layer1'>Ponto de Ônibus</option>
-												<option value='layer2'>Entrada / Saída</option>
-												<option value='layer3'>Restaurante</option>
-												<option value='layer4'>Correios</option>
-												<option value='layer5'>Estacionamento</option>
-											</select></label>
-									</fieldset>
-									<fieldset>
-											<label>&ensp; Cor de preenchimento</label>
-												<div id='swatches1'></div>
-									</fieldset>
-								<fieldset>
-										<label for='icon-size'>&ensp; Tamanho do ícone: &ensp;<span id='icon-size-label'> 15 px</span></label>
-										<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
-								</fieldset>
-								<fieldset>
-									<div class='toggle-container'>
-										<label for='toggle'>
-											<input type='checkbox' id='toggle' checked > Construções 3D </label>
-									</div>
-								</fieldset>
-							</div>
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" href="#collapse2" style="text-align:center"><b>&ensp; &ensp;Rota</b></a>
-									</h4>
-								</div>
-							<div id="collapse2" class="panel-collapse collapse">
-						<label >&ensp; Cor da linha:</label>
-						<fieldset>
-							<div id="colorSwatches">
-									<div class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
-									<div class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
-									<div class="swatch1" style="background-color: #41b6c4" onclick="changeColor('#41b6c4')"></div>
-									<div class="swatch1" style="background-color: #2c7fb8" onclick="changeColor('#2c7fb8')"></div>
-									<div class="swatch1" style="background-color: #253494" onclick="changeColor('#253494')"></div>
-									<div class="swatch1" style="background-color: #fed976" onclick="changeColor('#fed976')"></div>
-									<div class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>
-									<div class="swatch1" style="background-color: #fd8d3c" onclick="changeColor('#fd8d3c')"></div>
-									<div class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
-									<div class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
-							</div>
-						 </fieldset>
-						<fieldset>
-								<label >&ensp; Espessura: <span id="lineWidthValue">6</span>
-								<input type="range" id="lineWidthRange" min="0" max="10" value="6" step="0.5" onchange="changeLineWidth(this.value)"></label>
-						</fieldset>
-						<fieldset>
-								<label >&ensp; Velocidade: <span id="lineSpeedValue">1</span> cm/s<br />
-									<button onclick="changeVelocity(0)" value="0">0</button>
-									<button onclick="changeVelocity(2)" value="2">1</button>
-									<button onclick="changeVelocity(1)" value="1">2</button>
-									<button onclick="changeVelocity(0.5)" value="0.7">3</button>
-								</label>
-						</fieldset>
-				 </div>
+			<div id="map" class="mapboxgl-map">
+				<div class="mapboxgl-canary" style="visibility: hidden;"></div>
+			<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
+					<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" ></canvas>
 				</div>
 			</div>
-	   </div>
-	  </div>
-	 </div>
-	</div>
+
+		<div id="map-overlay" class="map-overlay">
+			<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#collapsibleControls">
+				<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+			</button>
+			<div id="collapsibleControls" class="collapse">
+				<div class="map-overlay-inner">
+					<div class="container">
+						<div class="panel-group">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse" style="text-align:center"><b>&ensp; &ensp;Mapa base</b></a>
+									</h4>
+								</div>
+								<div id="collapse" class="panel-collapse collapse">
+									<fieldset>
+	                  <label>&ensp; Mapa base&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+											<select id='basemap-selector' name='basemap-selector'>
+														<option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
+														<option value='mapbox://styles/mapbox/light-v10'>Light</option>
+														<option value='mapbox://styles/mapbox/satellite-v9'>Satellite</option>
+														<option value='mapbox://styles/mapbox/dark-v10'>Dark</option>
+														<option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
+														<option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
+														<option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
+												</select></label>
+										</fieldset>
+	                 <label>&ensp; Posição: &ensp;  &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+	                    <button id="fly1">Sup. </button>
+	                    <button id="fly2" >Per. </button>
+	                   <button id="fly3" >Ego.  </button>
+	                </label>
+
+										<fieldset>
+												<label>&ensp; Elevação:&ensp;<span id="pitch-slider-value">0</span> º &ensp;  &ensp; &ensp; &ensp;<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'> </label>
+
+											<label>&ensp; Rotação: &ensp;<span id="slider-value1">0</span> º &ensp;  &ensp; &ensp; &ensp;<input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'></label>
+
+
+										</fieldset>
+										<fieldset>
+												<label>&ensp; Símbolo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &ensp; &ensp; &ensp;  &ensp; &ensp;
+												<select id='layer-select'>
+													<option value='layer1'>Ponto de Ônibus</option>
+													<option value='layer2'>Entrada / Saída</option>
+													<option value='layer3'>Restaurante</option>
+													<option value='layer4'>Correios</option>
+													<option value='layer5'>Estacionamento</option>
+												</select></label>
+										</fieldset>
+										<fieldset>
+												<label>&ensp; Cor de preenchimento</label>
+													<div id='swatches1'></div>
+										</fieldset>
+									<fieldset>
+											<label for='icon-size'>&ensp; Tam. ícone: &ensp;<span id='icon-size-label'> 15 px</span>&ensp;	<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' /></label>
+
+									</fieldset>
+									<fieldset>
+
+											<label for='toggle'>
+												<input type='checkbox' id='toggle' checked > Construções 3D </label>
+
+									</fieldset>
+								</div>
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" href="#collapse2" style="text-align:center"><b>&ensp; &ensp;Rota</b></a>
+										</h4>
+									</div>
+								<div id="collapse2" class="panel-collapse collapse">
+							<label >&ensp; Cor da linha:</label>
+							<fieldset>
+								<div id="colorSwatches">
+										<div class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
+										<div class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
+										<div class="swatch1" style="background-color: #41b6c4" onclick="changeColor('#41b6c4')"></div>
+										<div class="swatch1" style="background-color: #2c7fb8" onclick="changeColor('#2c7fb8')"></div>
+										<div class="swatch1" style="background-color: #253494" onclick="changeColor('#253494')"></div>
+										<div class="swatch1" style="background-color: #fed976" onclick="changeColor('#fed976')"></div>
+										<div class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>
+										<div class="swatch1" style="background-color: #fd8d3c" onclick="changeColor('#fd8d3c')"></div>
+										<div class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
+										<div class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
+								</div>
+							 </fieldset>
+							<fieldset>
+									<label >&ensp; Espessura:&ensp; <span id="lineWidthValue">6</span> &ensp; &ensp; &ensp; &ensp; &ensp;
+									<input type="range" id="lineWidthRange" min="0" max="10" value="6" step="0.5" onchange="changeLineWidth(this.value)"></label>
+							</fieldset>
+							<fieldset>
+									<label >&ensp; Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
+										<button onclick="changeVelocity(0)" value="0">0</button>
+										<button onclick="changeVelocity(2)" value="0.7">1</button>
+										<button onclick="changeVelocity(1)" value="1">2</button>
+										<button onclick="changeVelocity(0.5)" value="2">3</button>
+									</label>
+							</fieldset>
+					 </div>
+					</div>
+				</div>
+		   </div>
+		  </div>
+		 </div>
+		</div>
 
 		<!-- Le javascript
 		================================================== -->
@@ -758,5 +770,32 @@
 	      function toggleCollapse() {
 	      $('#collapse1').collapse('toggle');
 	    }
+
+		     document.getElementById('fly1').addEventListener('click', () => {
+		        // Fly to a random location
+		        map.flyTo({center: [-49.233306669859644,  -25.451199874979338],
+		                   zoom: 14,
+		                   pitch: 0,
+			                 bearing: 0,
+		                  });
+		        });
+
+		    document.getElementById('fly2').addEventListener('click', () => {
+		        // Fly to a random location
+		        map.flyTo({center: [  -49.23297909708384, -25.451752813365772],
+		                   zoom: 16,
+		                   pitch: 45,
+			                 bearing: 297,
+		                  });
+		        });
+
+		    document.getElementById('fly3').addEventListener('click', () => {
+		        // Fly to a random location
+		        map.flyTo({center: [-49.233018097512314,  -25.45323309633504],
+		                   zoom: 20,
+		                   pitch: 80,
+			                 bearing: 297,
+		                  });
+		        });
 	</script>
 </html>
