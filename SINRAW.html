@@ -91,14 +91,12 @@
     top: 71%;
     left: 8%;
     z-index: 2;
-    width: 30px;
-    height: 25px;
-		border: 1px solid #000000;
+		border: 2px solid #000000;
   }
 
   .map-overlay-inner {
     position: fixed;
-    width: 77%;
+    width: 76%;
     top: 17.5%;
     left: 0%;
     padding-top: 1px;
@@ -113,6 +111,7 @@
     padding: 0;
     margin: 0 0 10px;
 		left:1%;
+		width:100%;
   }
 
   .map-overlay-inner fieldset:last-child {
@@ -121,11 +120,12 @@
 
 	.map-overlay-inner select {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-     width: 70%;
+     width: 75%;
   }
 
 .map-overlay-inner input {
-    width: 65%;
+		width:40%;
+    display: flex;
   }
 
   .map-overlay-inner label {
@@ -181,7 +181,7 @@
 
   #collapsibleControls {
     margin-top: 20%;
-    padding: 20px;
+
     position: absolute;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -287,20 +287,22 @@
 														<option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
 														<option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
 														<option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
-												</select></label>
-										</fieldset>
-	                 <label>&ensp; Posição: &ensp;  &ensp; &ensp; &ensp; &ensp;
-	                    <button id="fly1">Sup. </button>
-	                    <button id="fly2" >Per. </button>
+												</select>
+											</label>
+	                 <label>&ensp; Posição: &ensp;  &ensp; &ensp; &ensp;
+	                    <button id="fly1">Sup. </button>&ensp;
+	                    <button id="fly2" >Per. </button>&ensp;
 	                   <button id="fly3" >Ego.  </button>
 	                </label>
-
-										<fieldset>
-												<label>&ensp; Elevação:  &ensp;<span id="pitch-slider-value">0</span> º &ensp; <input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'> </label>
-										</fieldset>
-										<fieldset>
-												<label>&ensp; Rotação:  &ensp;<span id="slider-value1">0</span> º &ensp;  &ensp; <input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'></label>
-										</fieldset>
+									<label>&ensp; Elevação:  &ensp;
+										<span id="pitch-slider-value">0</span> º &ensp;
+										<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'>
+									</label>
+									<label>&ensp; Rotação: &ensp;&ensp;
+										<span id="slider-value1">0</span> º &ensp;
+										<input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
+									</label>
+									</fieldset>
 										<fieldset>
 												<label>&ensp; Símbolo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &ensp;
 												<select id='layer-select'>
@@ -310,20 +312,15 @@
 													<option value='layer4'>Correios</option>
 													<option value='layer5'>Estacionamento</option>
 												</select></label>
-										</fieldset>
-										<fieldset>
-												<label>&ensp; Cor: &ensp; </label>
+												<label>&ensp; Cor: &ensp; &ensp; &ensp;&nbsp;&nbsp; &ensp;&nbsp; &ensp;&ensp; &ensp;
 													<div id='swatches1'></div>
-										</fieldset>
-									<fieldset>
-											<label for='icon-size'>&ensp; Tamanho: &ensp;<span id='icon-size-label'> 15 px</span>&ensp;	<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' /></label>
-
-									</fieldset>
-									<fieldset>
-
-											<label for='toggle'>&ensp;Construções 3D
+													</label>
+											<label for='icon-size'>&ensp; Tamanho: &ensp;
+												<span id='icon-size-label'> 15 px</span>&ensp;
+												<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
+											</label>
+											<label for='toggle'>&ensp;Construções 3D &ensp;&ensp;
 												<input type='checkbox' id='toggle2' checked > </label>
-
 									</fieldset>
 								</div>
 									<div class="panel-heading">
@@ -346,12 +343,10 @@
 										<div class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
 										<div class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
 								</div>
-							 </fieldset>
-							<fieldset>
+
 									<label >&ensp; Espessura:&ensp; <span id="lineWidthValue">6</span> &ensp; &ensp; &ensp; &ensp; &ensp;
 									<input type="range" id="lineWidthRange" min="0" max="10" value="6" step="0.5" onchange="changeLineWidth(this.value)"></label>
-							</fieldset>
-							<fieldset>
+
 									<label >&ensp; Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
 										<button onclick="changeVelocity(0)" value="0">0</button>
 										<button onclick="changeVelocity(2)" value="0.7">1</button>
