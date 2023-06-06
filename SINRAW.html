@@ -96,11 +96,10 @@
 
   .map-overlay-inner {
     position: fixed;
-    width: 76%;
+    width: 75%;
     top: 17.5%;
     left: 0%;
     padding-top: 1px;
-    padding-bottom: 1px;
 		background-color: rgba(255, 255, 255, 0.2) !important;
     z-index: 1;
   }
@@ -120,11 +119,11 @@
 
 	.map-overlay-inner select {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-     width: 75%;
+     width: 70%;
   }
 
 .map-overlay-inner input {
-		width:50%;
+		width:52%;
     display: flex;
   }
 
@@ -278,7 +277,7 @@
 								</div>
 								<div id="collapse" class="panel-collapse collapse">
 									<fieldset>
-	                  <label>&ensp; Mapa base&ensp; &ensp; &ensp; &ensp;
+	                  <label>&ensp; Mapa base:&ensp;&ensp;
 											<select id='basemap-selector' name='basemap-selector'>
 														<option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
 														<option value='mapbox://styles/mapbox/light-v10'>Light</option>
@@ -289,7 +288,7 @@
 														<option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
 												</select>
 											</label>
-	                 <label>&ensp; Posição: &ensp;  &ensp; &ensp;
+	                 <label>&ensp; Posição: &ensp; &ensp;&ensp;
 	                    <button id="fly1">Sup. </button>&ensp;
 	                    <button id="fly2" >Per. </button>&ensp;
 	                   <button id="fly3" >Ego.  </button>
@@ -304,7 +303,7 @@
 									</label>
 									</fieldset>
 										<fieldset>
-												<label>&ensp; Símbolo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &ensp;
+												<label>&ensp; Símbolo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &ensp;
 												<select id='layer-select'>
 													<option value='layer1'>Ponto de Ônibus</option>
 													<option value='layer2'>Entrada / Saída</option>
@@ -312,10 +311,10 @@
 													<option value='layer4'>Correios</option>
 													<option value='layer5'>Estacionamento</option>
 												</select></label>
-												<label>&ensp; Cor: &ensp; &ensp; &ensp;&nbsp;&nbsp; &ensp;&nbsp; &ensp;&ensp; &ensp;
+												<label>&ensp; Cor: &ensp; &ensp; &ensp;&nbsp; &nbsp; &ensp; &nbsp; &ensp; &ensp; &ensp;
 													<div id='swatches1'></div>
 													</label>
-											<label for='icon-size'>&ensp; Tamanho: &ensp;
+											<label for='icon-size'>&ensp; Tamanho:  &ensp;
 												<span id='icon-size-label'> 15 px</span>&ensp;
 												<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
 											</label>
