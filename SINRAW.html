@@ -474,7 +474,9 @@
 	  });
 	  direction.setOrigin([lng,lat]);
 	});
-
+	map.on('click', function(event) {
+	    event.stopPropagation();
+	});
 	document.getElementById('direction').appendChild(direction.onAdd(map)); });
 
 	 // Create marker arrays for each layer
