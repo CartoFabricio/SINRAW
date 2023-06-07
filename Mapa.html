@@ -87,7 +87,7 @@
     top: 17.5%;
     left: 0%;
     padding-top: 1px;
-		background-color: rgba(255, 255, 255, 1) !important;
+		background-color: rgba(255, 255, 255,0) !important;
     z-index: 1;
   }
 
@@ -98,6 +98,7 @@
     margin: 0 0 10px;
 		left:1%;
 		width:100%;
+		background-color: rgba(255, 255, 255, 1) !important;
   }
 
   .map-overlay-inner fieldset:last-child {
@@ -740,7 +741,6 @@
 					map.setPaintProperty('line-dashed', 'line-dasharray', dashArray);
 					document.getElementById('lineSpeedValue').textContent = speed;
 				}
-
 
 						// Toggle the collapsible controls
 						function toggleCollapse() {
