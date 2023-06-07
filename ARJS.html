@@ -35,16 +35,6 @@
 		  padding-right: 15%;
 		}
 
-	  #controls {
-	    position: absolute;
-	    top: 62% ;
-	    left: 42% ;
-	    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	    font-weight: bold;
-	    width: 360px;
-	  	height: 300px;
-	  }
-
 		#collapseButton {
 		  position: fixed;
 		  cursor: pointer;
@@ -58,7 +48,13 @@
 		}
 
 		  #collapsibleControls{
-		    margin-top: 25%; left: 1%; padding: 30px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
+		    margin-top: 25%;
+				left: 1%;
+				padding: 30px;
+				position: absolute;
+				font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+				font-weight: bold;
+				z-index:2;
 		  }
 		.collapsible.collapsed {
 		  display: none;
@@ -75,36 +71,6 @@
 
         <div id="AR" class="AR" > </div>
 
-        <div id="collapsibleControls"  >
-  <button id="collapseButton" type="button" onclick="toggleCollapse()" style="font-size: 20px">
-    <span class="glyphicon glyphicon-cog glyphicon-lg" aria-hidden="true"></span>
-  </button>
-          <div id="collapsibleContent" class=" collapsible collapsed">
-            <p>PIN                   :
-              <select id="pinSelector" onchange="loadModel('pin')">
-                <option value="pin1">Pin 1 - azul</option>
-                <option value="pin2">Pin 2 - roxo</option>
-                <option value="pin3">Pin 3 - vermelho</option>
-              </select>
-            </p>
-            <p>SETAS     :
-              <select id="setaSelector" onchange="loadModel('seta')">
-                <option value="seta1">Seta 1 - azul</option>
-                <option value="seta2">Seta 2 - azul</option>
-                <option value="seta3">Seta 3 - azul</option>
-                <option value="seta4">Seta 4 - azul</option>
-              </select>
-            </p>
-            <p>LINHAS:
-              <select id="linhaSelector" onchange="loadModel('linha')">
-                <option value="linha1">Linha 1 - azul</option>
-                <option value="linha2">Linha 2 - azul</option>
-                <option value="linha3">Linha 3 - azul</option>
-                <option value="linha4">Linha 4 - azul</option>
-              </select>
-            </p>
-          </div>
-        </div>
 
         <a-scene embedded arjs="trackingMethod: best;">
           <a-assets>
@@ -223,6 +189,11 @@
 
           // Toggle the collapsible controls
           function toggleCollapse() {
+            var collapsibleControls = document.getElementById('collapsibleContent');
+            collapsibleControls.classList.toggle('collapsed');
+          }
+					// Toggle the collapsible controls
+          function toggleCollapse1() {
             var collapsibleControls = document.getElementById('collapsibleContent');
             collapsibleControls.classList.toggle('collapsed');
           }

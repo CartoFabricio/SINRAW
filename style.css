@@ -177,30 +177,24 @@
   font-weight: bold;
 }
 
+#collapsibleControls {
+  margin-top: 20%;
+  position: absolute;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  z-index: 2;
+}
+
 #collapseButton {
   position: fixed;
   cursor: pointer;
-  background-color: #F8F9FA;
-  margin:10px;
-  top: 90%;
-  left: 2%;
+  background-color: rgba(0, 0, 0, 0) !important;
+  margin: 10px;
+  top: 15%;
+  left: 90%;
   width: 36px;
   height: 30px;
-}
-#collapseButton1 {
-  position: fixed;
-  cursor: pointer;
-  background-color: #F8F9FA;
-  margin:10px;
-  top: 20%;
-  left: 82%;
-  width: 36px;
-  height: 30px;
-  z-index:2;
-}
-
-#collapsibleControls{
-  margin-top: 20%; left: 2%; padding: 20px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
+   z-index:2;
 }
 .collapsible.collapsed {
   display: none;
