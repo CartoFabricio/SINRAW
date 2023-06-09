@@ -38,7 +38,7 @@
     position: fixed;
 		top:6.5%;
     bottom: 0%;
-    height: 93%;
+    height: 93.5%;
     left: 0%;
     width: 100%;
     z-index: 1;
@@ -70,13 +70,16 @@
 		 background-color: rgba(0, 0, 0, 0) !important;
   }
 
-  .map-overlay {
+	.map-overlay {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0) !important;
-    top: 27%;
-    left: 89%;
+    background-color: rgba(255, 255, 255, 255) !important;
+    top: 30%;
+    left: 95%;
     z-index: 2;
+		width: 25px;
+		height: 25px;
+		z-index:2;
 		border: 2px solid #000000;
   }
 
@@ -106,7 +109,7 @@
 
 	.map-overlay-inner select {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-     width: 65%;
+     width: 70%;
   }
 
 .map-overlay-inner input {
@@ -322,7 +325,7 @@
 								</div>
 							<div id="collapse2" class="panel-collapse collapse">
 								<fieldset>
-									<label >Cor: &ensp;&ensp;
+									<label >&ensp;Cor: &ensp;&ensp;
 											<div id="colorSwatches" class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
 											<div id="colorSwatches" class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
 											<div id="colorSwatches" class="swatch1" style="background-color: #41b6c4" onclick="changeColor('#41b6c4')"></div>
@@ -338,7 +341,7 @@
 									<span id="lineWidthValue">6</span> &ensp; &ensp; &ensp; &ensp; &ensp;
 									<input type="range" id="lineWidthRange" min="0" max="10" value="6" step="0.5" onchange="changeLineWidth(this.value)">
 								</label>
-								<label >Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
+								<label >&ensp;Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
 									<button onclick="changeVelocity(0)" value="0">0</button>
 									<button onclick="changeVelocity(2)" value="0.7">1</button>
 									<button onclick="changeVelocity(1)" value="1">2</button>
@@ -396,8 +399,8 @@
 
 		const map = new mapboxgl.Map({
 			style: 'mapbox://styles/mapbox/streets-v11',
-			center: [-49.233306669859644,  -25.451199874979338], //longitude, latitude
-			zoom: 17,
+			center: [-49.234306669859644,  -25.451199874979338], //longitude, latitude
+			zoom: 16.5,
 			pitch: 0,
 			bearing: 0,
 			container: 'map',

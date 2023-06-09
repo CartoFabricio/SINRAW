@@ -24,13 +24,14 @@
    width:100%;
    line-height: 80%;
    right:2%;
+   color: #ffffff;
 }
-#conteudo { position: absolute;
-   top: 8%;
+.conteudo { position: absolute;
+   top: 10%;
    bottom: 0;
    left: 3%;
    width: 94%;
-
+   color: #ffffff;
     z-index: 1;
   }
 #instructions {
@@ -41,6 +42,7 @@
   font-family: sans-serif;
   z-index: 1;
 }
+
 .informacoes {
   position: fixed;
   width: 20%;
@@ -205,17 +207,19 @@
   text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
 }
 
-
-
 .form label,
-.form select,
-.form button{
+.form select{
   position:relative;
   width: 95%;
 }
+.form button{
+  width: 50%;
+  left:25%;
+  align-items: center;
+}
 .form range {
   width: 45%;
-   right:5%;
+
 }
 .form textarea,
 .form input{
@@ -226,10 +230,28 @@
 .label-range {
   display: flex;
   align-items: center;
-  width:95%;
-  right:5%;
+  width:90%;
+
 }
 
 .label-range span {
   margin-right: 10px;
+}
+
+
+html {
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 3rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+  background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
 }
