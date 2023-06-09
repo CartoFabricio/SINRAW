@@ -38,6 +38,7 @@
     right: 2%;
     width: 100%;
     z-index: 3;
+		text-align: center;
   }
 	#AR { position: fixed;
 		top: 6%;
@@ -215,7 +216,7 @@
 <div id = 'menu'>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
-			        <h4 style=" position:fixed;left:1%;font-weight: bold; text-shadow: 0 0 12px #000000, 0 0 12px #000000;"> &ensp; SINRAW </h4>
+		 <h4 href="./index.html" style=" position:fixed;left:1%;font-weight: bold; text-shadow: 0 0 12px #000000, 0 0 12px #000000;"> &ensp; SINRAW </h4>
 			<div class="container-fluid">
 				<button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>
@@ -327,7 +328,7 @@
 											</div>
 										<div id="collapse3" class="panel-collapse collapse">
 											<fieldset>
-												<label >Cor: &ensp;&ensp;
+												<label >&ensp;Cor: &ensp;&ensp;
 														<div id="colorSwatches" class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
 														<div id="colorSwatches" class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
 														<div id="colorSwatches" class="swatch1" style="background-color: #41b6c4" onclick="changeColor('#41b6c4')"></div>
@@ -339,11 +340,11 @@
 														<div id="colorSwatches" class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
 														<div id="colorSwatches" class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
 											</label>
-											<label >&ensp; Espessura:&ensp;
+											<label >&ensp;Espessura:&ensp;
 												<span id="lineWidthValue">6</span> &ensp; &ensp; &ensp; &ensp; &ensp;
 												<input type="range" id="lineWidthRange" min="0" max="10" value="6" step="0.5" onchange="changeLineWidth(this.value)">
 											</label>
-											<label >Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
+											<label >&ensp;Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
 												<button onclick="changeVelocity(0)" value="0">0</button>
 												<button onclick="changeVelocity(2)" value="0.7">1</button>
 												<button onclick="changeVelocity(1)" value="1">2</button>
