@@ -225,60 +225,6 @@
 
   <body style="margin: 0; overflow: hidden;">
 
-
-				<div id="AR">
-
-
-<div id="map-overlay" class="map-overlay">
-  <button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
-    <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
-  </button>
-  <div id="collapsibleControls" class="collapse">
-    <div class="map-overlay-inner">
-      <div class="container">
-        <div class="panel-group">
-          <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#collapse4" style="text-align:center"><b>&ensp; &ensp;Realidade Aumentada</b></a>
-                  </h4>
-                </div>
-                <div id="collapse4" class="panel-collapse">
-                  <fieldset>
-                    <label>Pin:&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
-                      <select id="pinSelector" onchange="loadModel('pin')">
-                        <option value="pin1">Pin 1 - azul</option>
-                        <option value="pin2">Pin 2 - roxo</option>
-                        <option value="pin3">Pin 3 - vermelho</option>
-                      </select>
-                    </label>
-                    <label>Setas:&ensp;&ensp; &ensp; &ensp; &ensp;
-                      <select id="setaSelector" onchange="loadModel('seta')">
-                        <option value="seta1">Seta 1 - azul</option>
-                        <option value="seta2">Seta 2 - azul</option>
-                        <option value="seta3">Seta 3 - azul</option>
-                        <option value="seta4">Seta 4 - azul</option>
-                      </select>
-                    </label>
-                    <label>Linhas:&ensp; &ensp; &ensp; &ensp;
-                      <select id="linhaSelector" onchange="loadModel('linha')">
-                        <option value="linha1">Linha 1 - azul</option>
-                        <option value="linha2">Linha 2 - azul</option>
-                        <option value="linha3">Linha 3 - azul</option>
-                        <option value="linha4">Linha 4 - azul</option>
-                      </select>
-                    </label>
-                  </fieldset>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
         <a-scene embedded arjs="trackingMethod: best;">
           <a-assets>
             <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
@@ -298,7 +244,6 @@
           <a-entity camera></a-entity>
         </a-scene>
 
-					</div>
 
         <script>
           // Initialize the selected options
