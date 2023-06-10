@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -12,141 +11,14 @@
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
 </head>
-<style>
-  .centered {
-    height: 20%;
-    justify-content: center;
-    position: fixed;
-    bottom: 0%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin: 0px auto;
-    left: 0;
-    right: 0;
-}
 
-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid white;
-    background-color: transparent;
-    width: 2em;
-    height: 2em;
-    border-radius: 100%;
-    font-size: 2em;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    outline: none;
-}
-
-.instructions {
-    position: fixed;
-    top: 5%;
-    font-size: 1.25em;
-    color: white;
-    z-index: 999999;
-}
-  </style>
 <body style='margin: 0; overflow: hidden;'>
-    <div class="centered instructions"></div>
     <a-scene
-        vr-mode-ui='enabled: false'
-        embedded
+        vr-mode-ui="enabled: false"
+		embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-    <a-camera gps-camera rotation-reader></a-camera>
-</a-scene>
-<div class="centered">
-    <button data-action="change"></button>
-</div>
+        <a-entity gltf-model=".GLB/map_pin/map_pin.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: 12.489820; latitude: 41.892590;" animation-mixer/>
+
+        <a-camera gps-camera rotation-reader></a-camera>
+	</a-scene>
 </body>
-
-<script>
-window.onload = () => {
-    const button = document.querySelector('button[data-action="change"]');
-    button.innerText = 'i';
-
-    let places = staticLoadPlaces();
-    renderPlaces(places);
-};
-
-function staticLoadPlaces() {
-    return [
-        {
-            name: 'Pokèmon',
-            location: {
-                // decomment the following and add coordinates:
-                 lat: -25.453163,
-                 lng: -49.232580,
-            },
-        },
-    ];
-}
-
-var models = [
-    {
-        url: './GLB/map_pin/scene.gltf',
-        scale: '0.5 0.5 0.5',
-        info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '0 180 0',
-    },
-    {
-        url: './GLB/redArrow/red_arrow_chevrons_wayfinding.glb',
-        scale: '0.2 0.2 0.2',
-        rotation: '0 180 0',
-        info: 'Articuno, Lv. 80, HP 100/100',
-    },
-    {
-        url: './GLB/redArrow.glb',
-        scale: '0.08 0.08 0.08',
-        rotation: '0 180 0',
-        info: 'Dragonite, Lv. 99, HP 150/150',
-    },
-];
-
-var modelIndex = 0;
-var setModel = function (model, entity) {
-    if (model.scale) {
-        entity.setAttribute('scale', model.scale);
-    }
-
-    if (model.rotation) {
-        entity.setAttribute('rotation', model.rotation);
-    }
-
-    if (model.position) {
-        entity.setAttribute('position', model.position);
-    }
-
-    entity.setAttribute('gltf-model', model.url);
-
-    const div = document.querySelector('.instructions');
-    div.innerText = model.info;
-};
-
-function renderPlaces(places) {
-    let scene = document.querySelector('a-scene');
-
-    places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
-
-        let model = document.createElement('a-entity');
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-
-        setModel(models[modelIndex], model);
-
-        model.setAttribute('animation-mixer', '');
-
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
-            modelIndex++;
-            var newIndex = modelIndex % models.length;
-            setModel(models[newIndex], entity);
-        });
-
-        scene.appendChild(model);
-    });
-}
-</script>
