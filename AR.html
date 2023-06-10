@@ -40,6 +40,7 @@
   height:10%;
 }
 
+
   #menu {
     position: fixed;
     top: 0%;
@@ -201,12 +202,9 @@
     background-color: rgba(0, 0, 0, 0) !important;
     text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
   }
-  .container, .panel-group, .panel panel-default, .panel-heading .panel-title{
-        background-color:rgba(0,0,0,0) !important;
-  }
+
   .panel-panel-default {
     position: flex;
-    background-color:rgba(0,0,0,0) !important;
   }
 	.container, .panel-group, .panel{
     background-color:rgba(0,0,0,0) !important;
@@ -224,23 +222,30 @@
  }
 </style>
 </head>
-<div id="menu">
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  collapsed>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="nav-collapse collapsed">
-          <ul class="nav">
+<div id = 'menu'>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+		 <h4 href="./index.html" style=" position:fixed;left:1%;font-weight: bold; text-shadow: 0 0 12px #000000, 0 0 12px #000000;"> &ensp; SINRAW </h4>
+			<div class="container-fluid">
+				<button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="nav-collapse show">
+					<ul class="nav">
 						<li><a href="./index.html">Início</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+						<li><a href="./Avaliacao.html">Questionário de Caracterização</a></li>
+						<li><a href="./Mapa.html">SINRAW - Mapa</a></li>
+						<li><a href="./AR.html">SINRAW - AR</a></li>
+						<li><a href="./SINRAW.html">SINRAW - Mapa + AR </a></li>
+						<li><a href="./AvaliacaoFinal.html">Questionário Final</a></li>
+						<li><a href="./Contato.html">Contato</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
   <body style="margin: 0; overflow: hidden;">
@@ -265,7 +270,7 @@
                     <a data-toggle="collapse" href="#collapse4" style="text-align:center"><b>&ensp; &ensp;Realidade Aumentada</b></a>
                   </h4>
                 </div>
-                <div id="collapse4" class="panel-collapse collapse">
+                <div id="collapse4" class="panel-collapse">
                   <fieldset>
                     <label>Pin:&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
                       <select id="pinSelector" onchange="loadModel('pin')">
