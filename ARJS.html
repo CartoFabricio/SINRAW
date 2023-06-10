@@ -24,15 +24,259 @@
 		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 		<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
 
+		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+		<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+
+
 <style  type="text/css">
 
+#imagemNavegacao{
+  position:fixed;
+  top:8%;
+  width:60%;
+  left:0%;
+  height:10%;
+}
+
+  #menu {
+    position: fixed;
+    top: 0%;
+    right: 2%;
+    width: 100%;
+    z-index: 3;
+		text-align: center;
+  }
+	#AR { position: fixed;
+		top: 6%;
+		height:94%;
+		bottom: 0%;
+		left:0%;
+		width: 100%;
+		z-index: 1;}
+
+  #map {
+    position: fixed;
+		top:70%;
+    bottom: 0%;
+    height: 30%;
+    left: 0%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .direction {
+    position: absolute;
+    z-index: 2;
+    max-width: 80px;
+    width: 25%;
+    height: 10%;
+    left: 1%;
+    top: 6.5%;
+  }
+
+  .navbar-form label {
+    left: 5%;
+    align-items: left;
+    padding-top: 0.7%;
+    display: inline;
+  }
+
+
+  .nav {
+    padding-left: 5%;
+  }
+
+  #collapse {
+		 background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+  .map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0) !important;
+    top: 10%;
+    left: 85%;
+    z-index: 2;
+		width: 45px;
+		height: 35px;
+		 z-index:2;
+		 border: 2px solid #000000;
+  }
+
+  .map-overlay-inner {
+    position: fixed;
+    width: 75%;
+    top: 17.5%;
+    left: 0%;
+    padding-top: 1px;
+		background-color: rgba(255, 255, 255, 0) !important;
+    z-index: 1;
+  }
+
+  .map-overlay-inner fieldset {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    border: none;
+    padding: 0;
+    margin: 0 0 10px;
+		left:1%;
+		width:100%;
+  }
+
+  .map-overlay-inner fieldset:last-child {
+    margin: 0;
+  }
+
+	.map-overlay-inner select {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+     width: 68%;
+  }
+
+.map-overlay-inner input {
+		width:50%;
+    display: flex;
+  }
+
+  .map-overlay-inner label {
+    font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    display: flex;
+    font-weight: bold;
+    text-shadow: 0 0 13px #FFFFFF, 0 0 13px #FFFFFF;
+  }
+
+  .map-overlay-inner button {
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    border: 1px;
+    cursor: pointer;
+		border: 1px solid #000000;
+  }
+
+  .map-overlay-inner button:focus {
+    outline: none;
+  }
+
+  .map-overlay-inner button:hover {
+    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .swatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid #000000;
+  }
+
+  .swatch1 {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid #000000;
+  }
+
+  .height-range {
+    margin-top: 10px;
+  }
+
+  .toggle-container {
+    display: flex;
+    align-items: center;
+  }
+
+  #collapsibleControls {
+    margin-top: 20%;
+    position: absolute;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  .collapsible {
+    background-color: rgba(0, 0, 0, 0) !important;
+    text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
+  }
+
+  .panel-panel-default {
+    position: flex;
+  }
+	.container, .panel-group, .panel{
+    background-color:rgba(0,0,0,0) !important;
+    border:0px;
+    color: 1px #000;
+    left:2%;
+          text-shadow:
+               -1px -1px 0px #FFF,
+               -1px 1px 0px #FFF,
+                1px -1px 0px #FFF,
+                1px 0px 0px #FFF;
+  }
+	.collapsible.collapsed {
+   display: none;
+ }
 </style>
 </head>
+
+
   <body style="margin: 0; overflow: hidden;">
 
-        <div id="direction" class="direction">  </div>
 
-        <div id="AR" class="AR" > </div>
+				<div id="AR">
+
+
+<div id="map-overlay" class="map-overlay">
+  <button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
+    <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+  </button>
+  <div id="collapsibleControls" class="collapse">
+    <div class="map-overlay-inner">
+      <div class="container">
+        <div class="panel-group">
+          <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse4" style="text-align:center"><b>&ensp; &ensp;Realidade Aumentada</b></a>
+                  </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse">
+                  <fieldset>
+                    <label>Pin:&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+                      <select id="pinSelector" onchange="loadModel('pin')">
+                        <option value="pin1">Pin 1 - azul</option>
+                        <option value="pin2">Pin 2 - roxo</option>
+                        <option value="pin3">Pin 3 - vermelho</option>
+                      </select>
+                    </label>
+                    <label>Setas:&ensp;&ensp; &ensp; &ensp; &ensp;
+                      <select id="setaSelector" onchange="loadModel('seta')">
+                        <option value="seta1">Seta 1 - azul</option>
+                        <option value="seta2">Seta 2 - azul</option>
+                        <option value="seta3">Seta 3 - azul</option>
+                        <option value="seta4">Seta 4 - azul</option>
+                      </select>
+                    </label>
+                    <label>Linhas:&ensp; &ensp; &ensp; &ensp;
+                      <select id="linhaSelector" onchange="loadModel('linha')">
+                        <option value="linha1">Linha 1 - azul</option>
+                        <option value="linha2">Linha 2 - azul</option>
+                        <option value="linha3">Linha 3 - azul</option>
+                        <option value="linha4">Linha 4 - azul</option>
+                      </select>
+                    </label>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
 
         <a-scene embedded arjs="trackingMethod: best;">
@@ -54,8 +298,8 @@
           <a-entity camera></a-entity>
         </a-scene>
 
+					</div>
 
-      </body>
         <script>
           // Initialize the selected options
           var selectedPin = '';
@@ -150,7 +394,11 @@
             }
           }
 
-
+          // Toggle the collapsible controls
+          function toggleCollapse() {
+            var collapsibleControls = document.getElementById('collapsibleContent');
+            collapsibleControls.classList.toggle('collapsed');
+          }
         </script>
-
+      </body>
 </html>

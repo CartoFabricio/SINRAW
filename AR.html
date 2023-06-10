@@ -50,7 +50,7 @@
   }
 	#AR { position: fixed;
 		top: 6%;
-		height:65%;
+		height:94%;
 		bottom: 0%;
 		left:0%;
 		width: 100%;
@@ -254,7 +254,9 @@
 
         <div id="direction" class="direction">  </div>
 
-        <div id="AR" class="AR" > </div>
+				<div id="AR">
+						<iframe src="ARJS.html" height="98%" width= "100%" ></iframe>
+					</div>
 <div id="map-overlay" class="map-overlay">
   <button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
     <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
@@ -302,9 +304,6 @@
         </div>
       </div>
 
-
-
-
         <a-scene embedded arjs="trackingMethod: best;">
           <a-assets>
             <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
@@ -325,106 +324,5 @@
         </a-scene>
 
 
-
-        <script>
-          // Initialize the selected options
-          var selectedPin = '';
-          var selectedSeta = '';
-          var selectedLinha = '';
-    // seta1 scale 3 3 3 rotate 0 0 90, seta2 scale 30 30 30 rotate 0 0 0, seta3 scale 30 30 30 rotate 0 0 90 seta 4 scale 3 3 3 rotate 0 0 90
-
-          // Load the model based on the selected option
-          function loadModel(type) {
-            if (type === 'pin') {
-              selectedPin = document.getElementById('pinSelector').value;
-              loadPinModel();
-            } if (type === 'seta') {
-              selectedSeta = document.getElementById('setaSelector').value;
-              loadSetaModel();
-            } if (type === 'linha') {
-              selectedLinha = document.getElementById('linhaSelector').value;
-              loadLinhaModel();
-            }
-          }
-          //meio fundo '5 -10 -40', fundo direito '15 -10 -40',
-           // Load the Pin model
-            function loadPinModel() {
-              var modelContainer = document.getElementById('modelContainer');
-              modelContainer.innerHTML = '';
-              if (selectedPin !== '') {
-                var pin = document.createElement('a-entity');
-                pin.setAttribute('gltf-model', '#' + selectedPin);
-                // Set scale and rotation based on the selected seta
-                switch (selectedPin) {
-                  case 'pin1':
-                    pin.setAttribute('position', '0 0 -10');
-                    pin.setAttribute('scale', '1 1 1');
-                    pin.setAttribute('rotation', '0 0 90');
-                    break;
-                  case 'pin2':
-                    pin.setAttribute('position', '0 0 -1');
-                    pin.setAttribute('scale', '0.25 0.25 0.25');
-                    pin.setAttribute('rotation', '0 0 0');
-                    break;
-                  case 'pin3':
-                    pin.setAttribute('position', '0 0 -10');
-                    pin.setAttribute('scale', '1 1 1');
-                    pin.setAttribute('rotation', '0 0 0');
-                    break;
-                }
-                modelContainer.appendChild(pin);
-              }
-            }
-
-             // Load the seta model
-            function loadSetaModel() {
-              var modelContainer1 = document.getElementById('modelContainer1');
-              modelContainer1.innerHTML = '';
-              if (selectedSeta !== '') {
-                var seta = document.createElement('a-entity');
-                seta.setAttribute('gltf-model', '#' + selectedSeta);
-                // Set scale and rotation based on the selected seta
-                switch (selectedSeta) {
-                  case 'seta1':
-                seta.setAttribute('position', '0 0 -10');
-                    seta.setAttribute('scale', '0.25 0.25 0.25');
-                    seta.setAttribute('rotation', '0 0 0');
-                    break;
-                  case 'seta2':
-              seta.setAttribute('position', '0 0 -10');
-                    seta.setAttribute('scale', '1  1  1 ');
-                    seta.setAttribute('rotation', '0 0 0');
-                    break;
-                  case 'seta3':
-                seta.setAttribute('position', '0 0 -10');
-                    seta.setAttribute('scale', '10 10 10');
-                    seta.setAttribute('rotation', '0 0 90');
-                    break;
-                  case 'seta4':
-                 seta.setAttribute('position', '0 0 -10');
-                    seta.setAttribute('scale', '0.25 0.25 0.25');
-                    seta.setAttribute('rotation', '0 0 90');
-                    break;
-                }
-                modelContainer1.appendChild(seta);
-              }
-            }
-
-          // Load the linha model
-          function loadLinhaModel() {
-            var modelContainer2= document.getElementById('modelContainer2');
-            modelContainer2.innerHTML = '';
-
-            if (selectedLinha !== '') {
-              // Add code to load the linha model
-            }
-          }
-
-          // Toggle the collapsible controls
-          function toggleCollapse() {
-            var collapsibleControls = document.getElementById('collapsibleContent');
-            collapsibleControls.classList.toggle('collapsed');
-          }
-        </script>
       </body>
 </html>
