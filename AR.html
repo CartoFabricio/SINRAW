@@ -34,10 +34,10 @@
 
 #imagemNavegacao{
   position:fixed;
-  top:8%;
-  width:70%;
+  top:7%;
+  width:71%;
   left:0%;
-  height:10%;
+  height:11%;
 }
 
   #menu {
@@ -92,7 +92,7 @@
 		 background-color: rgba(0, 0, 0, 0) !important;
   }
 
-  .map-overlay {
+	.map-overlay {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
     background-color: rgba(0, 0, 0, 0) !important;
@@ -130,7 +130,7 @@
 
 	.map-overlay-inner select {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-     width: 68%;
+     width: 70%;
   }
 
 .map-overlay-inner input {
@@ -266,112 +266,6 @@
             <div class="map-overlay-inner">
               <div class="container">
                 <div class="panel-group">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse0" style="text-align:center"><b>&ensp; &ensp;Mapa </b></a>
-                      </h4>
-                    </div>
-                    <div id="collapse0" class="panel-collapse collapse">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapse5" style="text-align:center"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Mapa base</b></a>
-                          </h4>
-                        </div>
-                        <div id="collapse5" class="panel-collapse collapse">
-                          <fieldset>
-                            <label>&ensp;Mapa base: &ensp;
-                              <select id='basemap-selector' name='basemap-selector'>
-                                <option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
-                                <option value='mapbox://styles/mapbox/light-v10'>Light</option>
-                                <option value='mapbox://styles/mapbox/satellite-v9'>Satellite</option>
-                                <option value='mapbox://styles/mapbox/dark-v10'>Dark</option>
-                                <option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
-                                <option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
-                                <option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
-                              </select>
-                            </label>
-                            <label>&ensp;Posição: &ensp; &ensp;&ensp;
-                              <button id="fly">Ini. </button>&ensp;
-                              <button id="fly1">Sup. </button>&ensp;
-                              <button id="fly2">Per. </button>&ensp;
-                              <button id="fly3">Ego. </button>
-                            </label>
-                            <label>&ensp;Elevação:  &ensp; &ensp;
-                              <span id="pitch-slider-value">0</span> º &ensp;
-                              <input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'>
-                            </label>
-                            <label>&ensp;Rotação: &ensp; &ensp;&ensp;
-                              <span id="slider-value1">0</span> º &ensp;
-                              <input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
-                            </label>
-                          </fieldset>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapse2" style="text-align:center; border-color: 1px #000000"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Símbolos</b></a>
-                          </h4>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse">
-                          <fieldset>
-                            <label>&ensp;Símbolo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <select id='layer-select'>
-                                <option value='layer1'>Ponto de Ônibus</option>
-                                <option value='layer2'>Entrada / Saída</option>
-                                <option value='layer3'>Restaurante</option>
-                                <option value='layer4'>Correios</option>
-                                <option value='layer5'>Estacionamento</option>
-                              </select>
-                            </label>
-                            <label>&ensp;Cor: &ensp; &ensp; &ensp; &nbsp; &nbsp; &ensp; &nbsp; &ensp; &ensp; &ensp;
-                              <div id='swatches1'></div>
-                            </label>
-                            <label for='icon-size'>&ensp;Tamanho:  &ensp; &ensp;
-                              <span id='icon-size-label'> 15 px</span>&ensp;
-                              <input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
-                            </label>
-                            <label for='toggle'>&ensp;Construções 3D &ensp;&ensp;
-                              <input type='checkbox' id='toggle2' checked>
-                            </label>
-                          </fieldset>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapse3" style="text-align:center"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Rota</b></a>
-                          </h4>
-                        </div>
-                        <div id="collapse3" class="panel-collapse collapse">
-                          <fieldset>
-                            <label>&ensp;Cor: &ensp;&ensp;
-                              <div id="colorSwatches" class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #41b6c4" onclick="changeColor('#41b6c4')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #2c7fb8" onclick="changeColor('#2c7fb8')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #253494" onclick="changeColor('#253494')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #fed976" onclick="changeColor('#fed976')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #fd8d3c" onclick="changeColor('#fd8d3c')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
-                              <div id="colorSwatches" class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
-                            </label>
-                            <label>&ensp;Espessura:&ensp;
-                              <span id="lineWidthValue">6</span> &ensp; &ensp; &ensp; &ensp; &ensp;
-                              <input type="range" id="lineWidthRange" min="0" max="10" value="6" step="0.5" onchange="changeLineWidth(this.value)">
-                            </label>
-                            <label>&ensp;Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
-                              <button onclick="changeVelocity(0)" value="0">0</button>
-                              <button onclick="changeVelocity(2)" value="0.7">1</button>
-                              <button onclick="changeVelocity(1)" value="1">2</button>
-                              <button onclick="changeVelocity(0.5)" value="2">3</button>
-                            </label>
-                          </fieldset>
-                        </div>
-                      </div></div>
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h4 class="panel-title">
@@ -410,9 +304,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
         <a-scene embedded arjs="trackingMethod: best;">
           <a-assets>
@@ -524,11 +415,16 @@
             }
           }
 
-          // Toggle the collapsible controls
-          function toggleCollapse() {
-            var collapsibleControls = document.getElementById('collapsibleContent');
-            collapsibleControls.classList.toggle('collapsed');
-          }
+					// Toggle the collapsible controls
+					function toggleCollapse() {
+						var collapsibleControls = document.getElementById('collapsibleContent');
+						collapsibleControls.classList.toggle('collapsed');
+					}
+					// Toggle the collapsible controls
+					function toggleCollapse1() {
+						var collapsibleControls = document.getElementById('collapse1');
+						collapsibleControls.classList.toggle('collapsed');
+					}
         </script>
       </body>
 </html>
