@@ -32,13 +32,6 @@
 
 <style  type="text/css">
 
-#imagemNavegacao{
-  position:fixed;
-  top:7%;
-  width:70%;
-  left:0%;
-  height:11%;
-}
 
   #menu {
     position: fixed;
@@ -218,40 +211,10 @@
  }
 </style>
 </head>
-<div id = 'menu'>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-		 <h4 href="./index.html" style=" position:fixed;left:1%;font-weight: bold; text-shadow: 0 0 12px #000000, 0 0 12px #000000;"> &ensp; SINRAW </h4>
-			<div class="container-fluid">
-				<button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" onclick="toggleCollapse1()" >
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<div class="nav-collapse show">
-					<ul class="nav">
-						<li><a href="./index.html">Início</a></li>
-						<li><a href="./Avaliacao.html">Questionário de Caracterização</a></li>
-						<li><a href="./Mapa.html">SINRAW - Mapa</a></li>
-						<li><a href="./AR.html">SINRAW - AR</a></li>
-						<li><a href="./SINRAW.html">SINRAW - Mapa + AR </a></li>
-						<li><a href="./AvaliacaoFinal.html">Questionário Final</a></li>
-						<li><a href="./Contato.html">Contato</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
   <body style="margin: 0; overflow: hidden;">
 
         <div id="direction" class="direction">  </div>
-
-
-
-
-
 
         <a-scene embedded arjs="trackingMethod: best;">
           <a-assets>
