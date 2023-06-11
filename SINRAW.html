@@ -358,7 +358,7 @@
 										</label>
 									</fieldset>
 								</div>
-							</div>		
+							</div>
 						</div>
 					</div>
 				</div>
@@ -414,7 +414,6 @@
 	    bearing: 0,
 	    container: 'map',
 	    antialias: false,
-	    attributionControl:true,
 	  });
 
 	    map.on('style.load', () => {
@@ -640,7 +639,7 @@
 	      var nav = new mapboxgl.NavigationControl();
 	              map.addControl(nav, 'top-right');
 
-	      map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
+	      map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 
 	      var geolocate = new mapboxgl.GeolocateControl();
 	      map.addControl(
@@ -650,7 +649,7 @@
 	          },
 	          trackUserLocation: true,
 	          showUserHeading: true,
-	        }),'top-left'
+	        }),'top-right'
 	      );
 
 	        // Add 3D Buildings Layer
