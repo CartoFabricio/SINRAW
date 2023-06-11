@@ -50,7 +50,7 @@
   }
 	#AR { position: fixed;
 		top: 6%;
-		height:94%;
+		height:65%;
 		bottom: 0%;
 		left:0%;
 		width: 100%;
@@ -201,9 +201,12 @@
     background-color: rgba(0, 0, 0, 0) !important;
     text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
   }
-
+  .container, .panel-group, .panel panel-default, .panel-heading .panel-title{
+        background-color:rgba(0,0,0,0) !important;
+  }
   .panel-panel-default {
     position: flex;
+    background-color:rgba(0,0,0,0) !important;
   }
 	.container, .panel-group, .panel{
     background-color:rgba(0,0,0,0) !important;
@@ -223,8 +226,6 @@
 </head>
 
 
-  <body style="margin: 0; overflow: hidden;">
-
         <a-scene embedded arjs="trackingMethod: best;">
           <a-assets>
             <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
@@ -235,15 +236,11 @@
             <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
             <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
           </a-assets>
-
           <a-entity id="modelContainer"></a-entity>
           <a-entity id="modelContainer1"></a-entity>
           <a-entity id="modelContainer2"></a-entity>
-
-
           <a-entity camera></a-entity>
         </a-scene>
-
 
         <script>
           // Initialize the selected options
