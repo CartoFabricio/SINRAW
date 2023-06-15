@@ -392,13 +392,15 @@
 				[0, 3.5, 3, 0.5]
 			 ];
 			let step = 0;
-			let velocity = 1;
+			let velocity = 0;
 
+    //    .setLngLat([-49.23299231115456, -25.453246648473993])
+     //   .setLngLat([-49.23420643224654, -25.452029735874333])
 
 		const map = new mapboxgl.Map({
 			style: 'mapbox://styles/mapbox/streets-v11',
-			center: [-49.234306669859644,  -25.451199874979338], //longitude, latitude
-			zoom: 16.5,
+			center: [-49.23363523421199, -25.45200387664078], //longitude, latitude
+			zoom: 17,
 			pitch: 0,
 			bearing: 0,
 			container: 'map',
@@ -439,11 +441,38 @@
 		pitchSlider.addEventListener('input', updatePitchValue);
 		bearingSlider.addEventListener('input', updateBearingValue);
 
-		navigator.geolocation.getCurrentPosition( function(position) {
-		var lng = position.coords.longitude;
-		var lat = position.coords.latitude;
-		sessionStorage.setItem("lng", lng);
-		sessionStorage.setItem("lat", lat);
+    		document.getElementById('fly').addEventListener('click', function() {
+			 map.flyTo({
+				 center: [-49.23363523421199, -25.45200387664078], // Exemplo de nova posição
+				 zoom: 17, // Exemplo de novo nível de zoom
+				 pitch: 0, // Exemplo de nova inclinação
+				 bearing: 0 // Exemplo de nova orientação
+			 });
+		 });
+
+		 document.getElementById('fly1').addEventListener('click', function() {
+			 map.flyTo({
+				 center: [ -49.23363523421199, -25.45200387664078], // Exemplo de nova posição
+				 zoom: 17, // Exemplo de novo nível de zoom
+				 pitch: 45, // Exemplo de nova inclinação
+				 bearing: 0 // Exemplo de nova orientação
+			 });
+		 });
+
+		 document.getElementById('fly2').addEventListener('click', function() {
+			 map.flyTo({
+				 center: [-49.234902, -25.45225], // Exemplo de nova posição
+				 zoom: 17.5, // Exemplo de novo nível de zoom
+				 pitch: 80, // Exemplo de nova inclinação
+				 bearing: 293 // Exemplo de nova orientação
+			 });
+		 });
+
+	//	navigator.geolocation.getCurrentPosition( function(position) {
+		//var lng = position.coords.longitude;
+		//var lat = position.coords.latitude;
+	//	sessionStorage.setItem("lng", lng);
+		//sessionStorage.setItem("lat", lat);
 				direction = new MapboxDirections({
 				accessToken: mapboxgl.accessToken,
 				language: 'pt-BR',
@@ -460,16 +489,18 @@
 				},
 			});
 
+
 	map.on('load', function() {
 		var direction = new MapboxDirections({
 			accessToken: mapboxgl.accessToken
 		});
-		direction.setOrigin([lng,lat]);
+	//	direction.setOrigin([-49.233306669859644,  -25.451199874979338]);
 	});
 	map.on('click', function(event) {
 			event.stopPropagation();
 	});
-	document.getElementById('direction').appendChild(direction.onAdd(map)); });
+	document.getElementById('direction').appendChild(direction.onAdd(map));
+
 
 	 // Create marker arrays for each layer
 		var layer1Markers = [ // Bus symbol
@@ -669,6 +700,8 @@
 							map.setLayoutProperty('3d-buildings', 'visibility', 'none');
 						}
 					});
+
+
 				const geojson = {
 					'type': 'FeatureCollection',
 					'features': [
@@ -676,18 +709,16 @@
 									'type': 'Feature',
 									'properties': {},
 									'geometry': {
-											'coordinates': [ [ -49.23300438726915,    -25.453246749660437],
-																				[  -49.2341127489301,   -25.45283154932652  ],
-																				[  -49.23305760063752,    -25.450495671632083 ],
-																				[  -49.23394661729992,   -25.450141996700182],
-																				[  -49.233889338873354,  -25.45001214615732 ],
-																				[ -49.23481808291328,     -25.449646209980912] ],
+											'coordinates': [ [ -49.23299231115456, -25.453246648473993],
+                        [-49.23410330226969, -25.452814910455103],
+                          [-49.23381735096993, -25.45217999879118],
+                          [-49.23420643224654, -25.452029735874333]   ],
 											'type': 'LineString'
 									}
 							}
 					]
 			};
-			let animationId = null; // Store the animation frame ID
+			let animationId = 0; // Store the animation frame ID
 
 			map.on('load', () => {
 					map.addSource('line', {
@@ -749,6 +780,209 @@
 					map.setPaintProperty('line-dashed', 'line-dasharray', dashArray);
 					document.getElementById('lineSpeedValue').textContent = speed;
 				}
+
+
+  // This implements `StyleImageInterface`
+  // to draw a pulsing dot icon on the map.
+  const size = 100;
+  const pulsingDot = {
+    width: size,
+    height: size,
+    data: new Uint8Array(size * size * 4),
+
+    onAdd: function () {
+      const canvas = document.createElement('canvas');
+      canvas.width = this.width;
+      canvas.height = this.height;
+      this.context = canvas.getContext('2d');
+    },
+
+    render: function () {
+      const duration = 1000;
+      const t = (performance.now() % duration) / duration;
+
+      const radius = (size / 2) * 0.3;
+      const outerRadius = (size / 2) * 0.7 * t + radius;
+      const context = this.context;
+
+      // Draw the outer circle.
+      context.clearRect(0, 0, this.width, this.height);
+      context.beginPath();
+      context.arc(
+        this.width / 2,
+        this.height / 2,
+        outerRadius,
+        0,
+        Math.PI * 2
+      );
+      context.fillStyle = `rgba(64, 145, 242, ${1 - t})`;
+      context.fill();
+
+      // Draw the inner circle.
+      context.beginPath();
+      context.arc(
+        this.width / 2,
+        this.height / 2,
+        radius,
+        0,
+        Math.PI * 2
+      );
+      context.fillStyle = 'rgba(64, 145, 242, 1)';
+      context.strokeStyle = 'white';
+      context.lineWidth = 2 + 4 * (1 - t);
+      context.fill();
+      context.stroke();
+
+      this.data = context.getImageData(0, 0, this.width, this.height).data;
+
+      map.triggerRepaint();
+      return true;
+    }
+  };
+
+  map.on('load', () => {
+    map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
+    const marker1 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
+      .setLngLat([-49.23299231115456, -25.453246648473993])
+      .addTo(map);
+
+    const pulsingDot1 = {
+      width: size,
+      height: size,
+      data: new Uint8Array(size * size * 4),
+
+      onAdd: function () {
+        const canvas = document.createElement('canvas');
+        canvas.width = this.width;
+        canvas.height = this.height;
+        this.context = canvas.getContext('2d');
+      },
+
+      render: function () {
+        const duration = 1000;
+        const t = (performance.now() % duration) / duration;
+
+        const radius = (size / 2) * 0.3;
+        const outerRadius = (size / 2) * 0.7 * t + radius;
+        const context = this.context;
+
+        // Define the three colors to interpolate between
+        const colors = [
+          [64, 145, 242],   // Color 1
+          [255, 0, 0],      // Color 2
+          [0, 255, 0]       // Color 3
+        ];
+
+        // Calculate the color index based on the marker position
+        const colorIndex = Math.floor(t * 3);
+        const colorStart = colors[colorIndex];
+        const colorEnd = colors[(colorIndex + 1) % 3];
+
+        // Interpolate between colorStart and colorEnd
+        const color = interpolateColor(colorStart, colorEnd, t % (1 / 3) * 3);
+
+        context.clearRect(0, 0, this.width, this.height);
+        context.beginPath();
+        context.arc(
+          this.width / 2,
+          this.height / 2,
+          outerRadius,
+          0,
+          Math.PI * 2
+        );
+        context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${1 - t})`;
+        context.fill();
+
+        context.beginPath();
+        context.arc(
+          this.width / 2,
+          this.height / 2,
+          radius,
+          0,
+          Math.PI * 2
+        );
+        context.fillStyle = 'rgba(64, 145, 242, 1)';
+        context.strokeStyle = 'white';
+        context.lineWidth = 2 + 4 * (1 - t);
+        context.fill();
+        context.stroke();
+
+        this.data = context.getImageData(0, 0, this.width, this.height).data;
+
+        map.triggerRepaint();
+        return true;
+      }
+    };
+
+    map.addImage('pulsing-dot1', pulsingDot1, { pixelRatio: 2 });
+
+    const marker2 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
+      .setLngLat([-49.23420643224654, -25.452029735874333])
+      .addTo(map);
+
+    function interpolateColor(colorStart, colorEnd, t) {
+      const r = Math.round((1 - t) * colorStart[0] + t * colorEnd[0]);
+      const g = Math.round((1 - t) * colorStart[1] + t * colorEnd[1]);
+      const b = Math.round((1 - t) * colorStart[2] + t * colorEnd[2]);
+      return [r, g, b];
+    }
+
+    map.addSource('dot-point', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [-49.23299231115456, -25.453246648473993] // icon position [lng, lat]
+            }
+          }
+        ]
+      }
+    });
+
+    map.addLayer({
+      id: 'layer-with-pulsing-dot',
+      type: 'symbol',
+      source: 'dot-point',
+      layout: {
+        'icon-image': 'pulsing-dot',
+        'icon-allow-overlap': true // Allow the dot icon to overlap with markers
+      }
+    });
+
+    map.addSource('dot-point1', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [-49.23420643224654, -25.452029735874333] // icon position [lng, lat]
+            }
+          }
+        ]
+      }
+    });
+
+    map.addLayer({
+      id: 'layer-with-pulsing-dot1',
+      type: 'symbol',
+      source: 'dot-point1',
+      layout: {
+        'icon-image': 'pulsing-dot1',
+        'icon-allow-overlap': true // Allow the dot icon to overlap with markers
+      }
+    });
+  });
+
+
+
 
 				// Toggle the collapsible controls
 				function toggleCollapse() {
