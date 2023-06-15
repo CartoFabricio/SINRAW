@@ -1,0 +1,1010 @@
+<div id="AR">   </div><!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>SINRAW</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/glyphicons.css" media="all">
+    <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/style.css" media="all">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+<style>
+
+  #menu {
+    position: fixed;
+    top: 0%;
+    right: 2%;
+    width: 100%;
+    z-index: 3;
+		text-align: center;
+  }
+	#AR { position: fixed;
+		top: 6%;
+		height:64%;
+		bottom: 0%;
+		left:0%;
+		width: 100%;
+		z-index: 1;}
+
+  #map {
+    position: fixed;
+		top:70%;
+    bottom: 0%;
+    height: 30%;
+    left: 0%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .direction {
+    position: absolute;
+    z-index: 2;
+    max-width: 80px;
+    width: 25%;
+    height: 10%;
+    left: 1%;
+    top: 6.5%;
+  }
+
+  .navbar-form label {
+    left: 5%;
+    align-items: left;
+    padding-top: 0.7%;
+    display: inline;
+  }
+
+
+  .nav {
+    padding-left: 5%;
+  }
+
+  #collapse {
+		 background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+  .map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0) !important;
+    top: 71.5%;
+    left: 5%;
+    z-index: 2;
+		width: 45px;
+		height: 35px;
+		 z-index:2;
+		 border: 2px solid #000000;
+  }
+
+  .map-overlay-inner {
+    position: fixed;
+    width: 75%;
+    top: 17.5%;
+    left: 0%;
+    padding-top: 1px;
+		background-color: rgba(255, 255, 255, 0) !important;
+    z-index: 1;
+  }
+
+  .map-overlay-inner fieldset {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    border: none;
+    padding: 0;
+    margin: 0 0 10px;
+		left:1%;
+		width:100%;
+  }
+
+  .map-overlay-inner fieldset:last-child {
+    margin: 0;
+  }
+
+	.map-overlay-inner select {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+     width: 68%;
+  }
+
+.map-overlay-inner input {
+		width:50%;
+    display: flex;
+  }
+
+  .map-overlay-inner label {
+    font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    display: flex;
+    font-weight: bold;
+    text-shadow: 0 0 13px #FFFFFF, 0 0 13px #FFFFFF;
+  }
+
+  .map-overlay-inner button {
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    border: 1px;
+    cursor: pointer;
+		border: 1px solid #000000;
+  }
+
+  .map-overlay-inner button:focus {
+    outline: none;
+  }
+
+  .map-overlay-inner button:hover {
+    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .swatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid #000000;
+  }
+
+  .swatch1 {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid #000000;
+  }
+
+  .height-range {
+    margin-top: 10px;
+  }
+
+  .toggle-container {
+    display: flex;
+    align-items: center;
+  }
+
+  #collapsibleControls {
+    margin-top: 20%;
+    position: absolute;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  .collapsible {
+    background-color: rgba(0, 0, 0, 0) !important;
+    text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
+  }
+
+  .panel-panel-default {
+    position: flex;
+  }
+	.container, .panel-group, .panel{
+    background-color:rgba(0,0,0,0) !important;
+    border:0px;
+    color: 1px #000;
+    left:2%;
+          text-shadow:
+               -1px -1px 0px #FFF,
+               -1px 1px 0px #FFF,
+                1px -1px 0px #FFF,
+                1px 0px 0px #FFF;
+  }
+	.collapsible.collapsed {
+   display: none;
+ }
+</style>
+</head>
+<div id = 'menu'>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+		 <h4 href="./index.html" style=" position:fixed;left:1%;font-weight: bold; text-shadow: 0 0 12px #000000, 0 0 12px #000000;"> &ensp; SINRAW </h4>
+			<div class="container-fluid">
+				<button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" onclick="toggleCollapse1()" >
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="nav-collapse show">
+					<ul class="nav">
+						<li><a href="./index.html">Início</a></li>
+						<li><a href="./Avaliacao.html">Questionário de Caracterização</a></li>
+						<li><a href="./Mapa.html">SINRAW - Mapa</a></li>
+						<li><a href="./AR.html">SINRAW - AR</a></li>
+						<li><a href="./SINRAW.html">SINRAW - Mapa + AR </a></li>
+						<li><a href="./AvaliacaoFinal.html">Questionário Final</a></li>
+						<li><a href="./Contato.html">Contato</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+  <body>
+		<div id="direction" class="direction">  </div>
+		<div id="AR">
+				<iframe src="ARJS.html" height="100%" width= "100%" ></iframe>
+		 	</div>
+
+					<div id="map" class="mapboxgl-map">
+						<div class="mapboxgl-canary" style="visibility: hidden;"></div>
+					<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
+							<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" ></canvas>
+						</div>
+					</div>
+
+					<div id="map-overlay" class="map-overlay">
+	<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
+		<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+	</button>
+	<div id="collapsibleControls" class="collapse">
+		<div class="map-overlay-inner">
+			<div class="container">
+				<div class="panel-group">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse5" style="text-align:center"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Mapa base</b></a>
+									</h4>
+								</div>
+								<div id="collapse5" class="panel-collapse collapse">
+									<fieldset>
+										<label>&ensp;Mapa base: &ensp;
+											<select id='basemap-selector' name='basemap-selector'>
+												<option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
+												<option value='mapbox://styles/mapbox/light-v10'>Light</option>
+												<option value='mapbox://styles/mapbox/satellite-v9'>Satellite</option>
+												<option value='mapbox://styles/mapbox/dark-v10'>Dark</option>
+												<option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
+												<option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
+												<option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
+											</select>
+										</label>
+										<label>&ensp;Posição: &ensp; &ensp;&ensp;
+											<button id="fly1">1 </button>&ensp;
+ 	                    <button id="fly2">2 </button>&ensp;
+ 	                    <button id="fly3" >3 </button>&ensp;
+ 	                   	<button id="fly4" >4  </button>
+										</label>
+										<label>&ensp;Rotação: &ensp; &ensp;&ensp;
+											<span id="slider-value1">0</span> º &ensp;
+											<input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
+										</label>
+										<label>&ensp;Elevação:  &ensp; &ensp;
+											<span id="pitch-slider-value">0</span> º &ensp;
+											<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'>
+										</label>
+									</fieldset>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse2" style="text-align:center; border-color: 1px #000000"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Símbolos</b></a>
+									</h4>
+								</div>
+								<div id="collapse2" class="panel-collapse collapse">
+									<fieldset>
+										<label>&ensp;Símbolo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<select id='layer-select'>
+												<option value='layer1'>Ponto de Ônibus</option>
+												<option value='layer2'>Entrada / Saída</option>
+												<option value='layer3'>Restaurante</option>
+												<option value='layer4'>Correios</option>
+												<option value='layer5'>Estacionamento</option>
+											</select>
+										</label>
+										<label>&ensp;Cor: &ensp; &ensp; &ensp; &nbsp; &nbsp; &ensp; &nbsp; &ensp; &ensp; &ensp;
+											<div id='swatches1'></div>
+										</label>
+										<label for='icon-size'>&ensp;Tamanho:  &ensp; &ensp;
+											<span id='icon-size-label'> 15 px</span>&ensp;
+											<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
+										</label>
+										<label for='toggle'>&ensp;Construções 3D &ensp;&ensp;
+											<input type='checkbox' id='toggle2' checked>
+										</label>
+									</fieldset>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse3" style="text-align:center"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Rota</b></a>
+									</h4>
+								</div>
+								<div id="collapse3" class="panel-collapse collapse">
+									<fieldset>
+										<label>&ensp;Cor: &ensp;&ensp;
+											<div id="colorSwatches" class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #41b6c4" onclick="changeColor('#41b6c4')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #2c7fb8" onclick="changeColor('#2c7fb8')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #253494" onclick="changeColor('#253494')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #fed976" onclick="changeColor('#fed976')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #fd8d3c" onclick="changeColor('#fd8d3c')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
+											<div id="colorSwatches" class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
+										</label>
+										<label>&ensp;Espessura:&ensp;
+											<span id="lineWidthValue">6</span> &ensp; &ensp; &ensp; &ensp; &ensp;
+											<input type="range" id="lineWidthRange" min="0" max="10" value="6" step="0.5" onchange="changeLineWidth(this.value)">
+										</label>
+										<label>&ensp;Velocidade:&ensp; <span id="lineSpeedValue">1</span> cm/s &ensp;<br />
+											<button onclick="changeVelocity(0)" value="0">0</button>
+											<button onclick="changeVelocity(2)" value="0.7">1</button>
+											<button onclick="changeVelocity(1)" value="1">2</button>
+											<button onclick="changeVelocity(0.5)" value="2">3</button>
+										</label>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Le javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="./Bootstrap/jquery.js.download"></script>
+		<script src="./Bootstrap/bootstrap-transition.js.download"></script>
+		<script src="./Bootstrap/bootstrap-alert.js.download"></script>
+		<script src="./Bootstrap/bootstrap-modal.js.download"></script>
+		<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
+		<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
+		<script src="./Bootstrap/bootstrap-tab.js.download"></script>
+		<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
+		<script src="./Bootstrap/bootstrap-popover.js.download"></script>
+		<script src="./Bootstrap/bootstrap-button.js.download"></script>
+		<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
+		<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
+		<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
+
+	</body>
+	<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
+		const dashArraySequence = [
+				[0, 4, 3],
+				[0.5, 4, 2.5],
+				[1, 4, 2],
+				[1.5, 4, 1.5],
+				[2, 4, 1],
+				[2.5, 4, 0.5],
+				[3, 4, 0],
+				[0, 0.5, 3, 3.5],
+				[0, 1, 3, 3],
+				[0, 1.5, 3, 2.5],
+				[0, 2, 3, 2],
+				[0, 2.5, 3, 1.5],
+				[0, 3, 3, 1],
+				[0, 3.5, 3, 0.5]
+			 ];
+			let step = 0;
+			let velocity = 0;
+
+		//    .setLngLat([-49.23299231115456, -25.453246648473993])
+		 //   .setLngLat([-49.23420643224654, -25.452029735874333])
+
+		const map = new mapboxgl.Map({
+			style: 'mapbox://styles/mapbox/streets-v11',
+			center: [-49.23363523421199, -25.45200387664078], //longitude, latitude
+			zoom: 17,
+			pitch: 0,
+			bearing: 0,
+			container: 'map',
+			antialias: false,
+			attributionControl:true,
+		});
+
+			map.on('style.load', () => {
+					map.setFog({}); // Set the default atmosphere style
+			});
+
+		 var basemapSelector = document.getElementById('basemap-selector');
+		basemapSelector.addEventListener('change', function () {
+			var basemap = basemapSelector.value;
+			map.setStyle(basemap);
+		});
+
+		// Get the range input elements and span elements
+		const pitchSlider = document.getElementById('pitch-slider');
+		const pitchValueSpan = document.getElementById('pitch-slider-value');
+		const bearingSlider = document.getElementById('bearing-slider');
+		const bearingValueSpan = document.getElementById('slider-value1');
+
+		// Function to update the pitch value
+		function updatePitchValue() {
+			const pitchValue = pitchSlider.value;
+			pitchValueSpan.textContent = pitchValue;
+			 map.setPitch(pitchValue);
+		}
+
+		// Function to update the bearing value
+		function updateBearingValue() {
+			const bearingValue = bearingSlider.value;
+			bearingValueSpan.textContent = bearingValue;
+			 map.setBearing(bearingValue);
+		}
+		// Add event listeners to the range inputs
+		pitchSlider.addEventListener('input', updatePitchValue);
+		bearingSlider.addEventListener('input', updateBearingValue);
+
+		document.getElementById('fly1').addEventListener('click', function() {
+			 map.flyTo({
+				 center: [-49.23363523421199, -25.45200387664078], // Exemplo de nova posição
+				 zoom: 17, // Exemplo de novo nível de zoom
+				 pitch: 0, // Exemplo de nova inclinação
+				 bearing: 0 // Exemplo de nova orientação
+			 });
+		 });
+
+		 document.getElementById('fly2').addEventListener('click', function() {
+			 map.flyTo({
+				 center: [ -49.23363523421199, -25.45200387664078], // Exemplo de nova posição
+				 zoom: 17, // Exemplo de novo nível de zoom
+				 pitch: 45, // Exemplo de nova inclinação
+				 bearing: 0 // Exemplo de nova orientação
+			 });
+		 });
+
+		 document.getElementById('fly3').addEventListener('click', function() {
+			 map.flyTo({
+				 center: [-49.234902, -25.45225], // Exemplo de nova posição
+				 zoom: 17.5, // Exemplo de novo nível de zoom
+				 pitch: 80, // Exemplo de nova inclinação
+				 bearing: 293 // Exemplo de nova orientação
+			 });
+		 });
+		 document.getElementById('fly4').addEventListener('click', function() {
+			map.flyTo({
+				center: [-49.23299231, -25.453246648], // Exemplo de nova posição
+				zoom: 17, // Exemplo de novo nível de zoom
+				pitch: 80, // Exemplo de nova inclinação
+				bearing: 293 // Exemplo de nova orientação
+			});
+		});
+
+	//	navigator.geolocation.getCurrentPosition( function(position) {
+		//var lng = position.coords.longitude;
+		//var lat = position.coords.latitude;
+	//	sessionStorage.setItem("lng", lng);
+		//sessionStorage.setItem("lat", lat);
+				direction = new MapboxDirections({
+				accessToken: mapboxgl.accessToken,
+				language: 'pt-BR',
+				showCompass: true,
+				geometry: 'polyline',
+				unit: 'metric',
+				profile: 'mapbox/walking',
+				language: 'pt-BR',
+				placeholderOrigin: 'Origem',
+				placeholderDestination: 'Destino',
+				controls: {
+						profileSwitcher: false,
+						instructions: false,
+				},
+			});
+
+
+	map.on('load', function() {
+		var direction = new MapboxDirections({
+			accessToken: mapboxgl.accessToken
+		});
+	//	direction.setOrigin([-49.233306669859644,  -25.451199874979338]);
+	});
+	map.on('click', function(event) {
+			event.stopPropagation();
+	});
+	document.getElementById('direction').appendChild(direction.onAdd(map));
+
+
+	 // Create marker arrays for each layer
+		var layer1Markers = [ // Bus symbol
+				{ coordinates: [-49.232580, -25.453163], color: '#000000', size: 15 },
+				{ coordinates: [-49.232136, -25.449854], color: '#000000', size: 15 },
+		];
+
+		var layer2Markers = [ // School symbol
+				{ coordinates: [-49.229949, -25.451687], color: '#000000', size: 15, },
+				{ coordinates: [-49.232931, -25.453522], color: '#000000', size: 15, },
+				{ coordinates: [-49.230441, -25.449003], color: '#000000', size: 15, },
+		];
+
+		var layer3Markers = [// Food symbol
+				{ coordinates: [-49.235028, -25.449557], color: '#000000', size: 15 },
+		];
+
+		var layer4Markers = [// Correios symbol
+				{ coordinates: [-49.234099, -25.44999], color: '#000000', size: 15 },
+		];
+
+		var layer5Markers = [  //glyphicon glyphicon-gbp
+			{coordinates: [ -49.233085960737924, -25.453344376797858], color: '#000000',size: 15},
+			{coordinates: [ -49.23354358116649,-25.453187921663584], color: '#000000',size: 15},
+			{coordinates: [-49.23282382864804,-25.453051524714468], color: '#000000',size: 15},
+			{coordinates: [-49.23257058239133, -25.4525661107876], color: '#000000',size: 15},
+			{coordinates: [ -49.23213331089232,-25.453098276993444], color: '#000000',size: 15},
+			{coordinates: [ -49.23144208152905, -25.451743710824402], color: '#000000',size: 15},
+			{coordinates: [ -49.23181972945565, -25.451839992085638], color: '#000000',size: 15},
+			{coordinates: [  -49.233814601085186, -25.452473841045702], color: '#000000',size: 15},
+			{coordinates: [ -49.233485825243434,  -25.451787838988665], color: '#000000',size: 15},
+			{coordinates: [ -49.233112620233754,-25.45097345720221], color: '#000000',size: 15},
+			{coordinates: [ -49.23224625146139, -25.451860049915567], color: '#000000',size: 15},
+			{coordinates: [ -49.23196634770443,-25.451254279129785], color: '#000000',size: 15},
+			{coordinates: [ -49.23080230869519, -25.451559174926842], color: '#000000',size: 15},
+			{coordinates: [ -49.232333417311594,-25.45015945481181], color: '#000000',size: 15},
+			{coordinates: [  -49.23350634734177, -25.450785289871703], color: '#000000',size: 15},
+			{coordinates: [  -49.233712099088876, -25.4498493260068], color: '#000000',size: 15},
+			{coordinates: [ -49.234609568278984, -25.450045903260985], color: '#000000',size: 15},
+			{coordinates: [ -49.23063575000012, -25.44960241230737], color: '#000000',size: 15},
+			{coordinates: [ -49.231398728557224, -25.44807491690277], color: '#000000',size: 15},
+			{coordinates: [  -49.231660321594376,-25.447630050165046], color: '#000000',size: 15},
+			{coordinates: [ -49.2336527885561, -25.44729147791888], color: '#000000',size: 15},
+			{coordinates: [ -49.23665128297114, -25.452082228467205], color: '#000000',size: 15},
+			{coordinates: [ -49.236088857942406, -25.45103505227719], color: '#000000',size: 15},
+	];
+
+		function addMarkerLayer(markers, layerId) {
+				markers.forEach(function(marker, index) {
+						var el = document.createElement('div');
+						el.className = 'marker ' + layerId;
+						el.style.color = marker.color;
+						el.style.fontSize = marker.size + 'px';
+						el.style.lineHeight = marker.size + 'px';
+						el.style.cursor = 'pointer';
+
+						// Set marker content based on the layerId
+						switch (layerId) {
+								case 'layer1':
+										el.innerHTML = '<i class="fas fa-bus"></i>'; break;// Bus symbol
+								case 'layer2':
+										el.innerHTML = '<i class="fas fa-school"></i>';   break;// School symbol
+								case 'layer3':
+										el.innerHTML = '<i class="fas fa-utensils"></i>';  break;// Food symbol
+								 case 'layer4':
+										el.innerHTML = '<i class="fas fa-envelope"></i>';  break;// Correios symbol
+								 case 'layer5':
+										el.innerHTML = '<i class="fas fa-car" ></i>'; break;// Estacionamento symbol
+								default:break;
+						}
+
+						new mapboxgl.Marker(el)
+								.setLngLat(marker.coordinates)
+								.addTo(map)
+								.getElement()
+								.addEventListener('click', function() {
+										// Handle marker click event if needed
+										console.log('Marker clicked: Layer ' + layerId + ', Index ' + index);
+								});
+						});
+				}
+				addMarkerLayer(layer1Markers, 'layer1');
+				addMarkerLayer(layer2Markers, 'layer2');
+				addMarkerLayer(layer3Markers, 'layer3');
+				addMarkerLayer(layer4Markers, 'layer4');
+				addMarkerLayer(layer5Markers, 'layer5');
+
+				// Bind event listeners to layer controls
+				var layerSelect = document.getElementById('layer-select');
+				var swatches1 = document.getElementById('swatches1');
+				var iconSizeInput = document.getElementById('icon-size');
+				const rangeLabel = document.getElementById('icon-size-label');
+
+				layerSelect.addEventListener('change', function() {
+						var selectedLayer = layerSelect.value;
+						// Update marker colors for the selected layer
+						var markers = document.getElementsByClassName(selectedLayer);
+						Array.from(markers).forEach(function(marker) {
+								marker.style.background = layerColorInput.value;
+						});
+						// Update marker sizes for the selected layer
+						iconSizeInput.addEventListener('input', () => {
+							rangeLabel.textContent = iconSizeInput.value;
+						});
+				});
+
+				function changeMarkerColor(color) {
+						var selectedLayer = layerSelect.value;
+
+						// Update marker colors for the selected layer
+						var markers = document.getElementsByClassName(selectedLayer);
+						Array.from(markers).forEach(function(marker) {
+								marker.style.color = color;
+						});
+				}
+
+				// Function to create a color swatch
+				function createSwatch(color) {
+						const swatch = document.createElement('div');
+						swatch.className = 'swatch';
+						swatch.style.backgroundColor = color;
+						swatch.addEventListener('click', () => {
+								changeMarkerColor(color);
+						});
+						return swatch;
+				}
+
+	// Create color swatches and set event listeners
+				const colors = ['#ffffff', '#ffffcc', '#41b6c4', '#2c7fb8', '#253494','#fed976', '#feb24c', '#fd8d3c', '#bd0026', '#000000'];
+				for (const color of colors) {
+						const swatch = createSwatch(color);
+						swatches1.appendChild(swatch);
+				}
+
+				function handleIconSizeChange() {
+						var size = parseFloat(iconSizeInput.value);
+						var selectedLayer = layerSelect.value;
+						var markers = document.getElementsByClassName(selectedLayer);
+						Array.from(markers).forEach(function(marker) {
+								marker.style.fontSize = size + 'px';
+						});
+				}
+				iconSizeInput.addEventListener('input', handleIconSizeChange);
+
+				// Update initial marker sizes based on the default layer selection and size
+				var initialSelectedLayer = layerSelect.value;
+				var initialSize = parseFloat(iconSizeInput.value);
+				var initialMarkers = document.getElementsByClassName(initialSelectedLayer);
+				Array.from(initialMarkers).forEach(function(marker) {
+						marker.style.fontSize = initialSize + 'px';
+						});
+				var iconSizeInput = document.getElementById('icon-size');
+				iconSizeInput.addEventListener('input', () => {
+					rangeLabel.textContent = '&ensp;' + iconSizeInput.value + ' px';
+				});
+
+				var nav = new mapboxgl.NavigationControl();
+								map.addControl(nav, 'top-right');
+
+				map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+
+				var geolocate = new mapboxgl.GeolocateControl();
+				map.addControl(
+						geolocate = new mapboxgl.GeolocateControl({
+						positionOptions: {
+						enableHighAccuracy: true
+						},
+						trackUserLocation: true,
+						showUserHeading: true,
+					}),'top-right'
+				);
+
+					// Add 3D Buildings Layer
+					map.on('load', function () {
+						map.addLayer({
+							'id': '3d-buildings',
+							'source': 'composite',
+							'source-layer': 'building',
+							'filter': ['==', 'extrude', 'true'],
+							'type': 'fill-extrusion',
+							'minzoom': 10,
+							'paint': {
+								'fill-extrusion-color': '#aaa',
+								'fill-extrusion-height': ["get", "height"],
+								'fill-extrusion-base': ["get", "min_height"],
+								'fill-extrusion-opacity': 0.6
+							}
+						});
+					});
+
+					// Toggle 3D Buildings
+					var toggle = document.getElementById('toggle2');
+					toggle.addEventListener('change', function () {
+						if (toggle.checked) {
+							map.setLayoutProperty('3d-buildings', 'visibility', 'visible');
+						} else {
+							map.setLayoutProperty('3d-buildings', 'visibility', 'none');
+						}
+					});
+
+
+				const geojson = {
+					'type': 'FeatureCollection',
+					'features': [
+							{
+									'type': 'Feature',
+									'properties': {},
+									'geometry': {
+											'coordinates': [ [ -49.23299231115456, -25.453246648473993],
+												[-49.23410330226969, -25.452814910455103],
+													[-49.23381735096993, -25.45217999879118],
+													[-49.23420643224654, -25.452029735874333]   ],
+											'type': 'LineString'
+									}
+							}
+					]
+			};
+			let animationId = 0; // Store the animation frame ID
+
+			map.on('load', () => {
+					map.addSource('line', {
+							type: 'geojson',
+							data: geojson
+					});
+
+					// add a line layer without line-dasharray defined to fill the gaps in the dashed line
+					map.addLayer({
+							type: 'line',
+							source: 'line',
+							id: 'line-background',
+							paint: {
+									'line-color': 'blue',
+									'line-width': 6,
+									'line-opacity': 0.4
+							}
+					});
+
+					// add a line layer with line-dasharray set to the first value in dashArraySequence
+					map.addLayer({
+							type: 'line',
+							source: 'line',
+							id: 'line-dashed',
+							paint: {
+									'line-color': 'blue',
+									'line-width': 6,
+									'line-dasharray': [0, 4, 3]
+							}
+					});
+
+					function animateDashArray(timestamp) {
+						// Update line-dasharray using the next value in dashArraySequence. The
+						// divisor in the expression `timestamp / (50 * velocity)` controls the animation speed.
+						const newStep = parseInt((timestamp / (50 * velocity)) % dashArraySequence.length);
+						if (newStep !== step) {
+							map.setPaintProperty('line-dashed', 'line-dasharray', dashArraySequence[step]);
+							step = newStep;
+						}
+						// Request the next frame of the animation.
+						requestAnimationFrame(animateDashArray);
+					}
+					// start the animation
+					animateDashArray(0);
+				})
+				function changeColor(color) {
+					map.setPaintProperty('line-background', 'line-color', color);
+					map.setPaintProperty('line-dashed', 'line-color', color);
+				}
+
+				function changeLineWidth(width) {
+					map.setPaintProperty('line-dashed', 'line-width', parseFloat(width));
+					document.getElementById('lineWidthValue').textContent = width;
+				}
+
+				function changeVelocity(speed) {
+					velocity = parseFloat(speed);
+					const dashArray = dashArraySequence[step].map(value => value * velocity);
+					map.setPaintProperty('line-dashed', 'line-dasharray', dashArray);
+					document.getElementById('lineSpeedValue').textContent = speed;
+				}
+
+
+	// This implements `StyleImageInterface`
+	// to draw a pulsing dot icon on the map.
+	const size = 100;
+	const pulsingDot = {
+		width: size,
+		height: size,
+		data: new Uint8Array(size * size * 4),
+
+		onAdd: function () {
+			const canvas = document.createElement('canvas');
+			canvas.width = this.width;
+			canvas.height = this.height;
+			this.context = canvas.getContext('2d');
+		},
+
+		render: function () {
+			const duration = 1000;
+			const t = (performance.now() % duration) / duration;
+
+			const radius = (size / 2) * 0.3;
+			const outerRadius = (size / 2) * 0.7 * t + radius;
+			const context = this.context;
+
+			// Draw the outer circle.
+			context.clearRect(0, 0, this.width, this.height);
+			context.beginPath();
+			context.arc(
+				this.width / 2,
+				this.height / 2,
+				outerRadius,
+				0,
+				Math.PI * 2
+			);
+			context.fillStyle = `rgba(64, 145, 242, ${1 - t})`;
+			context.fill();
+
+			// Draw the inner circle.
+			context.beginPath();
+			context.arc(
+				this.width / 2,
+				this.height / 2,
+				radius,
+				0,
+				Math.PI * 2
+			);
+			context.fillStyle = 'rgba(64, 145, 242, 1)';
+			context.strokeStyle = 'white';
+			context.lineWidth = 2 + 4 * (1 - t);
+			context.fill();
+			context.stroke();
+
+			this.data = context.getImageData(0, 0, this.width, this.height).data;
+
+			map.triggerRepaint();
+			return true;
+		}
+	};
+
+	map.on('load', () => {
+		map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
+		const marker1 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
+			.setLngLat([-49.23299231115456, -25.453246648473993])
+			.addTo(map);
+
+		const pulsingDot1 = {
+			width: size,
+			height: size,
+			data: new Uint8Array(size * size * 4),
+
+			onAdd: function () {
+				const canvas = document.createElement('canvas');
+				canvas.width = this.width;
+				canvas.height = this.height;
+				this.context = canvas.getContext('2d');
+			},
+
+			render: function () {
+				const duration = 1000;
+				const t = (performance.now() % duration) / duration;
+
+				const radius = (size / 2) * 0.3;
+				const outerRadius = (size / 2) * 0.7 * t + radius;
+				const context = this.context;
+
+				// Define the three colors to interpolate between
+				const colors = [
+					[64, 145, 242],   // Color 1
+					[255, 0, 0],      // Color 2
+					[0, 255, 0]       // Color 3
+				];
+
+				// Calculate the color index based on the marker position
+				const colorIndex = Math.floor(t * 3);
+				const colorStart = colors[colorIndex];
+				const colorEnd = colors[(colorIndex + 1) % 3];
+
+				// Interpolate between colorStart and colorEnd
+				const color = interpolateColor(colorStart, colorEnd, t % (1 / 3) * 3);
+
+				context.clearRect(0, 0, this.width, this.height);
+				context.beginPath();
+				context.arc(
+					this.width / 2,
+					this.height / 2,
+					outerRadius,
+					0,
+					Math.PI * 2
+				);
+				context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${1 - t})`;
+				context.fill();
+
+				context.beginPath();
+				context.arc(
+					this.width / 2,
+					this.height / 2,
+					radius,
+					0,
+					Math.PI * 2
+				);
+				context.fillStyle = 'rgba(64, 145, 242, 1)';
+				context.strokeStyle = 'white';
+				context.lineWidth = 2 + 4 * (1 - t);
+				context.fill();
+				context.stroke();
+
+				this.data = context.getImageData(0, 0, this.width, this.height).data;
+
+				map.triggerRepaint();
+				return true;
+			}
+		};
+
+		map.addImage('pulsing-dot1', pulsingDot1, { pixelRatio: 2 });
+
+		const marker2 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
+			.setLngLat([-49.23420643224654, -25.452029735874333])
+			.addTo(map);
+
+		function interpolateColor(colorStart, colorEnd, t) {
+			const r = Math.round((1 - t) * colorStart[0] + t * colorEnd[0]);
+			const g = Math.round((1 - t) * colorStart[1] + t * colorEnd[1]);
+			const b = Math.round((1 - t) * colorStart[2] + t * colorEnd[2]);
+			return [r, g, b];
+		}
+
+		map.addSource('dot-point', {
+			type: 'geojson',
+			data: {
+				type: 'FeatureCollection',
+				features: [
+					{
+						type: 'Feature',
+						geometry: {
+							type: 'Point',
+							coordinates: [-49.23299231115456, -25.453246648473993] // icon position [lng, lat]
+						}
+					}
+				]
+			}
+		});
+
+		map.addLayer({
+			id: 'layer-with-pulsing-dot',
+			type: 'symbol',
+			source: 'dot-point',
+			layout: {
+				'icon-image': 'pulsing-dot',
+				'icon-allow-overlap': true // Allow the dot icon to overlap with markers
+			}
+		});
+
+		map.addSource('dot-point1', {
+			type: 'geojson',
+			data: {
+				type: 'FeatureCollection',
+				features: [
+					{
+						type: 'Feature',
+						geometry: {
+							type: 'Point',
+							coordinates: [-49.23420643224654, -25.452029735874333] // icon position [lng, lat]
+						}
+					}
+				]
+			}
+		});
+
+		map.addLayer({
+			id: 'layer-with-pulsing-dot1',
+			type: 'symbol',
+			source: 'dot-point1',
+			layout: {
+				'icon-image': 'pulsing-dot1',
+				'icon-allow-overlap': true // Allow the dot icon to overlap with markers
+			}
+		});
+	});
+
+				// Toggle the collapsible controls
+				function toggleCollapse() {
+					var collapsibleControls = document.getElementById('collapsibleContent');
+					collapsibleControls.classList.toggle('collapsed');
+				}
+	</script>
+</html>

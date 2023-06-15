@@ -226,12 +226,12 @@
 				<div class="nav-collapse show">
 					<ul class="nav">
 						<li><a href="./index.html">Início</a></li>
-						<li><a href="./Avaliacao.html">Questionário de Caracterização</a></li>
-						<li><a href="./Mapa.html">SINRAW - Mapa</a></li>
-						<li><a href="./AR.html">SINRAW - AR</a></li>
-						<li><a href="./SINRAW.html">SINRAW - Mapa + AR </a></li>
-						<li><a href="./AvaliacaoFinal.html">Questionário Final</a></li>
-						<li><a href="./Contato.html">Contato</a></li>
+						<li><a href="./Pages/Avaliacao.html">Questionário de Caracterização</a></li>
+						<li><a href="./Pages/Mapa.html">SINRAW - Mapa</a></li>
+						<li><a href="./Pages/AR.html">SINRAW - AR</a></li>
+						<li><a href="./Pages/SINRAW.html">SINRAW - Mapa + AR </a></li>
+						<li><a href="./Pages/AvaliacaoFinal.html">Questionário Final</a></li>
+						<li><a href="./Pages/Contato.html">Contato</a></li>
 					</ul>
 				</div>
 			</div>
@@ -280,18 +280,18 @@
 											</select>
 										</label>
 										<label>&ensp;Posição: &ensp; &ensp;&ensp;
-											<button id="fly">Ini. </button>&ensp;
-											<button id="fly1">Sup. </button>&ensp;
-											<button id="fly2">Per. </button>&ensp;
-											<button id="fly3">Ego. </button>
-										</label>
-										<label>&ensp;Elevação:  &ensp; &ensp;
-											<span id="pitch-slider-value">0</span> º &ensp;
-											<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'>
+											<button id="fly1">1 </button>&ensp;
+ 	                    <button id="fly2">2 </button>&ensp;
+ 	                    <button id="fly3" >3 </button>&ensp;
+ 	                   	<button id="fly4" >4  </button>
 										</label>
 										<label>&ensp;Rotação: &ensp; &ensp;&ensp;
 											<span id="slider-value1">0</span> º &ensp;
 											<input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
+										</label>
+										<label>&ensp;Elevação:  &ensp; &ensp;
+											<span id="pitch-slider-value">0</span> º &ensp;
+											<input type='range' id='pitch-slider' min='0' max='90' value='0' step='1'>
 										</label>
 									</fieldset>
 								</div>
@@ -453,7 +453,7 @@
 		pitchSlider.addEventListener('input', updatePitchValue);
 		bearingSlider.addEventListener('input', updateBearingValue);
 
-				document.getElementById('fly').addEventListener('click', function() {
+		document.getElementById('fly1').addEventListener('click', function() {
 			 map.flyTo({
 				 center: [-49.23363523421199, -25.45200387664078], // Exemplo de nova posição
 				 zoom: 17, // Exemplo de novo nível de zoom
@@ -462,7 +462,7 @@
 			 });
 		 });
 
-		 document.getElementById('fly1').addEventListener('click', function() {
+		 document.getElementById('fly2').addEventListener('click', function() {
 			 map.flyTo({
 				 center: [ -49.23363523421199, -25.45200387664078], // Exemplo de nova posição
 				 zoom: 17, // Exemplo de novo nível de zoom
@@ -471,7 +471,7 @@
 			 });
 		 });
 
-		 document.getElementById('fly2').addEventListener('click', function() {
+		 document.getElementById('fly3').addEventListener('click', function() {
 			 map.flyTo({
 				 center: [-49.234902, -25.45225], // Exemplo de nova posição
 				 zoom: 17.5, // Exemplo de novo nível de zoom
@@ -479,6 +479,14 @@
 				 bearing: 293 // Exemplo de nova orientação
 			 });
 		 });
+		 document.getElementById('fly4').addEventListener('click', function() {
+			map.flyTo({
+				center: [-49.23299231, -25.453246648], // Exemplo de nova posição
+				zoom: 17, // Exemplo de novo nível de zoom
+				pitch: 80, // Exemplo de nova inclinação
+				bearing: 293 // Exemplo de nova orientação
+			});
+		});
 
 	//	navigator.geolocation.getCurrentPosition( function(position) {
 		//var lng = position.coords.longitude;
