@@ -241,28 +241,29 @@
 
   <body>
 		<div id="direction" class="direction">  </div>
+
 		<div id="AR">
 				<iframe src="./ARJS.html" height="100%" width= "100%" ></iframe>
-		 	</div>
+		</div>
 
-					<div id="map" class="mapboxgl-map">
-						<div class="mapboxgl-canary" style="visibility: hidden;"></div>
-					<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
-							<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" ></canvas>
-						</div>
-					</div>
+		<div id="map" class="mapboxgl-map">
+			<div class="mapboxgl-canary" style="visibility: hidden;"></div>
+		<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
+				<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" ></canvas>
+			</div>
+		</div>
 
-					<div id="map-overlay" class="map-overlay">
-	<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
-		<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
-	</button>
-	<div id="collapsibleControls" class="collapse">
-		<div class="map-overlay-inner">
-			<div class="container">
-				<div class="panel-group">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
+		<div id="map-overlay" class="map-overlay">
+			<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
+				<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+			</button>
+			<div id="collapsibleControls" class="collapse">
+				<div class="map-overlay-inner">
+					<div class="container">
+						<div class="panel-group">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
 										<a data-toggle="collapse" href="#collapse5" style="text-align:center"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Mapa base</b></a>
 									</h4>
 								</div>
@@ -281,9 +282,9 @@
 										</label>
 										<label>&ensp;Posição: &ensp; &ensp;&ensp;
 											<button id="fly1">1 </button>&ensp;
- 	                    <button id="fly2">2 </button>&ensp;
- 	                    <button id="fly3" >3 </button>&ensp;
- 	                   	<button id="fly4" >4  </button>
+											<button id="fly2">2 </button>&ensp;
+											<button id="fly3" >3 </button>&ensp;
+											<button id="fly4" >4  </button>
 										</label>
 										<label>&ensp;Rotação: &ensp; &ensp;&ensp;
 											<span id="slider-value1">0</span> º &ensp;
@@ -299,7 +300,9 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" href="#collapse2" style="text-align:center; border-color: 1px #000000"><b>&ensp; &ensp; &ensp; &ensp;&ensp;Símbolos</b></a>
+										<a data-toggle="collapse" href="#collapse2" style="text-align:center; border-color: 1px #000000">
+											<b>&ensp; &ensp; &ensp; &ensp;&ensp;Símbolos  </b>
+											</a>
 									</h4>
 								</div>
 								<div id="collapse2" class="panel-collapse collapse">
@@ -316,8 +319,8 @@
 										<label>&ensp;Cor: &ensp; &ensp; &ensp; &nbsp; &nbsp; &ensp; &nbsp; &ensp; &ensp; &ensp;
 											<div id='swatches1'></div>
 										</label>
-										<label for='icon-size'>&ensp;Tamanho:  &ensp; &ensp;
-											<span id='icon-size-label'> 15 px</span>&ensp;
+										<label for='icon-size'>&ensp;Tamanho: &ensp;&ensp;
+											<span id='icon-size-label'> 15 px</span>&ensp; &ensp;
 											<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
 										</label>
 										<label for='toggle'>&ensp;Construções 3D &ensp;&ensp;
@@ -334,6 +337,8 @@
 								</div>
 								<div id="collapse3" class="panel-collapse collapse">
 									<fieldset>
+										<label>&ensp;Início / Fim: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+										<input type='checkbox' id='toggle3' checked></label>
 										<label>&ensp;Cor: &ensp;&ensp;
 											<div id="colorSwatches" class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
 											<div id="colorSwatches" class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
@@ -341,7 +346,7 @@
 											<div id="colorSwatches" class="swatch1" style="background-color: #2c7fb8" onclick="changeColor('#2c7fb8')"></div>
 											<div id="colorSwatches" class="swatch1" style="background-color: #253494" onclick="changeColor('#253494')"></div>
 											<div id="colorSwatches" class="swatch1" style="background-color: #fed976" onclick="changeColor('#fed976')"></div>
-											<div id="colorSwatches" class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>
+										<!--	<div id="colorSwatches" class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>-->
 											<div id="colorSwatches" class="swatch1" style="background-color: #fd8d3c" onclick="changeColor('#fd8d3c')"></div>
 											<div id="colorSwatches" class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
 											<div id="colorSwatches" class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
@@ -408,8 +413,8 @@ const dashArraySequence = [
 
 const map = new mapboxgl.Map({
 	style: 'mapbox://styles/mapbox/streets-v11',
-	center: [-49.23363523421199, -25.45200387664078], //longitude, latitude
-	zoom: 17,
+	center: [-49.23363, -25.45250], //longitude, latitude
+	zoom: 16.5,
 	pitch: 0,
 	bearing: 0,
 	container: 'map',
@@ -452,8 +457,8 @@ bearingSlider.addEventListener('input', updateBearingValue);
 
 document.getElementById('fly1').addEventListener('click', function() {
 	 map.flyTo({
-		 center: [-49.23363523421199, -25.45200387664078], // Exemplo de nova posição
-		 zoom: 17, // Exemplo de novo nível de zoom
+		 center: [-49.23363, -25.45250], // Exemplo de nova posição
+		 zoom: 16.5, // Exemplo de novo nível de zoom
 		 pitch: 0, // Exemplo de nova inclinação
 		 bearing: 0 // Exemplo de nova orientação
 	 });
@@ -461,7 +466,7 @@ document.getElementById('fly1').addEventListener('click', function() {
 
  document.getElementById('fly2').addEventListener('click', function() {
 	 map.flyTo({
-		 center: [ -49.23363523421199, -25.4518387664078], // Exemplo de nova posição
+		 center: [ -49.23365, -25.45270], // Exemplo de nova posição
 		 zoom: 17, // Exemplo de novo nível de zoom
 		 pitch: 45, // Exemplo de nova inclinação
 		 bearing: 0 // Exemplo de nova orientação
@@ -470,16 +475,16 @@ document.getElementById('fly1').addEventListener('click', function() {
 
  document.getElementById('fly3').addEventListener('click', function() {
 	 map.flyTo({
-		 center: [-49.234902, -25.45225], // Exemplo de nova posição
-		 zoom: 17.5, // Exemplo de novo nível de zoom
-		 pitch: 80, // Exemplo de nova inclinação
+		 center: [-49.23375, -25.452570], // Exemplo de nova posição
+		 zoom: 17, // Exemplo de novo nível de zoom
+		 pitch: 75, // Exemplo de nova inclinação
 		 bearing: 293 // Exemplo de nova orientação
 	 });
  });
  document.getElementById('fly4').addEventListener('click', function() {
 	map.flyTo({
-		center: [-49.23419231, -25.452786648], // Exemplo de nova posição
-		zoom: 18.6, // Exemplo de novo nível de zoom
+		center: [-49.23367, -25.452996], // Exemplo de nova posição
+		zoom: 18, // Exemplo de novo nível de zoom
 		pitch: 90, // Exemplo de nova inclinação
 		bearing: 293 // Exemplo de nova orientação
 	});
@@ -572,7 +577,6 @@ function addMarkerLayer(markers, layerId) {
 				el.style.fontSize = marker.size + 'px';
 				el.style.lineHeight = marker.size + 'px';
 				el.style.cursor = 'pointer';
-
 				// Set marker content based on the layerId
 				switch (layerId) {
 						case 'layer1':
@@ -587,7 +591,6 @@ function addMarkerLayer(markers, layerId) {
 								el.innerHTML = '<i class="fas fa-car" ></i>'; break;// Estacionamento symbol
 						default:break;
 				}
-
 				new mapboxgl.Marker(el)
 						.setLngLat(marker.coordinates)
 						.addTo(map)
@@ -625,7 +628,6 @@ function addMarkerLayer(markers, layerId) {
 
 		function changeMarkerColor(color) {
 				var selectedLayer = layerSelect.value;
-
 				// Update marker colors for the selected layer
 				var markers = document.getElementsByClassName(selectedLayer);
 				Array.from(markers).forEach(function(marker) {
@@ -645,7 +647,7 @@ function addMarkerLayer(markers, layerId) {
 		}
 
 // Create color swatches and set event listeners
-		const colors = ['#ffffff', '#ffffcc', '#41b6c4', '#2c7fb8', '#253494','#fed976', '#feb24c', '#fd8d3c', '#bd0026', '#000000'];
+		const colors = ['#ffffff',  '#41b6c4', '#008080','#2c7fb8', '#253494','#ffffcc', '#fed976',  '#feb24c', '#fd8d3c', '#E389B9','#bd0026', '#c0c0c0', '#808080','#000000'];
 		for (const color of colors) {
 				const swatch = createSwatch(color);
 				swatches1.appendChild(swatch);
@@ -670,7 +672,7 @@ function addMarkerLayer(markers, layerId) {
 				});
 		var iconSizeInput = document.getElementById('icon-size');
 		iconSizeInput.addEventListener('input', () => {
-			rangeLabel.textContent = '&ensp;' + iconSizeInput.value + ' px';
+			rangeLabel.textContent = iconSizeInput.value + ' px';
 		});
 
 		var nav = new mapboxgl.NavigationControl();
@@ -985,10 +987,10 @@ function addMarkerLayer(markers, layerId) {
 			});
 		});
 
-				// Toggle the collapsible controls
-				function toggleCollapse() {
-					var collapsibleControls = document.getElementById('collapsibleContent');
-					collapsibleControls.classList.toggle('collapsed');
-				}
+		// Toggle the collapsible controls
+		function toggleCollapse() {
+			var collapsibleControls = document.getElementById('collapsibleContent');
+			collapsibleControls.classList.toggle('collapsed');
+		}
 	</script>
 </html>

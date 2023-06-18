@@ -232,18 +232,17 @@
 	</div>
 </div>
 
-  <body>
-			<div id="direction" class="direction">  </div>
+<body>
+	<div id="direction" class="direction">  </div>
 
-			<div id="map" class="mapboxgl-map">
-				<div class="mapboxgl-canary" style="visibility: hidden;"></div>
-			<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
-					<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" ></canvas>
-				</div>
-			</div>
+	<div id="map" class="mapboxgl-map">
+		<div class="mapboxgl-canary" style="visibility: hidden;"></div>
+	<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
+			<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" ></canvas>
+		</div>
+	</div>
 
-			<div id="map-overlay" class="map-overlay">
-
+	<div id="map-overlay" class="map-overlay">
 		<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
 			<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
 		</button>
@@ -291,15 +290,12 @@
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<a data-toggle="collapse" href="#collapse2" style="text-align:center; border-color: 1px #000000">
-
 										<b>&ensp; &ensp; &ensp; &ensp;&ensp;Símbolos  </b>
-
 										</a>
 								</h4>
 							</div>
 							<div id="collapse2" class="panel-collapse collapse">
 								<fieldset>
-
 									<label>&ensp;Símbolo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<select id='layer-select'>
 											<option value='layer1'>Ponto de Ônibus</option>
@@ -312,8 +308,8 @@
 									<label>&ensp;Cor: &ensp; &ensp; &ensp; &nbsp; &nbsp; &ensp; &nbsp; &ensp; &ensp; &ensp;
 										<div id='swatches1'></div>
 									</label>
-									<label for='icon-size'>&ensp;Tamanho:  &ensp; &ensp;
-										<span id='icon-size-label'> 15 px</span>&ensp;
+									<label for='icon-size'>&ensp;Tamanho: &ensp;&ensp;
+										<span id='icon-size-label'> 15 px</span>&ensp; &ensp;
 										<input type='range' id='icon-size' min='0' max='30' step='1' value='15' class='height-range' />
 									</label>
 									<label for='toggle'>&ensp;Construções 3D &ensp;&ensp;
@@ -330,10 +326,8 @@
 							</div>
 							<div id="collapse3" class="panel-collapse collapse">
 								<fieldset>
-									<label>&ensp;Início/Fim: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+									<label>&ensp;Início / Fim: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 									<input type='checkbox' id='toggle3' checked></label>
-									<label>&ensp;Base: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-									<input type='checkbox' id='toggle4' checked></label>
 									<label>&ensp;Cor: &ensp;&ensp;
 										<div id="colorSwatches" class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
 										<div id="colorSwatches" class="swatch1" style="background-color: #a1dab4" onclick="changeColor('#a1dab4')"></div>
@@ -341,7 +335,7 @@
 										<div id="colorSwatches" class="swatch1" style="background-color: #2c7fb8" onclick="changeColor('#2c7fb8')"></div>
 										<div id="colorSwatches" class="swatch1" style="background-color: #253494" onclick="changeColor('#253494')"></div>
 										<div id="colorSwatches" class="swatch1" style="background-color: #fed976" onclick="changeColor('#fed976')"></div>
-										<div id="colorSwatches" class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>
+									<!--	<div id="colorSwatches" class="swatch1" style="background-color: #feb24c" onclick="changeColor('#feb24c')"></div>-->
 										<div id="colorSwatches" class="swatch1" style="background-color: #fd8d3c" onclick="changeColor('#fd8d3c')"></div>
 										<div id="colorSwatches" class="swatch1" style="background-color: #bd0026" onclick="changeColor('#bd0026')"></div>
 										<div id="colorSwatches" class="swatch1" style="background-color: #000000" onclick="changeColor('#000000')"></div>
@@ -572,7 +566,6 @@ function addMarkerLayer(markers, layerId) {
 				el.style.fontSize = marker.size + 'px';
 				el.style.lineHeight = marker.size + 'px';
 				el.style.cursor = 'pointer';
-
 				// Set marker content based on the layerId
 				switch (layerId) {
 						case 'layer1':
@@ -587,7 +580,6 @@ function addMarkerLayer(markers, layerId) {
 								el.innerHTML = '<i class="fas fa-car" ></i>'; break;// Estacionamento symbol
 						default:break;
 				}
-
 				new mapboxgl.Marker(el)
 						.setLngLat(marker.coordinates)
 						.addTo(map)
@@ -625,7 +617,6 @@ function addMarkerLayer(markers, layerId) {
 
 		function changeMarkerColor(color) {
 				var selectedLayer = layerSelect.value;
-
 				// Update marker colors for the selected layer
 				var markers = document.getElementsByClassName(selectedLayer);
 				Array.from(markers).forEach(function(marker) {
@@ -645,7 +636,7 @@ function addMarkerLayer(markers, layerId) {
 		}
 
 // Create color swatches and set event listeners
-		const colors = ['#ffffff', '#ffffcc', '#41b6c4', '#2c7fb8', '#253494','#fed976', '#feb24c', '#fd8d3c', '#bd0026', '#000000'];
+		const colors = ['#ffffff',  '#41b6c4', '#008080','#2c7fb8', '#253494','#ffffcc', '#fed976',  '#feb24c', '#fd8d3c', '#E389B9','#bd0026', '#c0c0c0', '#808080','#000000'];
 		for (const color of colors) {
 				const swatch = createSwatch(color);
 				swatches1.appendChild(swatch);
@@ -670,7 +661,7 @@ function addMarkerLayer(markers, layerId) {
 				});
 		var iconSizeInput = document.getElementById('icon-size');
 		iconSizeInput.addEventListener('input', () => {
-			rangeLabel.textContent = '&ensp;' + iconSizeInput.value + ' px';
+			rangeLabel.textContent = iconSizeInput.value + ' px';
 		});
 
 		var nav = new mapboxgl.NavigationControl();
