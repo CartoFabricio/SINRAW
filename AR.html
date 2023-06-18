@@ -91,7 +91,7 @@
     position: fixed;
     background-color: rgba(0, 0, 0, 0) !important;
     top: 10%;
-    left: 85%;
+    left: 82%;
     z-index: 2;
 		width: 45px;
 		height: 35px;
@@ -218,6 +218,8 @@
  }
 </style>
 </head>
+</style>
+</head>
 <div id = 'menu'>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -243,15 +245,16 @@
 		</div>
 	</div>
 </div>
+
 <body style="margin: 0; overflow: hidden;">
 	<div id ="imagemNavegacao" >
           <img src="./imagemNavegacao.png" ></img>
   </div>
-  <div id="map-overlay" class="map-overlay">
-    <button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
-      <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
-    </button>
-    <div id="collapsibleControls" class="collapse">
+	<div id="map-overlay" class="map-overlay">
+		<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
+			<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+		</button>
+		<div id="collapsibleControls" class="collapse">
       <div class="map-overlay-inner">
         <div class="container">
           <div class="panel-group">
@@ -294,8 +297,7 @@
       </div>
     </div>
     </div>
-    </div>
-  </div>
+
   <a-scene embedded arjs="trackingMethod: best;">
     <a-assets>
       <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>

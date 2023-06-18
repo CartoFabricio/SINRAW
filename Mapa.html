@@ -82,7 +82,7 @@
     position: fixed;
     background-color: rgba(0, 0, 0, 0) !important;
     top: 10%;
-    left: 76%;
+    left: 77%;
     z-index: 2;
 		width: 45px;
 		height: 35px;
@@ -95,7 +95,7 @@
     top: 17.5%;
     left: 0%;
     padding-top: 1px;
-		background-color: rgba(255, 255, 255, 1) !important;
+		background-color: rgba(255, 255, 255, 0) !important;
     z-index: 1;
   }
 
@@ -299,8 +299,7 @@
 							</div>
 							<div id="collapse2" class="panel-collapse collapse">
 								<fieldset>
-									<label>&ensp;Símbolo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-									<input type='checkbox' id='toggle3' checked></label>
+
 									<label>&ensp;Símbolo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<select id='layer-select'>
 											<option value='layer1'>Ponto de Ônibus</option>
@@ -331,7 +330,9 @@
 							</div>
 							<div id="collapse3" class="panel-collapse collapse">
 								<fieldset>
-									<label>&ensp;Rota: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+									<label>&ensp;Início/Fim: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+									<input type='checkbox' id='toggle3' checked></label>
+									<label>&ensp;Base: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 									<input type='checkbox' id='toggle4' checked></label>
 									<label>&ensp;Cor: &ensp;&ensp;
 										<div id="colorSwatches" class="swatch1" style="background-color: #ffffff" onclick="changeColor('#ffffff')"></div>
@@ -478,7 +479,7 @@ document.getElementById('fly1').addEventListener('click', function() {
  document.getElementById('fly4').addEventListener('click', function() {
 	map.flyTo({
 		center: [-49.23419231, -25.452786648], // Exemplo de nova posição
-		zoom: 18.5, // Exemplo de novo nível de zoom
+		zoom: 18.6, // Exemplo de novo nível de zoom
 		pitch: 90, // Exemplo de nova inclinação
 		bearing: 293 // Exemplo de nova orientação
 	});
@@ -504,7 +505,6 @@ document.getElementById('fly1').addEventListener('click', function() {
 				instructions: false,
 		},
 	});
-
 
 map.on('load', function() {
 var direction = new MapboxDirections({
@@ -717,7 +717,6 @@ function addMarkerLayer(markers, layerId) {
 				}
 			});
 
-
 		const geojson = {
 			'type': 'FeatureCollection',
 			'features': [
@@ -797,210 +796,199 @@ function addMarkerLayer(markers, layerId) {
 			document.getElementById('lineSpeedValue').textContent = speed;
 		}
 
+		// This implements `StyleImageInterface`
+		// to draw a pulsing dot icon on the map.
+		const size = 100;
+		const pulsingDot = {
+		width: size,
+		height: size,
+		data: new Uint8Array(size * size * 4),
 
-// This implements `StyleImageInterface`
-// to draw a pulsing dot icon on the map.
-const size = 100;
-const pulsingDot = {
-width: size,
-height: size,
-data: new Uint8Array(size * size * 4),
+		onAdd: function () {
+			const canvas = document.createElement('canvas');
+			canvas.width = this.width;
+			canvas.height = this.height;
+			this.context = canvas.getContext('2d');
+		},
 
-onAdd: function () {
-	const canvas = document.createElement('canvas');
-	canvas.width = this.width;
-	canvas.height = this.height;
-	this.context = canvas.getContext('2d');
-},
+		render: function () {
+			const duration = 1000;
+			const t = (performance.now() % duration) / duration;
+			const radius = (size / 2) * 0.3;
+			const outerRadius = (size / 2) * 0.7 * t + radius;
+			const context = this.context;
 
-render: function () {
-	const duration = 1000;
-	const t = (performance.now() % duration) / duration;
+			// Draw the outer circle.
+			context.clearRect(0, 0, this.width, this.height);
+			context.beginPath();
+			context.arc(
+				this.width / 2,
+				this.height / 2,
+				outerRadius,
+				0,
+				Math.PI * 2
+			);
+			context.fillStyle = `rgba(64, 145, 242, ${1 - t})`;
+			context.fill();
 
-	const radius = (size / 2) * 0.3;
-	const outerRadius = (size / 2) * 0.7 * t + radius;
-	const context = this.context;
+			// Draw the inner circle.
+			context.beginPath();
+			context.arc(
+				this.width / 2,
+				this.height / 2,
+				radius,
+				0,
+				Math.PI * 2
+			);
+			context.fillStyle = 'rgba(64, 145, 242, 1)';
+			context.strokeStyle = 'white';
+			context.lineWidth = 2 + 4 * (1 - t);
+			context.fill();
+			context.stroke();
+			this.data = context.getImageData(0, 0, this.width, this.height).data;
+			map.triggerRepaint();
+			return true;
+		}
+		};
 
-	// Draw the outer circle.
-	context.clearRect(0, 0, this.width, this.height);
-	context.beginPath();
-	context.arc(
-		this.width / 2,
-		this.height / 2,
-		outerRadius,
-		0,
-		Math.PI * 2
-	);
-	context.fillStyle = `rgba(64, 145, 242, ${1 - t})`;
-	context.fill();
+		map.on('load', () => {
+		map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
 
-	// Draw the inner circle.
-	context.beginPath();
-	context.arc(
-		this.width / 2,
-		this.height / 2,
-		radius,
-		0,
-		Math.PI * 2
-	);
-	context.fillStyle = 'rgba(64, 145, 242, 1)';
-	context.strokeStyle = 'white';
-	context.lineWidth = 2 + 4 * (1 - t);
-	context.fill();
-	context.stroke();
+		const marker1 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
+		.setLngLat([-49.23299231115456, -25.453246648473993])
+		.addTo(map);
 
-	this.data = context.getImageData(0, 0, this.width, this.height).data;
+		const pulsingDot1 = {
+			width: size,
+			height: size,
+			data: new Uint8Array(size * size * 4),
+			onAdd: function () {
+				const canvas = document.createElement('canvas');
+				canvas.width = this.width;
+				canvas.height = this.height;
+				this.context = canvas.getContext('2d');
+			},
+			render: function () {
+				const duration = 1000;
+				const t = (performance.now() % duration) / duration;
+				const radius = (size / 2) * 0.3;
+				const outerRadius = (size / 2) * 0.7 * t + radius;
+				const context = this.context;
 
-	map.triggerRepaint();
-	return true;
-}
-};
+				// Define the three colors to interpolate between
+				const colors = [
+					[64, 145, 242],   // Color 1
+					[255, 0, 0],      // Color 2
+					[0, 255, 0]       // Color 3
+				];
 
-map.on('load', () => {
-map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+				// Calculate the color index based on the marker position
+				const colorIndex = Math.floor(t * 3);
+				const colorStart = colors[colorIndex];
+				const colorEnd = colors[(colorIndex + 1) % 3];
 
-//		const marker1 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
-//			.setLngLat([-49.23299231115456, -25.453246648473993])
-//		.addTo(map);
-
-const pulsingDot1 = {
-	width: size,
-	height: size,
-	data: new Uint8Array(size * size * 4),
-
-	onAdd: function () {
-		const canvas = document.createElement('canvas');
-		canvas.width = this.width;
-		canvas.height = this.height;
-		this.context = canvas.getContext('2d');
-	},
-
-	render: function () {
-		const duration = 1000;
-		const t = (performance.now() % duration) / duration;
-
-		const radius = (size / 2) * 0.3;
-		const outerRadius = (size / 2) * 0.7 * t + radius;
-		const context = this.context;
-
-		// Define the three colors to interpolate between
-		const colors = [
-			[64, 145, 242],   // Color 1
-			[255, 0, 0],      // Color 2
-			[0, 255, 0]       // Color 3
-		];
-
-		// Calculate the color index based on the marker position
-		const colorIndex = Math.floor(t * 3);
-		const colorStart = colors[colorIndex];
-		const colorEnd = colors[(colorIndex + 1) % 3];
-
-		// Interpolate between colorStart and colorEnd
-		const color = interpolateColor(colorStart, colorEnd, t % (1 / 3) * 3);
-
-		context.clearRect(0, 0, this.width, this.height);
-		context.beginPath();
-		context.arc(
-			this.width / 2,
-			this.height / 2,
-			outerRadius,
-			0,
-			Math.PI * 2
-		);
-		context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${1 - t})`;
-		context.fill();
-
-		context.beginPath();
-		context.arc(
-			this.width / 2,
-			this.height / 2,
-			radius,
-			0,
-			Math.PI * 2
-		);
-		context.fillStyle = 'rgba(64, 145, 242, 1)';
-		context.strokeStyle = 'white';
-		context.lineWidth = 2 + 4 * (1 - t);
-		context.fill();
-		context.stroke();
-
-		this.data = context.getImageData(0, 0, this.width, this.height).data;
-
-		map.triggerRepaint();
-		return true;
-	}
-};
-
-map.addImage('pulsing-dot1', pulsingDot1, { pixelRatio: 2 });
-
-//	const marker2 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
-//			.setLngLat([-49.23420643224654, -25.452029735874333])
-//		.addTo(map);
-
-function interpolateColor(colorStart, colorEnd, t) {
-	const r = Math.round((1 - t) * colorStart[0] + t * colorEnd[0]);
-	const g = Math.round((1 - t) * colorStart[1] + t * colorEnd[1]);
-	const b = Math.round((1 - t) * colorStart[2] + t * colorEnd[2]);
-	return [r, g, b];
-}
-
-map.addSource('dot-point', {
-	type: 'geojson',
-	data: {
-		type: 'FeatureCollection',
-		features: [
-			{
-				type: 'Feature',
-				geometry: {
-					type: 'Point',
-					coordinates: [-49.23299231115456, -25.453246648473993] // icon position [lng, lat]
-				}
+				// Interpolate between colorStart and colorEnd
+				const color = interpolateColor(colorStart, colorEnd, t % (1 / 3) * 3);
+				context.clearRect(0, 0, this.width, this.height);
+				context.beginPath();
+				context.arc(
+					this.width / 2,
+					this.height / 2,
+					outerRadius,
+					0,
+					Math.PI * 2
+				);
+				context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${1 - t})`;
+				context.fill();
+				context.beginPath();
+				context.arc(
+					this.width / 2,
+					this.height / 2,
+					radius,
+					0,
+					Math.PI * 2
+				);
+				context.fillStyle = 'rgba(64, 145, 242, 1)';
+				context.strokeStyle = 'white';
+				context.lineWidth = 2 + 4 * (1 - t);
+				context.fill();
+				context.stroke();
+				this.data = context.getImageData(0, 0, this.width, this.height).data;
+				map.triggerRepaint();
+				return true;
 			}
-		]
-	}
-});
+		};
 
-map.addLayer({
-	id: 'layer-with-pulsing-dot',
-	type: 'symbol',
-	source: 'dot-point',
-	layout: {
-		'icon-image': 'pulsing-dot',
-		'icon-allow-overlap': true // Allow the dot icon to overlap with markers
-	}
-});
+		map.addImage('pulsing-dot1', pulsingDot1, { pixelRatio: 2 });
 
-map.addSource('dot-point1', {
-	type: 'geojson',
-	data: {
-		type: 'FeatureCollection',
-		features: [
-			{
-				type: 'Feature',
-				geometry: {
-					type: 'Point',
-					coordinates: [-49.23420643224654, -25.452029735874333] // icon position [lng, lat]
-				}
+		const marker2 = new mapboxgl.Marker({ color: 'RGB(64, 145, 242)' })
+		.setLngLat([-49.23420643224654, -25.452029735874333])
+		.addTo(map);
+
+		function interpolateColor(colorStart, colorEnd, t) {
+			const r = Math.round((1 - t) * colorStart[0] + t * colorEnd[0]);
+			const g = Math.round((1 - t) * colorStart[1] + t * colorEnd[1]);
+			const b = Math.round((1 - t) * colorStart[2] + t * colorEnd[2]);
+			return [r, g, b];
+		}
+
+		map.addSource('dot-point', {
+			type: 'geojson',
+			data: {
+				type: 'FeatureCollection',
+				features: [
+					{
+						type: 'Feature',
+						geometry: {
+							type: 'Point',
+							coordinates: [-49.23299231115456, -25.453246648473993] // icon position [lng, lat]
+						}
+					}
+				]
 			}
-		]
-	}
-});
+		});
 
-map.addLayer({
-	id: 'layer-with-pulsing-dot1',
-	type: 'symbol',
-	source: 'dot-point1',
-	layout: {
-		'icon-image': 'pulsing-dot1',
-		'icon-allow-overlap': true // Allow the dot icon to overlap with markers
-	}
-});
-});
+		map.addLayer({
+			id: 'layer-with-pulsing-dot',
+			type: 'symbol',
+			source: 'dot-point',
+			layout: {
+				'icon-image': 'pulsing-dot',
+				'icon-allow-overlap': true // Allow the dot icon to overlap with markers
+			}
+		});
 
-				// Toggle the collapsible controls
-				function toggleCollapse() {
-					var collapsibleControls = document.getElementById('collapsibleContent');
-					collapsibleControls.classList.toggle('collapsed');
+		map.addSource('dot-point1', {
+			type: 'geojson',
+			data: {
+				type: 'FeatureCollection',
+				features: [
+					{
+						type: 'Feature',
+						geometry: {
+							type: 'Point',
+							coordinates: [-49.23420643224654, -25.452029735874333] // icon position [lng, lat]
+						}
+					}
+				]
+			}
+		});
+
+		map.addLayer({
+			id: 'layer-with-pulsing-dot1',
+			type: 'symbol',
+			source: 'dot-point1',
+			layout: {
+				'icon-image': 'pulsing-dot1',
+				'icon-allow-overlap': true // Allow the dot icon to overlap with markers
 				}
+			});
+		});
+
+		// Toggle the collapsible controls
+		function toggleCollapse() {
+			var collapsibleControls = document.getElementById('collapsibleContent');
+			collapsibleControls.classList.toggle('collapsed');
+		}
 	</script>
 </html>
