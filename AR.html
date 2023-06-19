@@ -347,15 +347,13 @@
     <a-entity id="ant6" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
     <a-entity ant-path6></a-entity>
 
-    <a-plane position="0 -0.2 -1" rotation="-75 0 0" height="1.6" width="0.06" color="rgba(91, 155, 213, 0.8)"></a-plane>
-    <a-plane position="0 -0.21 -0.9" rotation="-75 0 0" height="1.6" width="0.04" color="rgba(0, 102, 255, 0.498)"></a-plane>
+    <a-plane position="0 -0.2 -0.9" rotation="-85 0 0" height="5.5" width="0.06" color="rgba(91, 155, 213, 0.8)"></a-plane>
+    <a-plane position="0 -0.2 -0.8" rotation="-85 0 0" height="5.5" width="0.04" color="rgba(0, 102, 255, 0.498)"></a-plane>
 
-    <a-plane position="0.189 -0.014 -1"  height="0.35" width="0.035" rotation="0 0 90" color="rgba(91, 155, 213, 0.8)"></a-plane>
-    <a-plane position="0.139 -0.013 -0.9" height="0.3" width="0.025" rotation="0 0 90" color="rgba(0, 102, 255, 0.498)"></a-plane>
 
     <a-entity camera></a-entity>
   </a-scene>
-
+  </body>
     <script>
       var entity = document.querySelector('#modelContainer1');
 entity.setAttribute('material', 'color', '#000000');
@@ -468,14 +466,14 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.07, z: -0.9 },
+            { x: -0.014, y: -0.03, z: -0.7 },
           ];
 
           var ant = document.getElementById("ant");
           // Set initial position of the ant
           ant.setAttribute(
             "animation",
-            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
           );
           // Animate the ant along the path
           points.forEach(function (point, index) {
@@ -513,14 +511,14 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.07, z: -0.9 },
+            { x: -0.014, y: -0.03, z: -0.7 },
           ];
 
           var ant = document.getElementById("ant1");
           // Set initial position of the ant
           ant.setAttribute(
             "animation",
-            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
           );
           // Animate the ant along the path
           points.forEach(function (point, index) {
@@ -558,14 +556,14 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.07, z: -0.9 },
+            { x: -0.014, y: -0.03, z: -0.7 },
           ];
 
           var ant = document.getElementById("ant2");
           // Set initial position of the ant
           ant.setAttribute(
             "animation",
-            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
           );
           // Animate the ant along the path
           points.forEach(function (point, index) {
@@ -603,14 +601,14 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.07, z: -0.9 },
+            { x: -0.014, y: -0.03, z: -0.7 },
           ];
 
           var ant = document.getElementById("ant3");
           // Set initial position of the ant
           ant.setAttribute(
             "animation",
-            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
           );
           // Animate the ant along the path
           points.forEach(function (point, index) {
@@ -648,14 +646,14 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.07, z: -0.9 },
+            { x: -0.014, y: -0.03, z: -0.7 },
           ];
 
           var ant = document.getElementById("ant4");
           // Set initial position of the ant
           ant.setAttribute(
             "animation",
-            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
           );
           // Animate the ant along the path
           points.forEach(function (point, index) {
@@ -693,14 +691,14 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.07, z: -1 },
+            { x: -0.014, y: -0.03, z: -0.7 },
           ];
 
           var ant = document.getElementById("ant5");
           // Set initial position of the ant
           ant.setAttribute(
             "animation",
-            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+            "property: position; to: -0.014 -0.07 -0.7; dur: 7000; loop: true"
           );
           // Animate the ant along the path
           points.forEach(function (point, index) {
@@ -738,14 +736,14 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.07, z: -1 },
+            { x: -0.014, y: -0.03, z: -0.7 },
           ];
 
           var ant = document.getElementById("ant6");
           // Set initial position of the ant
           ant.setAttribute(
             "animation",
-            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+            "property: position; to: -0.014 -0.07 -0.7; dur: 7000; loop: true"
           );
           // Animate the ant along the path
           points.forEach(function (point, index) {
@@ -779,12 +777,12 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
       });
 
 
-      	// Toggle the collapsible controls
-					function toggleCollapse() {
-						var collapsibleControls = document.getElementById('collapsibleContent');
-						collapsibleControls.classList.toggle('collapsed');
-					}
+  	// Toggle the collapsible controls
+			function toggleCollapse() {
+				var collapsibleControls = document.getElementById('collapsibleContent');
+				collapsibleControls.classList.toggle('collapsed');
+			}
 
     </script>
-  </body>
+
 </html>
