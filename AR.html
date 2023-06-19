@@ -1,36 +1,45 @@
-<div id="AR">   </div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>SINRAW</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
+		<title>SINRAW</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+		<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
     <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/glyphicons.css" media="all">
     <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/style.css" media="all">
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.0.1/dist/aframe-extras.min.js"></script>
 
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-<style>
+		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+		<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+
+
+<style  type="text/css">
+
+#imagemNavegacao{
+  position:fixed;
+  top:7%;
+  width:71%;
+  left:0%;
+  height:11%;
+}
 
   #menu {
     position: fixed;
@@ -41,15 +50,26 @@
 		text-align: center;
   }
 
-	#imagemNavegacao{
-  position:fixed;
-  top:7%;
-  width:71%;
-  left:0%;
-  height:11%;
-}
 
+  #map {
+    position: fixed;
+		top:70%;
+    bottom: 0%;
+    height: 30%;
+    left: 0%;
+    width: 100%;
+    z-index: 1;
+  }
 
+  .direction {
+    position: absolute;
+    z-index: 2;
+    max-width: 80px;
+    width: 25%;
+    height: 10%;
+    left: 1%;
+    top: 6.5%;
+  }
 
   .navbar-form label {
     left: 5%;
@@ -67,7 +87,7 @@
 		 background-color: rgba(0, 0, 0, 0) !important;
   }
 
-	.map-overlay {
+  .map-overlay {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
     background-color: rgba(0, 0, 0, 0) !important;
@@ -194,11 +214,11 @@
                 1px -1px 0px #FFF,
                 1px 0px 0px #FFF;
   }
-.collapsible.collapsed {
- display: none;
-}
-</style>
-</head>
+	.collapsible.collapsed {
+   display: none;
+ }
+    </style>
+  </head>
 <div id = 'menu'>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -225,560 +245,546 @@
 	</div>
 </div>
 
+
   <body style="margin: 0; overflow: hidden;">
-		<div id='AR'> </div>
+    		<div id='AR'> </div>
 		<div id="direction" class="direction">  </div>
 		<div id ="imagemNavegacao" >
 						<img src="./imagemNavegacao.png" ></img>
 		</div>
 
-		<div id="map-overlay" class="map-overlay">
-	<button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
-		<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
-	</button>
-	<div id="collapsibleControls" class="collapse">
-		<div class="map-overlay-inner">
-			<div class="container">
-				<div class="panel-group">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" href="#collapse4" style="text-align:center"><b>&ensp; &ensp;Realidade Aumentada</b></a>
-							</h4>
-						</div>
-						<div id="collapse4" class="panel-collapse collapse">
-							<fieldset>
-								<label>Pin:&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
-									<select id="pinSelector" onchange="loadModel('pin')">
-										<option value=""></option>
-										<option value="pin1">Pin 1 </option>
-										<option value="pin2">Pin 2 </option>
-										<option value="pin3">Pin 3 </option>
-									</select>
-								</label>
-								<label>Setas:&ensp;&ensp; &ensp; &ensp; &ensp;
-									<select id="setaSelector" onchange="loadModel('seta')">
-										<option value=""></option>
-										<option value="seta1">Seta 1 </option>
-										<option value="seta2">Seta 2 </option>
-										<option value="seta3">Seta 3 </option>
-										<option value="seta4">Seta 4 </option>
-									</select>
-								</label>
-								<label>Linhas:&ensp; &ensp; &ensp; &ensp;
-									<select id="linhaSelector" onchange="loadModel('linha')">
-										<option value=""></option>
-										<option value="linha1">Linha 1 </option>
-										<option value="linha2">Linha 2 </option>
-										<option value="linha3">Linha 3 </option>
-										<option value="linha4">Linha 4 </option>
-									</select>
-								</label>
-							</fieldset>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-</div>
-<a-scene embedded arjs="trackingMethod: best;">
-	<a-assets>
-		<a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855" ></a-asset-item>
-		<a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
-		<a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin04.glb?v=1661105011947"></a-asset-item>
-		<a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
-		<a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
-		<a-asset-item id="seta3" src="https://cdn.glitch.global/cb8cfd80-f61b-4153-ade5-0a580f8a9cc7/arrowsmult.glb?v=1687137495081"></a-asset-item>
-		<a-asset-item id="seta4" src="https://cdn.glitch.global/cb8cfd80-f61b-4153-ade5-0a580f8a9cc7/arrowsmult1.glb?v=1687143060212"></a-asset-item>
- </a-assets>
-			<a-entity id="modelContainer">  </a-entity>
-			<a-entity id="modelContainer1"> </a-entity>
-			<a-entity id="modelContainer2"> </a-entity>
+  <div id="map-overlay" class="map-overlay">
+    <button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 27px" data-target="#collapsibleControls">
+      <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+    </button>
+    <div id="collapsibleControls" class="collapse">
+      <div class="map-overlay-inner">
+        <div class="container">
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapse4" style="text-align:center"><b>&ensp; &ensp;Realidade Aumentada</b></a>
+                </h4>
+              </div>
+              <div id="collapse4" class="panel-collapse collapse">
+                <fieldset>
+                  <label>Pin:&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+                    <select id="pinSelector" onchange="loadModel('pin')">
+                      <option value=""></option>
+                      <option value="pin1">Pin 1 </option>
+                      <option value="pin2">Pin 2 </option>
+                      <option value="pin3">Pin 3 </option>
+                    </select>
+                  </label>
+                  <label>Setas:&ensp;&ensp; &ensp; &ensp; &ensp;
+                    <select id="setaSelector" onchange="loadModel('seta')">
+                      <option value=""></option>
+                      <option value="seta1">Seta 1 </option>
+                      <option value="seta2">Seta 2 </option>
+                      <option value="seta3">Seta 3 </option>
+                      <option value="seta4">Seta 4 </option>
+                    </select>
+                  </label>
+                  <label>Linhas:&ensp; &ensp; &ensp; &ensp;
+                    <select id="linhaSelector" onchange="loadModel('linha')">
+                      <option value=""></option>
+                      <option value="linha1">Linha 1 </option>
+                      <option value="linha2">Linha 2 </option>
+                      <option value="linha3">Linha 3 </option>
+                      <option value="linha4">Linha 4 </option>
+                    </select>
+                  </label>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  <a-scene embedded arjs="trackingMethod: best;">
+    <a-assets>
+      <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855" ></a-asset-item>
+      <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
+      <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin04.glb?v=1661105011947"></a-asset-item>
+      <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
+      <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
+      <a-asset-item id="seta3" src="https://cdn.glitch.global/cb8cfd80-f61b-4153-ade5-0a580f8a9cc7/arrowsmult.glb?v=1687137495081"></a-asset-item>
+      <a-asset-item id="seta4" src="https://cdn.glitch.global/cb8cfd80-f61b-4153-ade5-0a580f8a9cc7/arrowsmult1.glb?v=1687143060212"></a-asset-item>
+   </a-assets>
+        <a-entity id="modelContainer">  </a-entity>
+        <a-entity id="modelContainer1"> </a-entity>
+        <a-entity id="modelContainer2"> </a-entity>
 
 
-			<a-asset-item
-				id="ant-model"
-				src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"
-			></a-asset-item>
-	</a-assets>
+        <a-asset-item
+          id="ant-model"
+          src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"
+        ></a-asset-item>
+    </a-assets>
 
-		<a-entity id="ant" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
-	<a-entity ant-path></a-entity>
+      <a-entity id="ant" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
+    <a-entity ant-path></a-entity>
 
-	 <a-entity id="ant1" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
-	<a-entity ant-path1></a-entity>
+     <a-entity id="ant1" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
+    <a-entity ant-path1></a-entity>
 
-	<a-entity id="ant2" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
-	<a-entity ant-path2></a-entity>
+    <a-entity id="ant2" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
+    <a-entity ant-path2></a-entity>
 
-	<a-entity id="ant3" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
-	<a-entity ant-path3></a-entity>
+    <a-entity id="ant3" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
+    <a-entity ant-path3></a-entity>
 
-	<a-entity id="ant4" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
-	<a-entity ant-path4></a-entity>
+    <a-entity id="ant4" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
+    <a-entity ant-path4></a-entity>
 
-	<a-entity id="ant5" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
-	<a-entity ant-path5></a-entity>
+    <a-entity id="ant5" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
+    <a-entity ant-path5></a-entity>
 
-	<a-entity id="ant6" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
-	<a-entity ant-path6></a-entity>
+    <a-entity id="ant6" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
+    <a-entity ant-path6></a-entity>
 
-	<a-plane position="0 -0.2 -1" rotation="-75 0 0" height="1.6" width="0.06" color="rgba(91, 155, 213, 0.8)"></a-plane>
-	<a-plane position="0 -0.21 -0.9" rotation="-75 0 0" height="1.6" width="0.04" color="rgba(0, 102, 255, 0.498)"></a-plane>
+    <a-plane position="0 -0.2 -1" rotation="-75 0 0" height="1.6" width="0.06" color="rgba(91, 155, 213, 0.8)"></a-plane>
+    <a-plane position="0 -0.21 -0.9" rotation="-75 0 0" height="1.6" width="0.04" color="rgba(0, 102, 255, 0.498)"></a-plane>
 
-	<a-plane position="0.189 -0.014 -1"  height="0.35" width="0.035" rotation="0 0 90" color="rgba(91, 155, 213, 0.8)"></a-plane>
-	<a-plane position="0.139 -0.013 -0.9" height="0.3" width="0.025" rotation="0 0 90" color="rgba(0, 102, 255, 0.498)"></a-plane>
+    <a-plane position="0.189 -0.014 -1"  height="0.35" width="0.035" rotation="0 0 90" color="rgba(91, 155, 213, 0.8)"></a-plane>
+    <a-plane position="0.139 -0.013 -0.9" height="0.3" width="0.025" rotation="0 0 90" color="rgba(0, 102, 255, 0.498)"></a-plane>
 
-	<a-entity camera></a-entity>
-</a-scene>
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="./Bootstrap/jquery.js.download"></script>
-<script src="./Bootstrap/bootstrap-transition.js.download"></script>
-<script src="./Bootstrap/bootstrap-alert.js.download"></script>
-<script src="./Bootstrap/bootstrap-modal.js.download"></script>
-<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
-<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
-<script src="./Bootstrap/bootstrap-tab.js.download"></script>
-<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
-<script src="./Bootstrap/bootstrap-popover.js.download"></script>
-<script src="./Bootstrap/bootstrap-button.js.download"></script>
-<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
-<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
-<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
+    <a-entity camera></a-entity>
+  </a-scene>
 
-</body>
-	<script>
-		var entity = document.querySelector('#modelContainer1');
+    <script>
+      var entity = document.querySelector('#modelContainer1');
 entity.setAttribute('material', 'color', '#000000');
-		// Initialize the selected options
-				var selectedPin = '';
-				var selectedSeta = '';
-				var selectedLinha = '';
+      // Initialize the selected options
+          var selectedPin = '';
+          var selectedSeta = '';
+          var selectedLinha = '';
 
-	// seta1 scale 3 3 3 rotate 0 0 90, seta2 scale 30 30 30 rotate 0 0 0, seta3 scale 30 30 30 rotate 0 0 90 seta 4 scale 3 3 3 rotate 0 0 90
+    // seta1 scale 3 3 3 rotate 0 0 90, seta2 scale 30 30 30 rotate 0 0 0, seta3 scale 30 30 30 rotate 0 0 90 seta 4 scale 3 3 3 rotate 0 0 90
 
-				// Load the model based on the selected option
-				function loadModel(type) {
-					if (type === 'pin') {
-						selectedPin = document.getElementById('pinSelector').value;
-						loadPinModel();
-					} if (type === 'seta') {
-						selectedSeta = document.getElementById('setaSelector').value;
-						loadSetaModel();
-					} if (type === 'linha') {
-						selectedLinha = document.getElementById('linhaSelector').value;
-						loadLinhaModel();
-					}
-				}
-				//meio fundo '5 -10 -40', fundo direito '15 -10 -40',
-				 // Load the Pin model
-					function loadPinModel() {
-						var modelContainer = document.getElementById('modelContainer');
-						modelContainer.innerHTML = '';
-						if (selectedPin !== '') {
-							var pin = document.createElement('a-entity');
-							var pin1 = document.createElement('a-entity3');
-							pin.setAttribute('gltf-model', '#' + selectedPin);
-							pin1.setAttribute('gltf-model', '#' + selectedPin);
-							// Set scale and rotation based on the selected seta
+          // Load the model based on the selected option
+          function loadModel(type) {
+            if (type === 'pin') {
+              selectedPin = document.getElementById('pinSelector').value;
+              loadPinModel();
+            } if (type === 'seta') {
+              selectedSeta = document.getElementById('setaSelector').value;
+              loadSetaModel();
+            } if (type === 'linha') {
+              selectedLinha = document.getElementById('linhaSelector').value;
+              loadLinhaModel();
+            }
+          }
+          //meio fundo '5 -10 -40', fundo direito '15 -10 -40',
+           // Load the Pin model
+            function loadPinModel() {
+              var modelContainer = document.getElementById('modelContainer');
+              modelContainer.innerHTML = '';
+              if (selectedPin !== '') {
+                var pin = document.createElement('a-entity');
+                var pin1 = document.createElement('a-entity3');
+                pin.setAttribute('gltf-model', '#' + selectedPin);
+                pin1.setAttribute('gltf-model', '#' + selectedPin);
+                // Set scale and rotation based on the selected seta
 var sizeCheckbox = document.getElementById('sizeCheckbox');
-							switch (selectedPin) {
-								case 'pin1':
-									pin.setAttribute('position', '2.7 1.6 -10');
-									pin.setAttribute('scale', '0.8 0.8 0.8');
-									pin.setAttribute('rotation', '0 0 90');
-									pin.setAttribute('opacity','0.5')
-									pin.setAttribute('animation', 'property: scale; to: 1.0 1.0 1.0; loop: true; dur: 2000');
-									break;
-								case 'pin2':
-									pin.setAttribute('position', '0.16 0.06 -1');
-									pin.setAttribute('scale', '0.10 0.10 0.10');
-									pin.setAttribute('rotation', '0 0 0');
-									break;
-								case 'pin3':
-									pin.setAttribute('position', '1.5 0.66 -10');
-									pin.setAttribute('scale', '1 1 1');
-									pin.setAttribute('rotation', '0 0 0');
-									break;
-							}
-							modelContainer.appendChild(pin);
-						}
+                switch (selectedPin) {
+                  case 'pin1':
+                    pin.setAttribute('position', '2.7 1.6 -10');
+                    pin.setAttribute('scale', '0.8 0.8 0.8');
+                    pin.setAttribute('rotation', '0 0 90');
+                    pin.setAttribute('opacity','0.5')
+                    pin.setAttribute('animation', 'property: scale; to: 1.0 1.0 1.0; loop: true; dur: 2000');
+                    break;
+                  case 'pin2':
+                    pin.setAttribute('position', '0.16 0.06 -1');
+                    pin.setAttribute('scale', '0.10 0.10 0.10');
+                    pin.setAttribute('rotation', '0 0 0');
+                    break;
+                  case 'pin3':
+                    pin.setAttribute('position', '1.5 0.66 -10');
+                    pin.setAttribute('scale', '1 1 1');
+                    pin.setAttribute('rotation', '0 0 0');
+                    break;
+                }
+                modelContainer.appendChild(pin);
+              }
 
+            }
+
+             // Load the seta model
+            function loadSetaModel() {
+              var modelContainer1 = document.getElementById('modelContainer1');
+              modelContainer1.innerHTML = '';
+              if (selectedSeta !== '') {
+                var seta = document.createElement('a-entity');
+                seta.setAttribute('gltf-model', '#' + selectedSeta);
+                // Set scale and rotation based on the selected seta
+                switch (selectedSeta) {
+                  case 'seta1':
+                    seta.setAttribute('position', '0 1.2 -10');
+                    seta.setAttribute('scale', '0.1 0.1 0.1');
+                    seta.setAttribute('rotation', '90 90 110');
+                     seta.setAttribute('animation', 'property: scale; to: 0.15 0.15 0.15; easing: linear; loop: true; dur: 2000');
+                    break;
+
+                  case 'seta2':
+                    seta.setAttribute('position', '0 1.2 -10');
+                    seta.setAttribute('scale', '0.15 0.15 0.15');
+                    seta.setAttribute('rotation', '90 90 110');
+
+                    break;
+                  case 'seta3':
+                    seta.setAttribute('position', '0.5 1.2 -10');
+                    seta.setAttribute('scale', '0.5 0.5 0.5');
+                    seta.setAttribute('rotation', '5 45 -20');
+                    break;
+                  case 'seta4':
+                    seta.setAttribute('position', '0.5 1.2 -10');
+                    seta.setAttribute('scale', '0.5 0.5 0.5');
+                    seta.setAttribute('rotation', '5 45 -20');
+                    seta.setAttribute('animation', 'property: scale; to: 0.7 0.7 0.7; easing: linear; loop: true; dur: 3000');
+                    break;
+                }
+                modelContainer1.appendChild(seta);
+              }
+            }
+
+          // Load the linha model
+          function loadLinhaModel() {
+            var modelContainer3= document.getElementById('modelContainer3');
+            modelContainer3.innerHTML = '';
+            switch (selectedLinha) {
+                  case 'linha1':
+                break;
+            }
+      }
+
+        AFRAME.registerComponent("ant-path", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.07, z: -0.9 },
+          ];
+
+          var ant = document.getElementById("ant");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 7000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:0,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+      AFRAME.registerComponent("ant-path1", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.07, z: -0.9 },
+          ];
+
+          var ant = document.getElementById("ant1");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 7000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:1000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+            AFRAME.registerComponent("ant-path2", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.07, z: -0.9 },
+          ];
+
+          var ant = document.getElementById("ant2");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 7000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:2000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+       AFRAME.registerComponent("ant-path3", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.07, z: -0.9 },
+          ];
+
+          var ant = document.getElementById("ant3");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 7000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:3000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+             AFRAME.registerComponent("ant-path4", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.07, z: -0.9 },
+          ];
+
+          var ant = document.getElementById("ant4");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 7000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:4000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+        AFRAME.registerComponent("ant-path5", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.07, z: -1 },
+          ];
+
+          var ant = document.getElementById("ant5");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 7000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:5000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+        AFRAME.registerComponent("ant-path6", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.07, z: -1 },
+          ];
+
+          var ant = document.getElementById("ant6");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 7000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:6000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+
+      	// Toggle the collapsible controls
+					function toggleCollapse() {
+						var collapsibleControls = document.getElementById('collapsibleContent');
+						collapsibleControls.classList.toggle('collapsed');
 					}
 
-					 // Load the seta model
-					function loadSetaModel() {
-						var modelContainer1 = document.getElementById('modelContainer1');
-						modelContainer1.innerHTML = '';
-						if (selectedSeta !== '') {
-							var seta = document.createElement('a-entity');
-							seta.setAttribute('gltf-model', '#' + selectedSeta);
-							// Set scale and rotation based on the selected seta
-							switch (selectedSeta) {
-								case 'seta1':
-									seta.setAttribute('position', '0 1.2 -10');
-									seta.setAttribute('scale', '0.1 0.1 0.1');
-									seta.setAttribute('rotation', '90 90 110');
-									 seta.setAttribute('animation', 'property: scale; to: 0.15 0.15 0.15; easing: linear; loop: true; dur: 2000');
-									break;
-
-								case 'seta2':
-									seta.setAttribute('position', '0 1.2 -10');
-									seta.setAttribute('scale', '0.15 0.15 0.15');
-									seta.setAttribute('rotation', '90 90 110');
-
-									break;
-								case 'seta3':
-									seta.setAttribute('position', '0.5 1.2 -10');
-									seta.setAttribute('scale', '0.5 0.5 0.5');
-									seta.setAttribute('rotation', '5 45 -20');
-									break;
-								case 'seta4':
-									seta.setAttribute('position', '0.5 1.2 -10');
-									seta.setAttribute('scale', '0.5 0.5 0.5');
-									seta.setAttribute('rotation', '5 45 -20');
-									seta.setAttribute('animation', 'property: scale; to: 0.7 0.7 0.7; easing: linear; loop: true; dur: 3000');
-									break;
-							}
-							modelContainer1.appendChild(seta);
-						}
-					}
-
-				// Load the linha model
-				function loadLinhaModel() {
-					var modelContainer3= document.getElementById('modelContainer3');
-					modelContainer3.innerHTML = '';
-					switch (selectedLinha) {
-								case 'linha1':
-							break;
-					}
-		}
-
-			AFRAME.registerComponent("ant-path", {
-			init: function () {
-				var el = this.el;
-				var points = [
-					{ x: -0.014, y: -0.6, z: 0 },
-					{ x: -0.014, y: -0.07, z: -0.9 },
-				];
-
-				var ant = document.getElementById("ant");
-				// Set initial position of the ant
-				ant.setAttribute(
-					"animation",
-					"property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
-				);
-				// Animate the ant along the path
-				points.forEach(function (point, index) {
-					var nextIndex = (index + 1) % points.length;
-					var nextPoint = points[nextIndex];
-					ant.setAttribute("animation__path" + index, {
-						property: "position",
-						from: point.x + " " + point.y + " " + point.z,
-						to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-						dur: 7000, // Adjust duration as needed
-						easing: "linear",
-						loop: true,
-						startEvents: "path" + index,
-						pauseEvents: "path" + nextIndex,
-						delay:0,
-					});
-				});
-
-				// Start the animation
-				points.forEach(function (point, index) {
-					el.addEventListener("path" + index, function () {
-						ant.emit("path" + index);
-					});
-				});
-
-				// Emit the first event to start the animation
-				el.emit("path0");
-				// Add a delay and emit the second event
-
-			},
-		});
-
-		AFRAME.registerComponent("ant-path1", {
-			init: function () {
-				var el = this.el;
-				var points = [
-					{ x: -0.014, y: -0.6, z: 0 },
-					{ x: -0.014, y: -0.07, z: -0.9 },
-				];
-
-				var ant = document.getElementById("ant1");
-				// Set initial position of the ant
-				ant.setAttribute(
-					"animation",
-					"property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
-				);
-				// Animate the ant along the path
-				points.forEach(function (point, index) {
-					var nextIndex = (index + 1) % points.length;
-					var nextPoint = points[nextIndex];
-					ant.setAttribute("animation__path" + index, {
-						property: "position",
-						from: point.x + " " + point.y + " " + point.z,
-						to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-						dur: 7000, // Adjust duration as needed
-						easing: "linear",
-						loop: true,
-						startEvents: "path" + index,
-						pauseEvents: "path" + nextIndex,
-						delay:1000,
-					});
-				});
-
-				// Start the animation
-				points.forEach(function (point, index) {
-					el.addEventListener("path" + index, function () {
-						ant.emit("path" + index);
-					});
-				});
-
-				// Emit the first event to start the animation
-				el.emit("path0");
-				// Add a delay and emit the second event
-
-			},
-		});
-
-					AFRAME.registerComponent("ant-path2", {
-			init: function () {
-				var el = this.el;
-				var points = [
-					{ x: -0.014, y: -0.6, z: 0 },
-					{ x: -0.014, y: -0.07, z: -0.9 },
-				];
-
-				var ant = document.getElementById("ant2");
-				// Set initial position of the ant
-				ant.setAttribute(
-					"animation",
-					"property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
-				);
-				// Animate the ant along the path
-				points.forEach(function (point, index) {
-					var nextIndex = (index + 1) % points.length;
-					var nextPoint = points[nextIndex];
-					ant.setAttribute("animation__path" + index, {
-						property: "position",
-						from: point.x + " " + point.y + " " + point.z,
-						to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-						dur: 7000, // Adjust duration as needed
-						easing: "linear",
-						loop: true,
-						startEvents: "path" + index,
-						pauseEvents: "path" + nextIndex,
-						delay:2000,
-					});
-				});
-
-				// Start the animation
-				points.forEach(function (point, index) {
-					el.addEventListener("path" + index, function () {
-						ant.emit("path" + index);
-					});
-				});
-
-				// Emit the first event to start the animation
-				el.emit("path0");
-				// Add a delay and emit the second event
-
-			},
-		});
-
-		 AFRAME.registerComponent("ant-path3", {
-			init: function () {
-				var el = this.el;
-				var points = [
-					{ x: -0.014, y: -0.6, z: 0 },
-					{ x: -0.014, y: -0.07, z: -0.9 },
-				];
-
-				var ant = document.getElementById("ant3");
-				// Set initial position of the ant
-				ant.setAttribute(
-					"animation",
-					"property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
-				);
-				// Animate the ant along the path
-				points.forEach(function (point, index) {
-					var nextIndex = (index + 1) % points.length;
-					var nextPoint = points[nextIndex];
-					ant.setAttribute("animation__path" + index, {
-						property: "position",
-						from: point.x + " " + point.y + " " + point.z,
-						to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-						dur: 7000, // Adjust duration as needed
-						easing: "linear",
-						loop: true,
-						startEvents: "path" + index,
-						pauseEvents: "path" + nextIndex,
-						delay:3000,
-					});
-				});
-
-				// Start the animation
-				points.forEach(function (point, index) {
-					el.addEventListener("path" + index, function () {
-						ant.emit("path" + index);
-					});
-				});
-
-				// Emit the first event to start the animation
-				el.emit("path0");
-				// Add a delay and emit the second event
-
-			},
-		});
-
-					 AFRAME.registerComponent("ant-path4", {
-			init: function () {
-				var el = this.el;
-				var points = [
-					{ x: -0.014, y: -0.6, z: 0 },
-					{ x: -0.014, y: -0.07, z: -0.9 },
-				];
-
-				var ant = document.getElementById("ant4");
-				// Set initial position of the ant
-				ant.setAttribute(
-					"animation",
-					"property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
-				);
-				// Animate the ant along the path
-				points.forEach(function (point, index) {
-					var nextIndex = (index + 1) % points.length;
-					var nextPoint = points[nextIndex];
-					ant.setAttribute("animation__path" + index, {
-						property: "position",
-						from: point.x + " " + point.y + " " + point.z,
-						to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-						dur: 7000, // Adjust duration as needed
-						easing: "linear",
-						loop: true,
-						startEvents: "path" + index,
-						pauseEvents: "path" + nextIndex,
-						delay:4000,
-					});
-				});
-
-				// Start the animation
-				points.forEach(function (point, index) {
-					el.addEventListener("path" + index, function () {
-						ant.emit("path" + index);
-					});
-				});
-
-				// Emit the first event to start the animation
-				el.emit("path0");
-				// Add a delay and emit the second event
-
-			},
-		});
-
-			AFRAME.registerComponent("ant-path5", {
-			init: function () {
-				var el = this.el;
-				var points = [
-					{ x: -0.014, y: -0.6, z: 0 },
-					{ x: -0.014, y: -0.07, z: -1 },
-				];
-
-				var ant = document.getElementById("ant5");
-				// Set initial position of the ant
-				ant.setAttribute(
-					"animation",
-					"property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
-				);
-				// Animate the ant along the path
-				points.forEach(function (point, index) {
-					var nextIndex = (index + 1) % points.length;
-					var nextPoint = points[nextIndex];
-					ant.setAttribute("animation__path" + index, {
-						property: "position",
-						from: point.x + " " + point.y + " " + point.z,
-						to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-						dur: 7000, // Adjust duration as needed
-						easing: "linear",
-						loop: true,
-						startEvents: "path" + index,
-						pauseEvents: "path" + nextIndex,
-						delay:5000,
-					});
-				});
-
-				// Start the animation
-				points.forEach(function (point, index) {
-					el.addEventListener("path" + index, function () {
-						ant.emit("path" + index);
-					});
-				});
-
-				// Emit the first event to start the animation
-				el.emit("path0");
-				// Add a delay and emit the second event
-
-			},
-		});
-
-			AFRAME.registerComponent("ant-path6", {
-			init: function () {
-				var el = this.el;
-				var points = [
-					{ x: -0.014, y: -0.6, z: 0 },
-					{ x: -0.014, y: -0.07, z: -1 },
-				];
-
-				var ant = document.getElementById("ant6");
-				// Set initial position of the ant
-				ant.setAttribute(
-					"animation",
-					"property: position; to: 0 -0.6 -1; dur: 4000; loop: true"
-				);
-				// Animate the ant along the path
-				points.forEach(function (point, index) {
-					var nextIndex = (index + 1) % points.length;
-					var nextPoint = points[nextIndex];
-					ant.setAttribute("animation__path" + index, {
-						property: "position",
-						from: point.x + " " + point.y + " " + point.z,
-						to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-						dur: 7000, // Adjust duration as needed
-						easing: "linear",
-						loop: true,
-						startEvents: "path" + index,
-						pauseEvents: "path" + nextIndex,
-						delay:6000,
-					});
-				});
-
-				// Start the animation
-				points.forEach(function (point, index) {
-					el.addEventListener("path" + index, function () {
-						ant.emit("path" + index);
-					});
-				});
-
-				// Emit the first event to start the animation
-				el.emit("path0");
-				// Add a delay and emit the second event
-
-			},
-		});
-
-
-		// Toggle the collapsible controls
-		function toggleCollapse() {
-			var collapsibleControls = document.getElementById('collapsibleContent');
-			collapsibleControls.classList.toggle('collapsed');
-		}
-	</script>
+    </script>
+  </body>
 </html>
