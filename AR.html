@@ -224,7 +224,7 @@
 		<div class="navbar-inner">
 		 <h4 href="./index.html" style=" position:fixed;left:1%;font-weight: bold; text-shadow: 0 0 12px #000000, 0 0 12px #000000;"> &ensp; SINRAW </h4>
 			<div class="container-fluid">
-				<button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" onclick="toggleCollapse1()" >
+				<button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" onclick="toggleCollapse()" >
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -286,15 +286,6 @@
                       <option value="seta4">Seta 4 </option>
                     </select>
                   </label>
-                  <label>Linhas:&ensp; &ensp; &ensp; &ensp;
-                    <select id="linhaSelector" onchange="loadModel('linha')">
-                      <option value=""></option>
-                      <option value="linha1">Linha 1 </option>
-                      <option value="linha2">Linha 2 </option>
-                      <option value="linha3">Linha 3 </option>
-                      <option value="linha4">Linha 4 </option>
-                    </select>
-                  </label>
                 </fieldset>
               </div>
             </div>
@@ -347,8 +338,16 @@
     <a-entity id="ant6" position="-0.014 -0.6 -0.9" rotation="60 180 90" scale= "0.0027 0.0027 0.0027" gltf-model="#ant-model"></a-entity>
     <a-entity ant-path6></a-entity>
 
-    <a-plane position="0 -0.2 -0.9" rotation="-85 0 0" height="5.5" width="0.06" color="rgba(91, 155, 213, 0.8)"></a-plane>
+
     <a-plane position="0 -0.2 -0.8" rotation="-85 0 0" height="5.5" width="0.04" color="rgba(0, 102, 255, 0.498)"></a-plane>
+		<a-plane position="0.05 0.0075 -0.9" height="0.11" width="0.005" rotation="0 0 90" color="rgba(0, 102, 255, 0.498)"></a-plane>
+		<a-plane position="0.204 0.04 -1.9"  rotation="-75 0 -355" height="0.24" width="0.008" color="rgba(0, 102, 255, 0.498)"></a-plane>
+
+		<a-plane position="0 -0.2 -0.9" rotation="-85 0 0" height="5.5" width="0.06" color="rgba(91, 155, 213, 0.8)"></a-plane>
+		<a-plane position="0.105 0.025 -2"  height="0.24" width="0.006" rotation="0 0 90" color="rgba(91, 155, 213, 0.8)"></a-plane>
+		<a-plane position="0.13 0.007 -2"  height="0.223" width="0.01" rotation="0 0 90" color="rgba(91, 155, 213, 0.8)"></a-plane>
+		<a-plane position="0.215 0.04 -2"  rotation="-75 0 -355" height="0.29" width="0.02" color="rgba(91, 155, 213, 0.8)"></a-plane>
+
 
 
     <a-entity camera></a-entity>
@@ -360,7 +359,6 @@ entity.setAttribute('material', 'color', '#000000');
       // Initialize the selected options
           var selectedPin = '';
           var selectedSeta = '';
-          var selectedLinha = '';
 
     // seta1 scale 3 3 3 rotate 0 0 90, seta2 scale 30 30 30 rotate 0 0 0, seta3 scale 30 30 30 rotate 0 0 90 seta 4 scale 3 3 3 rotate 0 0 90
 
@@ -372,9 +370,6 @@ entity.setAttribute('material', 'color', '#000000');
             } if (type === 'seta') {
               selectedSeta = document.getElementById('setaSelector').value;
               loadSetaModel();
-            } if (type === 'linha') {
-              selectedLinha = document.getElementById('linhaSelector').value;
-              loadLinhaModel();
             }
           }
           //meio fundo '5 -10 -40', fundo direito '15 -10 -40',
@@ -388,14 +383,15 @@ entity.setAttribute('material', 'color', '#000000');
                 pin.setAttribute('gltf-model', '#' + selectedPin);
                 pin1.setAttribute('gltf-model', '#' + selectedPin);
                 // Set scale and rotation based on the selected seta
-var sizeCheckbox = document.getElementById('sizeCheckbox');
+								var sizeCheckbox = document.getElementById('sizeCheckbox');
                 switch (selectedPin) {
                   case 'pin1':
-                    pin.setAttribute('position', '2.7 1.4 -10');
-                    pin.setAttribute('scale', '0.7 0.7 0.7');
+                    pin.setAttribute('position', '1.44 0.98 -11');
+                    pin.setAttribute('scale', '0.5 0.5 0.5');
                     pin.setAttribute('rotation', '0 0 90');
                     pin.setAttribute('opacity','0.5')
-                    pin.setAttribute('animation', 'property: scale; to: 1.0 1.0 1.0; loop: true; dur: 2000');
+                  //  pin.setAttribute('animation', 'property: scale; to: 0.7 0.7 0.7; loop: true; dur: 2000');
+										pin.setAttribute('animation', 'property: position; to: 1.35 0.88 -9; easing: linear; loop: true; dur: 2000');
                     break;
                   case 'pin2':
                     pin.setAttribute('position', '0.16 0.06 -1');
@@ -423,10 +419,10 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
                 // Set scale and rotation based on the selected seta
                 switch (selectedSeta) {
                   case 'seta1':
-                    seta.setAttribute('position', '0 1.2 -10');
-                    seta.setAttribute('scale', '0.1 0.1 0.1');
+                    seta.setAttribute('position', '-0.2 0.7 -10');
+                    seta.setAttribute('scale', '0.05 0.05 0.05');
                     seta.setAttribute('rotation', '90 90 110');
-                     seta.setAttribute('animation', 'property: scale; to: 0.15 0.15 0.15; easing: linear; loop: true; dur: 2000');
+                     seta.setAttribute('animation', 'property: scale; to: 0.07 0.07 0.07; easing: linear; loop: true; dur: 2000');
                     break;
 
                   case 'seta2':
@@ -441,32 +437,22 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
                     seta.setAttribute('rotation', '5 45 -20');
                     break;
                   case 'seta4':
-                    seta.setAttribute('position', '0.5 1.2 -10');
-                    seta.setAttribute('scale', '0.4 0.4 0.4');
+                    seta.setAttribute('position', '0.5 1 -10');
+                    seta.setAttribute('scale', '0.15 0.15 0.25');
                     seta.setAttribute('rotation', '5 45 -20');
-                    seta.setAttribute('animation', 'property: scale; to: 0.6 0.6 0.7; easing: linear; loop: true; dur: 3000');
+                    seta.setAttribute('animation', 'property: scale; to: 0.25 0.25 0.25; easing: linear; loop: true; dur: 2000');
                     break;
                 }
                 modelContainer1.appendChild(seta);
               }
             }
 
-          // Load the linha model
-          function loadLinhaModel() {
-            var modelContainer3= document.getElementById('modelContainer3');
-            modelContainer3.innerHTML = '';
-            switch (selectedLinha) {
-                  case 'linha1':
-                break;
-            }
-      }
-
         AFRAME.registerComponent("ant-path", {
         init: function () {
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.03, z: -0.7 },
+            { x: -0.014, y: -0.03, z: -0.9 },
           ];
 
           var ant = document.getElementById("ant");
@@ -483,7 +469,7 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
               property: "position",
               from: point.x + " " + point.y + " " + point.z,
               to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-              dur: 7000, // Adjust duration as needed
+              dur: 21000, // Adjust duration as needed
               easing: "linear",
               loop: true,
               startEvents: "path" + index,
@@ -511,7 +497,7 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.03, z: -0.7 },
+            { x: -0.014, y: -0.03, z: -0.9 },
           ];
 
           var ant = document.getElementById("ant1");
@@ -528,97 +514,7 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
               property: "position",
               from: point.x + " " + point.y + " " + point.z,
               to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-              dur: 7000, // Adjust duration as needed
-              easing: "linear",
-              loop: true,
-              startEvents: "path" + index,
-              pauseEvents: "path" + nextIndex,
-              delay:1000,
-            });
-          });
-
-          // Start the animation
-          points.forEach(function (point, index) {
-            el.addEventListener("path" + index, function () {
-              ant.emit("path" + index);
-            });
-          });
-
-          // Emit the first event to start the animation
-          el.emit("path0");
-          // Add a delay and emit the second event
-
-        },
-      });
-
-            AFRAME.registerComponent("ant-path2", {
-        init: function () {
-          var el = this.el;
-          var points = [
-            { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.03, z: -0.7 },
-          ];
-
-          var ant = document.getElementById("ant2");
-          // Set initial position of the ant
-          ant.setAttribute(
-            "animation",
-            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
-          );
-          // Animate the ant along the path
-          points.forEach(function (point, index) {
-            var nextIndex = (index + 1) % points.length;
-            var nextPoint = points[nextIndex];
-            ant.setAttribute("animation__path" + index, {
-              property: "position",
-              from: point.x + " " + point.y + " " + point.z,
-              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-              dur: 7000, // Adjust duration as needed
-              easing: "linear",
-              loop: true,
-              startEvents: "path" + index,
-              pauseEvents: "path" + nextIndex,
-              delay:2000,
-            });
-          });
-
-          // Start the animation
-          points.forEach(function (point, index) {
-            el.addEventListener("path" + index, function () {
-              ant.emit("path" + index);
-            });
-          });
-
-          // Emit the first event to start the animation
-          el.emit("path0");
-          // Add a delay and emit the second event
-
-        },
-      });
-
-       AFRAME.registerComponent("ant-path3", {
-        init: function () {
-          var el = this.el;
-          var points = [
-            { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.03, z: -0.7 },
-          ];
-
-          var ant = document.getElementById("ant3");
-          // Set initial position of the ant
-          ant.setAttribute(
-            "animation",
-            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
-          );
-          // Animate the ant along the path
-          points.forEach(function (point, index) {
-            var nextIndex = (index + 1) % points.length;
-            var nextPoint = points[nextIndex];
-            ant.setAttribute("animation__path" + index, {
-              property: "position",
-              from: point.x + " " + point.y + " " + point.z,
-              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-              dur: 7000, // Adjust duration as needed
+              dur: 21000, // Adjust duration as needed
               easing: "linear",
               loop: true,
               startEvents: "path" + index,
@@ -641,12 +537,102 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
         },
       });
 
+            AFRAME.registerComponent("ant-path2", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.03, z: -0.9 },
+          ];
+
+          var ant = document.getElementById("ant2");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 21000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:6000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
+       AFRAME.registerComponent("ant-path3", {
+        init: function () {
+          var el = this.el;
+          var points = [
+            { x: -0.014, y: -0.6, z: 0 },
+            { x: -0.014, y: -0.03, z: -0.9 },
+          ];
+
+          var ant = document.getElementById("ant3");
+          // Set initial position of the ant
+          ant.setAttribute(
+            "animation",
+            "property: position; to: -0.014 -0.03 -0.7; dur: 7000; loop: true"
+          );
+          // Animate the ant along the path
+          points.forEach(function (point, index) {
+            var nextIndex = (index + 1) % points.length;
+            var nextPoint = points[nextIndex];
+            ant.setAttribute("animation__path" + index, {
+              property: "position",
+              from: point.x + " " + point.y + " " + point.z,
+              to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
+              dur: 21000, // Adjust duration as needed
+              easing: "linear",
+              loop: true,
+              startEvents: "path" + index,
+              pauseEvents: "path" + nextIndex,
+              delay:9000,
+            });
+          });
+
+          // Start the animation
+          points.forEach(function (point, index) {
+            el.addEventListener("path" + index, function () {
+              ant.emit("path" + index);
+            });
+          });
+
+          // Emit the first event to start the animation
+          el.emit("path0");
+          // Add a delay and emit the second event
+
+        },
+      });
+
              AFRAME.registerComponent("ant-path4", {
         init: function () {
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.03, z: -0.7 },
+            { x: -0.014, y: -0.03, z: -0.9 },
           ];
 
           var ant = document.getElementById("ant4");
@@ -663,12 +649,12 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
               property: "position",
               from: point.x + " " + point.y + " " + point.z,
               to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-              dur: 7000, // Adjust duration as needed
+              dur: 21000, // Adjust duration as needed
               easing: "linear",
               loop: true,
               startEvents: "path" + index,
               pauseEvents: "path" + nextIndex,
-              delay:4000,
+              delay:12000,
             });
           });
 
@@ -691,7 +677,7 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.03, z: -0.7 },
+            { x: -0.014, y: -0.03, z: -0.9 },
           ];
 
           var ant = document.getElementById("ant5");
@@ -708,12 +694,12 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
               property: "position",
               from: point.x + " " + point.y + " " + point.z,
               to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-              dur: 7000, // Adjust duration as needed
+              dur: 21000, // Adjust duration as needed
               easing: "linear",
               loop: true,
               startEvents: "path" + index,
               pauseEvents: "path" + nextIndex,
-              delay:5000,
+              delay:15000,
             });
           });
 
@@ -736,7 +722,7 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
           var el = this.el;
           var points = [
             { x: -0.014, y: -0.6, z: 0 },
-            { x: -0.014, y: -0.03, z: -0.7 },
+            { x: -0.014, y: -0.03, z: -0.9 },
           ];
 
           var ant = document.getElementById("ant6");
@@ -753,12 +739,12 @@ var sizeCheckbox = document.getElementById('sizeCheckbox');
               property: "position",
               from: point.x + " " + point.y + " " + point.z,
               to: nextPoint.x + " " + nextPoint.y + " " + nextPoint.z,
-              dur: 7000, // Adjust duration as needed
+              dur: 21000, // Adjust duration as needed
               easing: "linear",
               loop: true,
               startEvents: "path" + index,
               pauseEvents: "path" + nextIndex,
-              delay:6000,
+              delay:18000,
             });
           });
 
