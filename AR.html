@@ -471,7 +471,6 @@
 		            { x: -0.014, y: -0.6, z: 0.8 },
 		            { x: -0.014, y: 0, z: -1.5 },
 		          ];
-
 		          var ant = document.getElementById("ant");
 		          // Set initial position of the ant
 		          ant.setAttribute(
@@ -494,18 +493,15 @@
 		              delay:0,
 		            });
 		          });
-
 		          // Start the animation
 		          points.forEach(function (point, index) {
 		            el.addEventListener("path" + index, function () {
 		              ant.emit("path" + index);
 		            });
 		          });
-
 		          // Emit the first event to start the animation
 		          el.emit("path0");
 		          // Add a delay and emit the second event
-
 		        },
 		      });
 
@@ -516,7 +512,6 @@
 		            { x: -0.014, y: -0.6, z: 0.8 },
 		            { x: -0.014, y: 0, z: -1.5 },
 		          ];
-
 		          var ant = document.getElementById("ant1");
 		          // Set initial position of the ant
 		          ant.setAttribute(
@@ -539,18 +534,15 @@
 		              delay:3000,
 		            });
 		          });
-
 		          // Start the animation
 		          points.forEach(function (point, index) {
 		            el.addEventListener("path" + index, function () {
 		              ant.emit("path" + index);
 		            });
 		          });
-
 		          // Emit the first event to start the animation
 		          el.emit("path0");
 		          // Add a delay and emit the second event
-
 		        },
 		      });
 
@@ -561,7 +553,6 @@
 		            { x: -0.014, y: -0.6, z: 0.8 },
 		            { x: -0.014, y: 0, z: -1.5 },
 		          ];
-
 		          var ant = document.getElementById("ant2");
 		          // Set initial position of the ant
 		          ant.setAttribute(
@@ -584,18 +575,15 @@
 		              delay:6000,
 		            });
 		          });
-
 		          // Start the animation
 		          points.forEach(function (point, index) {
 		            el.addEventListener("path" + index, function () {
 		              ant.emit("path" + index);
 		            });
 		          });
-
 		          // Emit the first event to start the animation
 		          el.emit("path0");
 		          // Add a delay and emit the second event
-
 		        },
 		      });
 
