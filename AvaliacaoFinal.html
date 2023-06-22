@@ -68,10 +68,10 @@
         class="form"
       >
            <div class="Formulario">
-              <div class="email">
-                  <label for="email">E-mail</label>
-                  <input type="email" name="email" id="email"  />
-              </div><br />
+             <div class="numero">
+                 <label for="numero">Número </label>
+                 <input type="text" name="numero" id="numero" required />
+             </div><br />
               <div>
                 <label for="funcionalidades">Conseguiu utilizar todas as funcionalidades do sistema? </label>
                    <select type="value" name="Conseguiu utilizar com todas as funcionalidades do sistema?" id="funcionalidades">
@@ -90,17 +90,7 @@
                       <option value="Realidade Aumentada + Mapa"> Realidade Aumentada + Mapa</option>
                  </select>
               </div>
-              <div>
-              <label for="layout1"> Preferência por layout de apresentação do<strong> mapa</strong>:</label>
-                  <select type="value" name="Preferência por layout de apresentação do mapa:" id="layout1">
-                      <option value=" ">  </option>
-                      <option value="Mapa 2D"> Mapa 2D - Vista Superior</option>
-                      <option value="Mapa 3Dcentral"> Mapa 3D - Vista Central</option>
-                      <option value="Mapa 3Dterrestre"> Mapa 3D - Vista terrestre</option>
-                 </select>
-              </div>
-
-               <div> <br />
+               <div>
                <label for="nota"> &ensp; De forma geral, que nota você atribui aos <strong>projetos gráficos</strong> dos símbolos cartográficos utilizados no SINRAW?</label>
                 <div class="label-range">
                   <label for="rangeInput15">No mapa: <span id="rangeValue15">5</span></label>
@@ -118,7 +108,8 @@
               <br />
 
             <div>
-              <label for="exigente">&ensp; A tarefa de entender os símbolos foi pouco ou muito <strong>exigente</strong>?</label>
+              <label for="exigente">&ensp; A tarefa de descrever o sistema foi pouco ou muito:></label>
+            </label> Nível de <strong> dificuldade</strong></label>
                 <div class="label-range">
                   <label for="rangeInput1">No mapa: <span id="rangeValue1">5</span></label>
                   <input type="range" id="rangeInput1" name="No mapa: A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="0.5">
@@ -133,9 +124,8 @@
               <input type="range" id="rangeInput28" name="Na mapa + RA: A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="0.5">
             </div>
 
-
               <div>
-                <label for="cansativa">&ensp; A tarefa de caminhar e observar a rota foi pouco ou muito <strong>cansativa</strong>?</label>
+                <label for="cansativa"> Nível de<strong>cansaço:</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput3">No mapa: <span id="rangeValue3">5</span></label>
                   <input type="range" id="rangeInput3" name="No mapa: A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?" min="0" max="10" step="0.5">
@@ -150,9 +140,8 @@
                 </div>
               </div>
 
-
               <div>
-                <label for="tempo">&ensp; A tarefa de observar as rotas te exigiu pouco ou muito <strong>tempo</strong>?</label>
+                <label for="tempo">&ensp; Exigiu pouco ou muito <strong>tempo</strong></label>
                 <div class="label-range">
                   <label for="rangeInput5">No mapa: <span id="rangeValue5">5</span></label>
                   <input type="range" id="rangeInput5" name="No mapa: A tarefa de observar as rotas te exigiu pouco ou muito tempo?" min="0" max="10" step="0.5">
@@ -168,7 +157,7 @@
               </div>
 
               <div>
-                <label for="distrativa">A tarefa de observar as rotas foi pouco ou muito <strong>distrativa</strong>?</label>
+                <label for="distrativa">Nível de <strong>distração</strong></label>
                 <div class="label-range">
                   <label for="rangeInput7">No mapa: <span id="rangeValue7">5</span></label>
                   <input type="range" id="rangeInput7" name="No mapa: A tarefa de observar as rotas foi pouco ou muito distrativa?" min="0" max="10" step="0.5">
@@ -184,7 +173,7 @@
               </div>
 
               <div>
-                <label for="concentracao">A tarefa de caminhar e observar a rota te exigiu pouca ou muita <strong>concentração</strong>?</label>
+                <label for="concentracao">Nível de <strong>concentração</strong>?</label>
                 <div class="label-range">
                   <label for="rangeInput9">No mapa: <span id="rangeValue9">5</span></label>
                   <input type="range" id="rangeInput9" name="No mapa: A tarefa de caminhar e observar a rota te exigiu pouca ou muita concentração?" min="0" max="10" step="0.5">
@@ -200,7 +189,7 @@
               </div>
 
               <div>
-                <label for="estresse">Para completar a tarefa, você se sentiu pouco ou muito <strong>estressado</strong>?</label>
+                <label for="estresse">Nível de <strong>estresse</strong></label>
                 <div class="label-range">
                   <label for="rangeInput11">No mapa: <span id="rangeValue11">5</span></label>
                   <input type="range" id="rangeInput11" name="No mapa: você se sentiu pouco ou muito estressado?" min="0" max="10" step="0.5">
@@ -217,7 +206,7 @@
               <br />
 
               <div>
-                <label for="satisfeito">&ensp;Ao finalizar a tarefa, você ficou pouco ou muito <strong>satisfeito com o seu desempenho</strong>?</label>
+                <label for="satisfeito">Nível de <strong>satisfação com o seu desempenho</strong></label>
                 <div class="label-range">
                   <label for="rangeInput13">No mapa: <span id="rangeValue13">5</span></label>
                   <input type="range" id="rangeInput13" name="No mapa:você ficou pouco ou muito satisfeito?" min="0" max="10" step="0.5">
@@ -334,15 +323,10 @@
           value="https://cartofabricio.github.io/SINRAW/"
         />
 
-
     </form>
-
   </div>
 
-
-
 <script>
-
     const rangeInputs = document.querySelectorAll('input[type="range"]');
     const rangeValues = document.querySelectorAll('span[id^="rangeValue"]');
 
