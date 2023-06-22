@@ -50,7 +50,6 @@
 		text-align: center;
   }
 
-
   #map {
     position: fixed;
 		top:70%;
@@ -208,11 +207,11 @@
     border:0px;
     color: 1px #000;
     left:2%;
-          text-shadow:
-               -1px -1px 0px #FFF,
-               -1px 1px 0px #FFF,
-                1px -1px 0px #FFF,
-                1px 0px 0px #FFF;
+    text-shadow:
+         -1px -1px 0px #FFF,
+         -1px 1px 0px #FFF,
+          1px -1px 0px #FFF,
+          1px 0px 0px #FFF;
   }
 	.collapsible.collapsed {
    display: none;
@@ -245,12 +244,12 @@
 	</div>
 </div>
 
-
   <body style="margin: 0; overflow: hidden;">
-    		<div id='AR'> </div>
+    <div id='AR'> </div>
 		<div id="direction" class="direction">  </div>
-		<div id ="imagemNavegacao" >
-						<img src="./imagemNavegacao.png" ></img>
+
+		<div id ="imagemNavegacao">
+					<img src="./imagemNavegacao.png" ></img>
 		</div>
 
 		    <div id="collapsibleControls" >
@@ -290,8 +289,7 @@
 		        </div>
 		      </div>
 		    </div>
-		    </div>
-		    </div>
+
 
 			  <a-scene embedded arjs="trackingMethod: best;">
 			    <a-assets>
@@ -395,14 +393,14 @@
 								var sizeCheckbox = document.getElementById('sizeCheckbox');
                 switch (selectedPin) {
                   case 'pin1':
-                    pin.setAttribute('position', '2 1.9 -11');
+                    pin.setAttribute('position', '2 1.91 -11');
                     pin.setAttribute('scale', '0.5 0.5 0.5');
                     pin.setAttribute('rotation', '0 0 90');
                     pin.setAttribute('opacity','0.5');
-										pin.setAttribute('animation', 'property: position; to: 1.7 1.6 -9; easing: linear; loop: true; dur: 2000');
+										pin.setAttribute('animation', 'property: position; to: 1.75 1.61 -9; easing: linear; loop: true; dur: 2000');
                     break;
                   case 'pin2':
-										pin.setAttribute('position', '2 1.9 -11');
+										pin.setAttribute('position', '2 1.91 -11');
 										pin.setAttribute('scale', '0.5 0.5 0.5');
 										pin.setAttribute('rotation', '0 0 90');
 										pin.setAttribute('opacity','0.5');
@@ -411,10 +409,10 @@
                     pin.setAttribute('position', '1.4 1.22 -10');
                     pin.setAttribute('scale', '0.2 0.2 0.2');
                     pin.setAttribute('rotation', '0 0 0');
-										pin.setAttribute('animation', 'property: position; to: 1.1 0.92 -8; easing: linear; loop: true; dur: 2000');
+										pin.setAttribute('animation', 'property: position; to: 1.1 0.94 -8; easing: linear; loop: true; dur: 2000');
                     break;
 									case 'pin4':
-                    pin.setAttribute('position', '1.4 1.23 -10');
+                    pin.setAttribute('position', '1.399 1.23 -10');
                     pin.setAttribute('scale', '0.2 0.2 0.2');
                     pin.setAttribute('rotation', '0 0 0');
                     break;
@@ -436,22 +434,22 @@
                     seta.setAttribute('position', '1.4 3 -10');
                     seta.setAttribute('scale', '0.03 0.03 0.03');
                     seta.setAttribute('rotation', '90 90 100');
-										seta.setAttribute('animation', 'property: position; to: 1.2 2.55 -8.5; easing: linear; loop: true; dur: 2000');
+										seta.setAttribute('animation', 'property: position; to: 1.2 2.4 -8; easing: linear; loop: true; dur: 2500');
                     break;
                   case 'seta2':
                     seta.setAttribute('position', '1.4 3 -10');
                     seta.setAttribute('scale', '0.03 0.03 0.03');
-                    seta.setAttribute('rotation', '90 90 110');
+                    seta.setAttribute('rotation', '90 90 100');
                     break;
                   case 'seta3':
 										seta.setAttribute('position', '1.6 3.1 -10');
-										seta.setAttribute('scale', '0.09 0.09 0.09');
+										seta.setAttribute('scale', '0.1 0.1 0.1');
 										seta.setAttribute('rotation', '5 45 -20');
-										seta.setAttribute('animation', 'property: position; to: 1.4 2.6 -8.5; easing: linear; loop: true; dur: 2000');
+										seta.setAttribute('animation', 'property: position; to: 1.4 2.5 -8; easing: linear; loop: true; dur: 2000');
                     break;
                   case 'seta4':
-                    seta.setAttribute('position', '1.6 3.1 -10');
-                    seta.setAttribute('scale', '0.1 0.1 0.1');
+                    seta.setAttribute('position', '1.65 3.1 -10');
+                    seta.setAttribute('scale', '0.11 0.11 0.11');
                     seta.setAttribute('rotation', '5 45 -20');
 										break;
                 }
@@ -541,7 +539,7 @@
 		        },
 		      });
 
-		            AFRAME.registerComponent("ant-path2", {
+		     AFRAME.registerComponent("ant-path2", {
 		        init: function () {
 		          var el = this.el;
 		          var points = [
@@ -582,14 +580,13 @@
 		        },
 		      });
 
-		       AFRAME.registerComponent("ant-path3", {
+		      AFRAME.registerComponent("ant-path3", {
 		        init: function () {
 		          var el = this.el;
 		          var points = [
 		            { x: -0.014, y: -0.6, z: 0.8 },
 		            { x: -0.014, y: 0, z: -1.5 },
 		          ];
-
 		          var ant = document.getElementById("ant3");
 		          // Set initial position of the ant
 		          ant.setAttribute(
@@ -612,29 +609,25 @@
 		              delay:9000,
 		            });
 		          });
-
 		          // Start the animation
 		          points.forEach(function (point, index) {
 		            el.addEventListener("path" + index, function () {
 		              ant.emit("path" + index);
 		            });
 		          });
-
 		          // Emit the first event to start the animation
 		          el.emit("path0");
 		          // Add a delay and emit the second event
-
 		        },
 		      });
 
-		             AFRAME.registerComponent("ant-path4", {
+		      AFRAME.registerComponent("ant-path4", {
 		        init: function () {
 		          var el = this.el;
 		          var points = [
 		            { x: -0.014, y: -0.6, z: 0.8 },
 		            { x: -0.014, y: 0, z: -1.5 },
 		          ];
-
 		          var ant = document.getElementById("ant4");
 		          // Set initial position of the ant
 		          ant.setAttribute(
@@ -657,29 +650,25 @@
 		              delay:12000,
 		            });
 		          });
-
 		          // Start the animation
 		          points.forEach(function (point, index) {
 		            el.addEventListener("path" + index, function () {
 		              ant.emit("path" + index);
 		            });
 		          });
-
 		          // Emit the first event to start the animation
 		          el.emit("path0");
 		          // Add a delay and emit the second event
-
 		        },
 		      });
 
-		        AFRAME.registerComponent("ant-path5", {
+		      AFRAME.registerComponent("ant-path5", {
 		        init: function () {
 		          var el = this.el;
 		          var points = [
 		            { x: -0.014, y: -0.6, z: 0.8 },
 		            { x: -0.014, y: 0, z: -1.5 },
 		          ];
-
 		          var ant = document.getElementById("ant5");
 		          // Set initial position of the ant
 		          ant.setAttribute(
@@ -702,29 +691,25 @@
 		              delay:15000,
 		            });
 		          });
-
 		          // Start the animation
 		          points.forEach(function (point, index) {
 		            el.addEventListener("path" + index, function () {
 		              ant.emit("path" + index);
 		            });
 		          });
-
 		          // Emit the first event to start the animation
 		          el.emit("path0");
 		          // Add a delay and emit the second event
-
 		        },
 		      });
 
-		        AFRAME.registerComponent("ant-path6", {
+		      AFRAME.registerComponent("ant-path6", {
 		        init: function () {
 		          var el = this.el;
 		          var points = [
 		            { x: -0.014, y: -0.6, z: 0.8 },
 		            { x: -0.014, y: 0, z: -1.5 },
 		          ];
-
 		          var ant = document.getElementById("ant6");
 		          // Set initial position of the ant
 		          ant.setAttribute(
@@ -747,21 +732,17 @@
 		              delay:18000,
 		            });
 		          });
-
 		          // Start the animation
 		          points.forEach(function (point, index) {
 		            el.addEventListener("path" + index, function () {
 		              ant.emit("path" + index);
 		            });
 		          });
-
 		          // Emit the first event to start the animation
 		          el.emit("path0");
 		          // Add a delay and emit the second event
-
 		        },
 		      });
-
 
 		  	// Toggle the collapsible controls
 					function toggleCollapse() {
@@ -770,5 +751,4 @@
 					}
 
 		    </script>
-
 		</html>
