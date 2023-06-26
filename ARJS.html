@@ -304,80 +304,78 @@
 		            }
 		          }
 
-					// Load the Pin model
-					 function loadPinModel() {
-						 var modelContainer = document.getElementById('modelContainer');
-						 modelContainer.innerHTML = '';
-						 if (selectedPin !== '') {
-							 var pin = document.createElement('a-entity');
+							// Load the Pin model
+	             function loadPinModel() {
+	               var modelContainer = document.getElementById('modelContainer');
+	               modelContainer.innerHTML = '';
+	               if (selectedPin !== '') {
+	                 var pin = document.createElement('a-entity');
+	                 pin.setAttribute('gltf-model', '#' + selectedPin);
+	                 // Set scale and rotation based on the selected seta
+	 								var sizeCheckbox = document.getElementById('sizeCheckbox');
+	                 switch (selectedPin) {
+	                   case 'pin1':
+	 										pin.setAttribute('position', '2.12 1.95 -11');
+	 										pin.setAttribute('scale', '0.6 0.6 0.6');
+	 										pin.setAttribute('rotation', '0 0 90');
+	                     break;
+	                   case 'pin2':
+	 										pin.setAttribute('position', '2 1.91 -11');
+	 										pin.setAttribute('scale', '0.5 0.5 0.5');
+	 										pin.setAttribute('rotation', '0 0 90');
+	 										pin.setAttribute('animation', 'property: position; to: 1.6 1.51 -8; easing: linear; loop: true; dur: 2000');
+	                     break;
+	                   case 'pin3':
+	                     pin.setAttribute('position', '1.4 1.22 -10');
+	                     pin.setAttribute('scale', '0.2 0.2 0.2');
+	                     pin.setAttribute('rotation', '0 0 0');
+	 										pin.setAttribute('animation', 'property: position; to: 1 0.82 -7; easing: linear; loop: true; dur: 2500');
+	                     break;
+	 									case 'pin4':
+	                     pin.setAttribute('position', '1.398 1.23 -10');
+	                     pin.setAttribute('scale', '0.2 0.2 0.2');
+	                     pin.setAttribute('rotation', '0 0 0');
+	                     break;
+	                 }
+	                 modelContainer.appendChild(pin);
+	               }
+	             }
 
-							 pin.setAttribute('gltf-model', '#' + selectedPin);
-
-							 // Set scale and rotation based on the selected seta
-							var sizeCheckbox = document.getElementById('sizeCheckbox');
-							 switch (selectedPin) {
-								 case 'pin1':
-									 pin.setAttribute('position', '2 1.91 -11');
-									 pin.setAttribute('scale', '0.5 0.5 0.5');
-									 pin.setAttribute('rotation', '0 0 90');
-									pin.setAttribute('animation', 'property: position; to: 1.6 1.51 -8; easing: linear; loop: true; dur: 2000');
-									 break;
-								 case 'pin2':
-									pin.setAttribute('position', '2.12 1.94 -11');
-									pin.setAttribute('scale', '0.6 0.6 0.6');
-									pin.setAttribute('rotation', '0 0 90');
-									 break;
-								 case 'pin3':
-									 pin.setAttribute('position', '1.4 1.22 -10');
-									 pin.setAttribute('scale', '0.2 0.2 0.2');
-									 pin.setAttribute('rotation', '0 0 0');
-									pin.setAttribute('animation', 'property: position; to: 1 0.8 -7; easing: linear; loop: true; dur: 2500');
-									 break;
-								case 'pin4':
-									 pin.setAttribute('position', '1.399 1.23 -10');
-									 pin.setAttribute('scale', '0.2 0.2 0.2');
-									 pin.setAttribute('rotation', '0 0 0');
-									 break;
-							 }
-							 modelContainer.appendChild(pin);
-						 }
-					 }
-
-						// Load the seta model
-					 function loadSetaModel() {
-						 var modelContainer1 = document.getElementById('modelContainer1');
-						 modelContainer1.innerHTML = '';
-						 if (selectedSeta !== '') {
-							 var seta = document.createElement('a-entity');
-							 seta.setAttribute('gltf-model', '#' + selectedSeta);
-							 // Set scale and rotation based on the selected seta
-							 switch (selectedSeta) {
-								 case 'seta1':
-									 seta.setAttribute('position', '1.4 2.9 -10');
-									 seta.setAttribute('scale', '0.03 0.03 0.03');
-									 seta.setAttribute('rotation', '90 90 100');
-									seta.setAttribute('animation', 'property: position; to: 1.1 2.1 -7; easing: linear; loop: true; dur: 2500');
-									 break;
-								 case 'seta2':
-									 seta.setAttribute('position', '1.45 3 -10');
-									 seta.setAttribute('scale', '0.04 0.04 0.04');
-									 seta.setAttribute('rotation', '90 90 100');
-									 break;
-								 case 'seta3':
-									seta.setAttribute('position', '1.6 3.1 -10');
-									seta.setAttribute('scale', '0.1 0.1 0.1');
-									seta.setAttribute('rotation', '5 45 -20');
-									seta.setAttribute('animation', 'property: position; to: 1.4 2.3 -7; easing: linear; loop: true; dur: 2000');
-									 break;
-								 case 'seta4':
-									 seta.setAttribute('position', '1.66 3.1 -10');
-									 seta.setAttribute('scale', '0.12 0.12 0.12');
-									 seta.setAttribute('rotation', '5 45 -20');
-									break;
-							 }
-							 modelContainer1.appendChild(seta);
-						 }
-					 }
+	              // Load the seta model
+	             function loadSetaModel() {
+	               var modelContainer1 = document.getElementById('modelContainer1');
+	               modelContainer1.innerHTML = '';
+	               if (selectedSeta !== '') {
+	                 var seta = document.createElement('a-entity');
+	                 seta.setAttribute('gltf-model', '#' + selectedSeta);
+	                 // Set scale and rotation based on the selected seta
+	                 switch (selectedSeta) {
+	                   case 'seta1':
+	 										seta.setAttribute('position', '1.45 2.9 -10');
+	 										seta.setAttribute('scale', '0.04 0.04 0.04');
+	 										seta.setAttribute('rotation', '90 90 100');
+	                     break;
+	                   case 'seta2':
+	 										seta.setAttribute('position', '1.3 2.9 -10');
+	 										seta.setAttribute('scale', '0.03 0.03 0.03');
+	 										seta.setAttribute('rotation', '90 90 100');
+	 										seta.setAttribute('animation', 'property: position; to: 1 2.1 -7; easing: linear; loop: true; dur: 2500');
+	                     break;
+	                   case 'seta3':
+	 										seta.setAttribute('position', '1.66 3.1 -10');
+	                     seta.setAttribute('scale', '0.13 0.13 0.13');
+	                     seta.setAttribute('rotation', '5 45 -20');
+	                     break;
+	                   case 'seta4':
+	 										seta.setAttribute('position', '1.5 3 -10');
+	 										seta.setAttribute('scale', '0.1 0.1 0.1');
+	 										seta.setAttribute('rotation', '5 45 -20');
+	 										seta.setAttribute('animation', 'property: position; to: 1.3 2.2 -7; easing: linear; loop: true; dur: 2000');
+	 										break;
+	                 }
+	                 modelContainer1.appendChild(seta);
+	               }
+	             }
 
 		        AFRAME.registerComponent("ant-path", {
 		        init: function () {
