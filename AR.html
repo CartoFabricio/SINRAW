@@ -267,19 +267,19 @@
 		                  <label>Pin:&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
 		                    <select id="pinSelector" onchange="loadModel('pin')">
 			                     <option value=""></option>
-													 <option value="pin1">Pin 1a </option>
-													 <option value="pin2">Pin 1b </option>
-													 <option value="pin3">Pin 2a </option>
-													 <option value="pin4">Pin 2b </option>
+													 <option value="pin1">Pin 1 </option>
+													 <option value="pin2">Pin 2 </option>
+													 <option value="pin3">Pin 3 </option>
+													 <option value="pin4">Pin 4 </option>
   											 </select>
   										 </label>
   										 <label>Setas:&ensp;&ensp; &ensp; &ensp; &ensp;
   											 <select id="setaSelector" onchange="loadModel('seta')">
   												 <option value=""></option>
-  												 <option value="seta1">Seta 1a </option>
-  												 <option value="seta2">Seta 1b </option>
-  												 <option value="seta3">Seta 2a </option>
-  												 <option value="seta4">Seta 2b </option>
+  												 <option value="seta1">Seta 1 </option>
+  												 <option value="seta2">Seta 2 </option>
+  												 <option value="seta3">Seta 3 </option>
+  												 <option value="seta4">Seta 4 </option>
 		                    </select>
 		                  </label>
 		                </fieldset>
@@ -364,7 +364,7 @@
 		  </body>
 		    <script>
 		      var entity = document.querySelector('#modelContainer1');
-					entity.setAttribute('material', 'color', '#000000');
+					//entity.setAttribute('material', 'color', '#000000');
 		      // Initialize the selected options
 		          var selectedPin = '';
 		          var selectedSeta = '';
@@ -396,20 +396,18 @@
                     pin.setAttribute('position', '2 1.91 -11');
                     pin.setAttribute('scale', '0.5 0.5 0.5');
                     pin.setAttribute('rotation', '0 0 90');
-                    pin.setAttribute('opacity','0.5');
-										pin.setAttribute('animation', 'property: position; to: 1.75 1.61 -9; easing: linear; loop: true; dur: 2000');
+										pin.setAttribute('animation', 'property: position; to: 1.6 1.51 -8; easing: linear; loop: true; dur: 2000');
                     break;
                   case 'pin2':
-										pin.setAttribute('position', '2 1.91 -11');
-										pin.setAttribute('scale', '0.5 0.5 0.5');
+										pin.setAttribute('position', '2.12 1.94 -11');
+										pin.setAttribute('scale', '0.6 0.6 0.6');
 										pin.setAttribute('rotation', '0 0 90');
-										pin.setAttribute('opacity','0.5');
                     break;
                   case 'pin3':
                     pin.setAttribute('position', '1.4 1.22 -10');
                     pin.setAttribute('scale', '0.2 0.2 0.2');
                     pin.setAttribute('rotation', '0 0 0');
-										pin.setAttribute('animation', 'property: position; to: 1.1 0.94 -8; easing: linear; loop: true; dur: 2000');
+										pin.setAttribute('animation', 'property: position; to: 1 0.8 -7; easing: linear; loop: true; dur: 2500');
                     break;
 									case 'pin4':
                     pin.setAttribute('position', '1.399 1.23 -10');
@@ -431,25 +429,25 @@
                 // Set scale and rotation based on the selected seta
                 switch (selectedSeta) {
                   case 'seta1':
-                    seta.setAttribute('position', '1.4 3 -10');
+                    seta.setAttribute('position', '1.4 2.9 -10');
                     seta.setAttribute('scale', '0.03 0.03 0.03');
                     seta.setAttribute('rotation', '90 90 100');
-										seta.setAttribute('animation', 'property: position; to: 1.2 2.4 -8; easing: linear; loop: true; dur: 2500');
+										seta.setAttribute('animation', 'property: position; to: 1.1 2.1 -7; easing: linear; loop: true; dur: 2500');
                     break;
                   case 'seta2':
-                    seta.setAttribute('position', '1.4 3 -10');
-                    seta.setAttribute('scale', '0.03 0.03 0.03');
+                    seta.setAttribute('position', '1.45 3 -10');
+                    seta.setAttribute('scale', '0.04 0.04 0.04');
                     seta.setAttribute('rotation', '90 90 100');
                     break;
                   case 'seta3':
 										seta.setAttribute('position', '1.6 3.1 -10');
 										seta.setAttribute('scale', '0.1 0.1 0.1');
 										seta.setAttribute('rotation', '5 45 -20');
-										seta.setAttribute('animation', 'property: position; to: 1.4 2.5 -8; easing: linear; loop: true; dur: 2000');
+										seta.setAttribute('animation', 'property: position; to: 1.4 2.3 -7; easing: linear; loop: true; dur: 2000');
                     break;
                   case 'seta4':
-                    seta.setAttribute('position', '1.65 3.1 -10');
-                    seta.setAttribute('scale', '0.11 0.11 0.11');
+                    seta.setAttribute('position', '1.66 3.1 -10');
+                    seta.setAttribute('scale', '0.12 0.12 0.12');
                     seta.setAttribute('rotation', '5 45 -20');
 										break;
                 }
