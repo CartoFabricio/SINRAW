@@ -218,7 +218,7 @@
  }
     </style>
   </head>
-	
+
 <div id = 'menu'>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -392,7 +392,7 @@
 								var sizeCheckbox = document.getElementById('sizeCheckbox');
                 switch (selectedPin) {
                   case 'pin1':
-										pin.setAttribute('position', '2.12 1.95 -11');
+										pin.setAttribute('position', '2.14 1.95 -11');
 										pin.setAttribute('scale', '0.6 0.6 0.6');
 										pin.setAttribute('rotation', '0 0 90');
                     break;
@@ -403,15 +403,16 @@
 										pin.setAttribute('animation', 'property: position; to: 1.6 1.51 -8; easing: linear; loop: true; dur: 2000');
                     break;
                   case 'pin3':
-                    pin.setAttribute('position', '1.4 1.22 -10');
-                    pin.setAttribute('scale', '0.2 0.2 0.2');
-                    pin.setAttribute('rotation', '0 0 0');
-										pin.setAttribute('animation', 'property: position; to: 1 0.82 -7; easing: linear; loop: true; dur: 2500');
+										pin.setAttribute('position', '1.398 1.23 -10');
+										pin.setAttribute('scale', '0.2 0.2 0.2');
+										pin.setAttribute('rotation', '0 0 0');
                     break;
 									case 'pin4':
-                    pin.setAttribute('position', '1.398 1.23 -10');
-                    pin.setAttribute('scale', '0.2 0.2 0.2');
-                    pin.setAttribute('rotation', '0 0 0');
+										pin.setAttribute('position', '1.4 1.22 -10');
+										pin.setAttribute('scale', '0.2 0.2 0.2');
+										pin.setAttribute('rotation', '0 0 0');
+										pin.setAttribute('animation', 'property: position; to: 1 0.82 -7; easing: linear; loop: true; dur: 2500');
+
                     break;
                 }
                 modelContainer.appendChild(pin);
@@ -439,7 +440,7 @@
 										seta.setAttribute('animation', 'property: position; to: 1 2.1 -7; easing: linear; loop: true; dur: 2500');
                     break;
                   case 'seta3':
-										seta.setAttribute('position', '1.66 3.1 -10');
+										seta.setAttribute('position', '1.67 3.1 -10');
                     seta.setAttribute('scale', '0.13 0.13 0.13');
                     seta.setAttribute('rotation', '5 45 -20');
                     break;
