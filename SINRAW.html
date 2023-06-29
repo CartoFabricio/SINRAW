@@ -413,14 +413,15 @@ const dashArraySequence = [
 
 const map = new mapboxgl.Map({
 	style: 'mapbox://styles/mapbox/streets-v11',
-	center: [-49.23363, -25.45252], //longitude, latitude
-	zoom: 16.5,
-	pitch: 0,
-	bearing: 0,
+	center: [-49.23367, -25.452996], // Exemplo de nova posição
+	zoom: 18, // Exemplo de novo nível de zoom
+	pitch: 90, // Exemplo de nova inclinação
+	bearing: 293, // Exemplo de nova orientação
 	container: 'map',
 	antialias: false,
 	attributionControl:true,
 });
+
 
 	map.on('style.load', () => {
 			map.setFog({}); // Set the default atmosphere style
